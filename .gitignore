@@ -1,8 +1,11 @@
-
-# Ignore everything
+# Ignore everything by default
 *
 
-# Allow directories we want
+# Allowed files
+!.gitignore
+!README.md
+
+# Allowed directories 
 !nvim
 !nvim/**
 !rofi
@@ -13,6 +16,3 @@
 !picom.conf
 #!tmux
 #!tmux/**
-
-# Keep .gitignore itself (optional but useful)
-!.gitignore
