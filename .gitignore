@@ -1,0 +1,18 @@
+
+# Ignore everything
+*
+
+# Allow directories we want
+!nvim
+!nvim/**
+!rofi
+!rofi/**
+!i3
+!i3/**
+!i3rs-config.toml
+!picom.conf
+#!tmux
+#!tmux/**
+
+# Keep .gitignore itself (optional but useful)
+!.gitignore
