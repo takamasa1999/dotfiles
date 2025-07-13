@@ -14,5 +14,5 @@
 !i3/**
 !i3rs-config.toml
 !picom.conf
-#!tmux
-#!tmux/**
+!tmux
+!tmux/**

@@ -1,3 +1,4 @@
+# https://docs.rs/i3status-rs/latest/i3status_rs/
 icons_format = "{icon}"
 
 [theme]
@@ -14,11 +15,20 @@ bat_charging = "|^| "
 
 [[block]]
 block = "custom"
-cycle = ["/home/takamasa/.local/bin/2in1off", "/home/takamasa/.local/bin/2in1on"]
-interval = "once"
+command = "current-refresh-rate"
+interval = 5
+signal = 1 
 [[block.click]]
 button = "left"
-action = "cycle"
+cmd = "toggle-refresh-rate; pkill -RTMIN+1 i3status-rs"
+
+# [[block]]
+# block = "custom"
+# cycle = ["/home/takamasa/.local/bin/pc-mode", "/home/takamasa/.local/bin/tablet-mode"]
+# interval = "once"
+# [[block.click]]
+# button = "left"
+# action = "cycle"
 # command = ''' /home/takamasa/.local/bin/2in1off '''
 
 # [[block]]

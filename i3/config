@@ -4,10 +4,22 @@
 # Should you change your keyboard layout some time, delete
 # this file and re-run i3-config-wizard(1).
 #
-
 # i3 config file (v4)
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
+
+#Custom initialization
+exec --no-startup-id /home/takamasa/.local/bin/touchpad-settings
+exec --no-startup-id /home/takamasa/.local/bin/auto-rotate
+exec --no-startup-id ibus-daemon -rxRd
+exec --no-startup-id copyq
+exec --no-startup-id flameshot
+exec --no-startup-id rclone mount --daemon "Google Drive for tsbeatbox193": /home/takamasa/Clouds/G-tsbeatbox193
+exec --no-startup-id feh --bg-scale /home/takamasa/Pictures/Wallpapers/capybara-1599766_1920.jpg
+exec --no-startup-id picom --config ~/.config/picom.conf
+exec --no-startup-id xkbset bouncekeys 50
+exec --no-startup-id autorandr --change work 
+
 
 set $mod Mod4
 
@@ -219,20 +231,12 @@ bindsym 0x1008ff02 exec brightnessctl set 5%+
 bindsym 0x1008ff05 exec brightnessctl  --device='asus::kbd_backlight' s 1+
 bindsym 0x1008ff06 exec brightnessctl  --device='asus::kbd_backlight' s 1-
 
-# Initialization
-exec --no-startup-id /home/takamasa/.local/bin/touchpad-settings
-exec --no-startup-id ibus-daemon -rxRd
-exec --no-startup-id copyq
-exec --no-startup-id flameshot
-exec --no-startup-id rclone mount --daemon "Google Drive for tsbeatbox193": /home/takamasa/Clouds/G-tsbeatbox193
-exec --no-startup-id feh --bg-scale /home/takamasa/Pictures/Wallpapers/capybara-1599766_1920.jpg
-exec --no-startup-id picom --config ~/.config/picom.conf
-
 bindsym $mod+v exec copyq show
 
 bindsym $mod+Tab workspace back_and_forth
 
 for_window [class="^.*"] border pixel 0
+
 # Screenshots
 #bindsym 0x53 exec --no-startup-id maim "/home/$USER/Pictures/$(date)"
 #bindsym $mod+0x53 exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/$(date)"
