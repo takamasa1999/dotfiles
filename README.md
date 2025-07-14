@@ -7,5 +7,6 @@ See individual directories for detailed information.
 - i3: Tiling window manager for X11
 - i3status-rs: Customizable status bar written in Rust for i3
 - picom: Compositor for X11 (for transparency and animations)
-- [Nvim](./nvim/README.md): Terminal-based text editor  
-- tmux: Terminal multiplexer  
+- [Nvim](./nvim): Terminal-based text editor  
+- tmux: Terminal multiplexer
+- rofi: A dmenu replacement for launching apps, switching windows, and more
