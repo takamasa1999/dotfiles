@@ -3,8 +3,11 @@
 
 //@theme "/usr/share/rofi/themes/iggy.rasi"
 
-@theme "/usr/share/rofi/themes/Adapta-Nokto.rasi"
+//@theme "/usr/share/rofi/themes/Adapta-Nokto.rasi"
 
 configuration {
-    font: "monospace 20";
+	font: "Hack Nerd Font Mono 20";
+	modes: [ "window", "drun", "ssh", "run", "combi"  ];
+	combi-modes: [ "window", "drun", "run", "ssh" ];
+	show-icons: true;
 }

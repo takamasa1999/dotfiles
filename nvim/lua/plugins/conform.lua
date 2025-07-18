@@ -1,3 +1,4 @@
+-- https://github.com/stevearc/conform.nvim?tab=readme-ov-file#formatters
 return {
 	"stevearc/conform.nvim",
 	event = { "BufWritePre" },
@@ -22,6 +23,8 @@ return {
 			lua = { "stylua" },
 			python = { "isort", "black" },
 			javascript = { "prettierd", "prettier", stop_after_first = true },
+			sh = { "shfmt" },
+			zsh = { "shfmt" },
 		},
 		-- Set default options
 		default_format_opts = {
