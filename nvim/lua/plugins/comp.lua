@@ -1,3 +1,4 @@
+-- https://github.com/hrsh7th/nvim-cmp
 -- plugins/cmp.lua
 return {
 	-- Main Completion plugin

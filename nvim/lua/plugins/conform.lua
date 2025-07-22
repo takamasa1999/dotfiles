@@ -25,6 +25,8 @@ return {
 			javascript = { "prettierd", "prettier", stop_after_first = true },
 			sh = { "shfmt" },
 			zsh = { "shfmt" },
+			markdown = { "prettier" },
+			text = { "prettier" },
 		},
 		-- Set default options
 		default_format_opts = {

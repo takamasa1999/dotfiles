@@ -1,16 +1,15 @@
 return {
 	{
-		"Mofiqul/vscode.nvim",
-		lazy = false,
-		priority = 1000,
+		"projekt0n/github-nvim-theme",
+		name = "github-theme",
+		lazy = false, -- make sure we load this during startup if it is your main colorscheme
+		priority = 1000, -- make sure to load this before all the other start plugins
 		config = function()
-			-- Configure the light theme
-			require("vscode").setup({
-				style = "light",
+			require("github-theme").setup({
+				-- ...
 			})
 
-			-- Set the colorscheme
-			vim.cmd.colorscheme("vscode")
+			vim.cmd("colorscheme github_light")
 		end,
 	},
 }

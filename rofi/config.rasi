@@ -6,8 +6,8 @@
 //@theme "/usr/share/rofi/themes/Adapta-Nokto.rasi"
 
 configuration {
-	font: "Hack Nerd Font Mono 20";
-	modes: [ "window", "drun", "ssh", "run", "combi"  ];
-	combi-modes: [ "window", "drun", "run", "ssh" ];
-	show-icons: true;
+font: "Hack Nerd Font Mono 20";
+modes: [ "window", "drun", "ssh", "run", "combi"  ];
+       combi-modes: [ "window", "drun", "run", "ssh" ];
+       window-format: "{n} - {t}";
 }
