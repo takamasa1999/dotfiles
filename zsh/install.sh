@@ -20,3 +20,10 @@ if [ -d ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions ]; then
 else
   git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 fi
+
+if [ -d ~/.oh-my-zsh/custom/plugins/zsh-vi-mode ]; then
+  echo "zsh-vi-mode already exists, skipping clone."
+else
+  git git clone https://github.com/jeffreytse/zsh-vi-mode $ZSH_CUSTOM/plugins/zsh-vi-mode
+fi
+

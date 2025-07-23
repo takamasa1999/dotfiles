@@ -71,8 +71,8 @@ ZSH_THEME="agnoster"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
-# plugins+=(zsh-vi-mode)
-plugins+=(vi-mode)
+plugins+=(zsh-vi-mode)
+# plugins+=(vi-mode)
 plugins+=(zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
@@ -106,9 +106,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-VI_MODE_SET_CURSOR=true
-VI_MODE_CURSOR_NORMAL=2
-VI_MODE_CURSOR_VISUAL=2
-VI_MODE_CURSOR_INSERT=6
-VI_MODE_CURSOR_OPPEND=0
-
+# VI_MODE_SET_CURSOR=true
+# VI_MODE_CURSOR_NORMAL=2
+# VI_MODE_CURSOR_VISUAL=2
+# VI_MODE_CURSOR_INSERT=6
+# VI_MODE_CURSOR_OPPEND=0
