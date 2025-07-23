@@ -1,7 +1,9 @@
-#Config backup
+# Config backup
 This repository contains key configuration files for my development laptop.    
 Setup guides and explanations for each tool will be updated.  
 See individual directories for detailed information.
+
+<!-- toc  -->
 
 ## Included Tools
 - i3: Tiling window manager for X11
