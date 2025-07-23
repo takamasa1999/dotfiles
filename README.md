@@ -11,6 +11,14 @@ See individual directories for detailed information.
 - tmux: Terminal multiplexer
 - rofi: A dmenu replacement for launching apps, switching windows, and more
 
+## Installation
+Clone this repository first.
+
+### Nvim
+```bash
+ln -s ~/config/nvim ~/.config/nvim
+```
+
 ## How to Set Up xinput
 
 To persist your settings even after plugging or unplugging devices, store the configuration files in:
