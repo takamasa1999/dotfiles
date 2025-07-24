@@ -1,0 +1,18 @@
+# https://alacritty.org/config-alacritty.html
+#[terminal.shell]
+#program = "/bin/zsh"
+#args = ["-c", "start-tmux"]
+[terminal]
+osc52 = "CopyPaste"
+
+[font.normal]
+family = "0xProto Nerd Font"
+style = "Regular"
+
+[mouse]
+hide_when_typing = true
+
+[general]
+import=[
+  "~/.config/alacritty/machine-specific.toml"
+]
