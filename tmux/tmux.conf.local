@@ -373,7 +373,7 @@ tmux_conf_theme_clock_style="24"
 #   - disabled
 # on Linux, this requires xsel, xclip or wl-copy
 tmux_conf_copy_to_os_clipboard=true
-set clipboard on
+set -s set-clipboard on
 
 # -- urlscan -------------------------------------------------------------------
 
@@ -393,7 +393,7 @@ tmux_conf_urlscan_options="--compact --dedupe"
 
 # force Vi mode
 #   really you should export VISUAL or EDITOR environment variable, see manual
-#set -g status-keys vi
+set -g status-keys vi
 set -g mode-keys vi
 
 # replace C-b by C-a instead of using both prefixes
