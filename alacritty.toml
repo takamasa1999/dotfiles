@@ -1,0 +1,15 @@
+[font]
+size=18
+
+[font.normal]
+family = "0xProto Nerd Font"
+style = "Regular"
+
+[font.bold]
+style = "Bold"
+
+[font.italic]
+style = "Italic"
+
+[terminal]
+osc52="CopyPaste"

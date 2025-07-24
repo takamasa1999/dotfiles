@@ -1,22 +1,24 @@
 #!/bin/bash
 
-# Create alias of run command file
-if [ -e ~/.zshrc ]; then
-  echo "~/.zshrc already exists, aborting."
+
+# Clone oh my tmux
+if [ -d ~/.tmux]; then
+  echo "~/.tmux already exists, skipping clone."
+else
+  git clone --single-branch https://github.com/gpakosz/.tmux.git ~/.tmux
+fi
+
+# Create alias of config file
+if [ -e ~/.tmux.conf]; then
+  echo "~/.tmux.conf already exists, aborting."
   exit 1
 else
-  ln -s ~/config/zsh/zshrc ~/.zshrc
+  ln -s ~/.tmux/.tmux.conf ~/.tmux.conf
 fi
 
-# Clone oh-my-zsh and extensions
-if [ -d ~/.oh-my-zsh ]; then
-  echo "~/.oh-my-zsh already exists, skipping clone."
+if [ -e ~/.tmux.conf.local]; then
+  echo "~/.tmux.conf.local already exists, aborting."
+  exit 1
 else
-  git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
-fi
-
-if [ -d ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions ]; then
-  echo "zsh-autosuggestions already exists, skipping clone."
-else
-  git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+  ln -s ~/config/tmux/tmux.conf.local ~/.tmux.conf.local
 fi
