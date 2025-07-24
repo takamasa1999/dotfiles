@@ -21,6 +21,11 @@ Clone this repository first.
 ln -s ~/config/nvim ~/.config/nvim
 ```
 
+### i3 & i3rs
+```
+ln -s ~/config/i3rs-config.toml ~/.config/i3rs-config.toml
+```
+
 ## How to Set Up xinput
 
 To persist your settings even after plugging or unplugging devices, store the configuration files in:
