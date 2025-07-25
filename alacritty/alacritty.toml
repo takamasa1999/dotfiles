@@ -9,6 +9,14 @@ osc52 = "CopyPaste"
 family = "0xProto Nerd Font"
 style = "Regular"
 
+[font.bold]
+family = "0xProto Nerd Font"
+style = "Bold"
+
+[font.italic]
+family = "0xProto Nerd Font"
+style = "Italic"
+
 [mouse]
 hide_when_typing = true
 
