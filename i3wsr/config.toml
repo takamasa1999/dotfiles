@@ -1,0 +1,28 @@
+# https://github.com/roosta/i3wsr?tab=readme-ov-file
+
+[general]
+display_property = "class"
+default_icon = ""
+
+[options]
+remove_duplicates = true 
+no_names = false         
+no_icon_names = true     
+focus_fix = true         
+
+[aliases.class]
+Brave="Brave"
+terminal="Terminal"
+firefox="Firefox"
+Alacritty="Terminal"
+
+# https://fontawesome.com/search
+# Fonts are inherited from i3 config
+[icons]
+Brave = ""
+Terminal= ""
+Thunar=""
+Localsend=""
+Code=""
+Blender=""
+authenticator=""

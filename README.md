@@ -55,9 +55,9 @@ The main configuration includes an import statement for a machine-specific.toml 
 echo -e "[font]\nsize = 12" > ~/.config/alacritty/machine-specific.toml
 ```
 
-## How to Set Up xinput
-
-To persist your settings even after plugging or unplugging devices, store the configuration files in:
+## How to configure input devices
+`xinput` is used to change the configurations.
+To persist your settings even after plugging or unplugging devices, store the conf files in:
 
 `/etc/X11/xorg.conf.d/`
 
@@ -74,4 +74,19 @@ Section "InputClass"
 EndSection
 ```
 
-Use `xinput list` and `xinput list-props <device-name>` to find the full device name and its available settings.
+Use `xinput list` and `xinput list-props <device-name>` to fTind the full device name and its available settings.
+
+## How to configure displays
+
+`autorandr` is used to automatically apply predefined display configurations.
+
+1. Arrange your displays using `xrandr`
+2. Save the current layout to a new profile (--force can be used to overwrite)
+
+```bash
+autorandr --forcce --save work
+```
+This setting is called from i3 config as follows.
+```bash
+exec --no-startup-id autorandr --change work 
+```

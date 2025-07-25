@@ -30,11 +30,9 @@ format = " $icon $percentage "
 [[block]]
 block = "custom"
 command = "current-refresh-rate"
-interval = 5
-signal = 1 
 [[block.click]]
 button = "left"
-cmd = "toggle-refresh-rate; pkill -RTMIN+1 i3status-rs"
+cmd = "toggle-refresh-rate;i3 restart" # There might be a better way to update, only i3status-rs
 
 [[block]]
 block = "sound"
