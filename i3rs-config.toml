@@ -33,6 +33,9 @@ command = "current-refresh-rate"
 [[block.click]]
 button = "left"
 cmd = "toggle-refresh-rate;i3 restart" # There might be a better way to update, only i3status-rs
+[[block.click]]
+button = "right"
+cmd = "toggle-auto-rotate"
 
 [[block]]
 block = "sound"

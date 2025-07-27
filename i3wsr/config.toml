@@ -2,7 +2,7 @@
 
 [general]
 display_property = "class"
-default_icon = ""
+# default_icon = ""
 
 [options]
 remove_duplicates = true 
@@ -26,3 +26,10 @@ Localsend=""
 Code=""
 Blender=""
 authenticator=""
+Beeper=""
+discord=""
+Arandr=""
+libreoffice-writer = ""
+libreoffice-calc = ""
+libreoffice-impress = ""
+
