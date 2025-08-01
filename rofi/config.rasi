@@ -1,15 +1,9 @@
-
-//@theme "/usr/share/rofi/themes/fancy2.rasi"
-
-//@theme "/usr/share/rofi/themes/iggy.rasi"
-
-//@theme "/usr/share/rofi/themes/Adapta-Nokto.rasi"
-
 configuration {
-font: "0xProto Nerd Font 17";
+font: "0xProto Nerd Font 18";
 modes: [ "window", "drun", "ssh", "run", "combi"  ];
        combi-modes: [ "window", "drun", "run", "ssh" ];
        window-format: "{n} - {t}";
        show-icons: true;          // <--- Enable icondrun-icon-theme
-       drun-icon-theme: "Papirus"; // <--- Set your icon theme
+       // drun-icon-theme: "Papirus"; // <--- Set your icon theme
+
 }

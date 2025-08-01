@@ -14,7 +14,7 @@ icons = "awesome4"
 block = "time"
 interval = 60
 [block.format]
-full = " $icon $timestamp.datetime(f:'%a %Y-%m-%d %R %Z', l:en_US) "
+full = " $icon $timestamp.datetime(f:'%a %m-%d %R %Z', l:en_US) "
 short = " $icon $timestamp.datetime(f:%R) "
 [[block.click]]
 button = "right"

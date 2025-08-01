@@ -2,7 +2,7 @@
 
 [general]
 display_property = "class"
-# default_icon = ""
+default_icon = ""
 
 [options]
 remove_duplicates = true 
@@ -15,21 +15,31 @@ Brave="Brave"
 terminal="Terminal"
 firefox="Firefox"
 Alacritty="Terminal"
+Timeshift="Timeshift"
+Localsend="Localsend"
 
-# https://fontawesome.com/search
 # Fonts are inherited from i3 config
+# https://fontawesome.com/search
+# https://www.nerdfonts.com/cheat-sheet
 [icons]
 Brave = ""
-Terminal= ""
+Terminal= ""
 Thunar=""
 Localsend=""
 Code=""
 Blender=""
-authenticator=""
+authenticator="󰢏"
 Beeper=""
 discord=""
 Arandr=""
 libreoffice-writer = ""
 libreoffice-calc = ""
 libreoffice-impress = ""
-
+Timeshift=""
+Mixxx=""
+pavucontrol=""
+resolve="󰿎"
+baobab=""
+bottles=""
+ONLYOFFICE=""
+resources=""
