@@ -23,7 +23,7 @@ bindsym $mod+0x60 exec flatpak run net.mkiol.SpeechNote --action start-listening
 exec --no-startup-id pkill -f dsnote
 exec_always --no-startup-id flatpak run net.mkiol.SpeechNote
 
-exec --no-startup-id feh --no-fehbg --bg-fill /home/takamasa/Pictures/Wallpapers/capybara-1599766_1920.jpg
+exec --no-startup-id feh --no-fehbg --bg-fill /usr/share/backgrounds/capybara-1599766_1920.jpg
 # exec --no-startup-id picom --config ~/.config/picom.conf
 exec --no-startup-id xkbset bouncekeys 50
 

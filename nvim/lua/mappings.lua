@@ -2,7 +2,7 @@ require "nvchad.mappings"
 
 local map = vim.keymap.set
 
-vim.keymap.set({ "n", "t" }, "<C-t>", function()
+vim.keymap.set({ "n", "t" }, "<A-t>", function()
 	require("nvchad.term").toggle { pos = "float", id = "floatTerm" }
 end, { desc = "Toggle floating terminal" })
 
@@ -14,3 +14,7 @@ vim.keymap.set("n", "<leader>fof", builtin.oldfiles, { desc = "telescope oldfile
 vim.keymap.set("n", "<leader>fow", function()
 	require("telescope").extensions.live_grep_oldfiles.find()
 end, { desc = "telescope live grep old" })
+
+-- Half-page scroll then center cursor
+vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Half-page down, center' })
+vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Half-page up, center' })
