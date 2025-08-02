@@ -1,17 +1,16 @@
 require "nvchad.mappings"
 
--- add yours here
-
 local map = vim.keymap.set
 
--- map("n", ";", ":", { desc = "CMD enter command mode" })
--- map("i", "jk", "<ESC>")
+vim.keymap.set({ "n", "t" }, "<C-t>", function()
+	require("nvchad.term").toggle { pos = "float", id = "floatTerm" }
+end, { desc = "Toggle floating terminal" })
+
 local builtin = require "telescope.builtin"
-vim.keymap.set("n", "<leader>fc", builtin.commands, { desc = "Telescope commands" })
--- vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Telescope live_grep" })
-vim.keymap.set("n", "<leader>fof", builtin.oldfiles, { desc = "Telescope oldfiles" })
+vim.keymap.set("n", "<leader>fc", builtin.commands, { desc = "telescope commands" })
+vim.keymap.set("n", "<leader>fof", builtin.oldfiles, { desc = "telescope oldfiles" })
 
 -- Find Old Word
 vim.keymap.set("n", "<leader>fow", function()
-  require("telescope").extensions.live_grep_oldfiles.find()
-end, { desc = "Live grep over oldfiles" })
+	require("telescope").extensions.live_grep_oldfiles.find()
+end, { desc = "telescope live grep old" })

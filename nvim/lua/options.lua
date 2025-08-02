@@ -7,6 +7,8 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.g.clipboard = "osc52"
-vim.o.tabstop = 3
--- local o = vim.o
--- o.cursorlineopt ='both' -- to enable cursorline!
+vim.o.shiftwidth = 4
+vim.o.tabstop = 4
+
+local o = vim.o
+o.cursorlineopt = "both" -- to enable cursorline!
