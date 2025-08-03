@@ -1,9 +1,9 @@
 configuration {
 font: "0xProto Nerd Font 18";
-modes: [ "window", "drun", "ssh", "run", "combi"  ];
-       combi-modes: [ "window", "drun", "run", "ssh" ];
+modes: [ "window", "drun", "ssh", "run", "combi", "emoji:rofimoji --action copy --clipboarder xclip"];
+       combi-modes: [ "window", "drun", "run", "ssh", "emoji" ];
        window-format: "{n} - {t}";
        show-icons: true;          // <--- Enable icondrun-icon-theme
-       // drun-icon-theme: "Papirus"; // <--- Set your icon theme
-
 }
+
+@theme "/usr/share/rofi/themes/material.rasi"
