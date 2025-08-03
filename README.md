@@ -90,3 +90,7 @@ This setting is called from i3 config as follows.
 ```bash
 exec --no-startup-id autorandr --change work 
 ```
+
+
+## Refered links
+- https://www.reddit.com/r/i3wm/comments/4tw1jn/tip_quasi_alternatingfibonacci_layout/

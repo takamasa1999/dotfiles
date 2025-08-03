@@ -21,6 +21,10 @@ exec --no-startup-id pkill -f dsnote
 exec_always --no-startup-id flatpak run net.mkiol.SpeechNote
 
 exec --no-startup-id feh --no-fehbg --bg-fill /usr/share/backgrounds/capybara-1599766_1920.jpg
+<<<<<<< Updated upstream
+=======
+# exec --no-startup-id picom --config ~/.config/picom.conf
+>>>>>>> Stashed changes
 exec --no-startup-id xkbset bouncekeys 50
 
 set $mod Mod4
@@ -63,11 +67,11 @@ bindsym $mod+Shift+p exec --no-startup-id "pkill -x picom || picom -b"
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty
-bindsym $mod+Shift+Return exec alacritty -e start-tmux
+bindsym $mod+return exec alacritty
+bindsym $mod+shift+return exec alacritty -e start-tmux
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+shift+q split toggle kill
 
 bindsym $mod+o exec rofi -show combi
 
@@ -105,9 +109,7 @@ bindsym $mod+Ctrl+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-# bindsym $mod+s layout stacking
-bindsym $mod+w layout toggle split
-# bindsym $mod+e layout toggle split
+bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -238,3 +240,6 @@ bindsym 0x1008ff05 exec brightnessctl  --device='asus::kbd_backlight' s 1+
 bindsym 0x1008ff06 exec brightnessctl  --device='asus::kbd_backlight' s 1-
 
 bindsym $mod+Tab workspace back_and_forth
+
+default_orientation vertical 
+for_window [class=".*"] split toggle 
