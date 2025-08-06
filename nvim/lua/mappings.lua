@@ -18,3 +18,7 @@ end, { desc = "telescope live grep old" })
 -- Half-page scroll then center cursor
 vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Half-page down, center' })
 vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Half-page up, center' })
+
+-- in your on_attach(client, bufnr) function
+-- local map = vim.keymap.set
+-- map('n', '<leader>rn', vim.lsp.buf.rename, { buffer = bufnr, desc = 'LSP: Rename symbol' })

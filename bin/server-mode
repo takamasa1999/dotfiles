@@ -1,0 +1,8 @@
+#!/bin/zsh
+# This script is still in progress!
+xrandr --output eDP --off
+disable-input
+# 5秒間待機する
+sleep 5
+# eDP ディスプレイを自動設定（オン）にする
+xrandr --output eDP --auto

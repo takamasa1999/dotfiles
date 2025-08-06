@@ -1,31 +1,30 @@
+-- https://github.com/mfussenegger/nvim-lint
 return {
-	"mfussenegger/nvim-lint",
-	event = { "BufReadPre", "BufNewFile" },
-	config = function()
-		local lint = require "lint"
+	{
+		"mfussenegger/nvim-lint",
+		event = { "BufReadPost", "BufNewFile", "InsertLeave" },
+		config = function()
+			local lint = require "lint"
 
-		lint.linters_by_ft = {
-			python = { "pylint" },
-			html = { "htmlhint" },
-			["*"] = { "typos" },
-		}
+			lint.linters_by_ft = {
+				python = { "pylint" },
+				html = { "htmlhint" },
+				bash = { "shellcheck" },
+				javascript = { "biome" },
+				["*"] = { "typos" },
+			}
 
-		local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
+			local grp = vim.api.nvim_create_augroup("nvim_lint", { clear = true })
+			vim.api.nvim_create_autocmd({ "BufWritePost", "BufReadPost", "InsertLeave" }, {
+				group = grp,
+				callback = function()
+					lint.try_lint()
+				end,
+			})
 
-		local function try_linting()
-			local linters = lint.linters_by_ft[vim.bo.filetype]
-			lint.try_lint(linters)
-		end
-
-		vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
-			group = lint_augroup,
-			callback = function()
-				try_linting()
-			end,
-		})
-
-		vim.keymap.set("n", "<leader>l", function()
-			try_linting()
-		end, { desc = "Trigger linting for current file" })
-	end,
+			vim.api.nvim_create_user_command("Lint", function()
+				lint.try_lint()
+			end, {})
+		end,
+	},
 }

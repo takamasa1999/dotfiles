@@ -169,3 +169,5 @@ configuration {
 }
 
 @theme "/usr/share/rofi/themes/material.rasi"
+
+element-icon { size: 30px; }

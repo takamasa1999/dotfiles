@@ -1,52 +1,77 @@
-# Config backup
+# Dotfiles
 
-This repository contains key configuration files for my development laptop.  
-Setup guides and explanations for each tool will be updated.  
-See individual directories for detailed information.
+Personalized configurations and scripts for my beloved ROG Flow X13.
+Powered by i3 and Fedora 42 — the ultimate combo.
+This setup is tailored specifically for my environment, as there's little documentation out there for it.
+If you're referencing this repository, make sure to double-check whether the commands and configs fit your own system.
 
 <!-- toc -->
 
-- [Included Tools](#included-tools)
 - [Installation](#installation)
-  * [Nvim](#nvim)
-  * [i3 & i3rs](#i3--i3rs)
-  * [Alacritty Setup](#alacritty-setup)
-- [How to Set Up xinput](#how-to-set-up-xinput)
+    * [Zsh](#zsh)
+    * [Tmux](#tmux)
+    * [Nvim](#nvim)
+    * [picom](#picom)
+    * [rofi](#rofi)
+    * [i3 & i3rs & i3wsr](#i3--i3rs--i3wsr)
+    * [Alacritty](#alacritty)
+- [Uninstallation](#uninstallation)
+- [Tips](#tips)
+    * [How to configure input devices](#how-to-configure-input-devices)
+    * [How to configure displays](#how-to-configure-displays)
+    * [Key Events](#key-events)
+    * [How to Fibonacci Layout on i3?](#how-to-fibonacci-layout-on-i3)
 
 <!-- tocstop -->
 
-## Included Tools
-
-- i3: Tiling window manager for X11
-- i3status-rs: Customizable status bar written in Rust for i3
-- picom: Compositor for X11 (for transparency and animations)
-- [Nvim](./nvim): Terminal-based text editor
-- tmux: Terminal multiplexer
-- rofi: A dmenu replacement for launching apps, switching windows, and more
-
 ## Installation
 
-Clone this repository first.
+Each part of the setup is introduced separately, allowing you to install only what you need — ideal for selective setups on other environments like servers.
+
+### Zsh
+
+```bash
+~/dotfiles/zsh/install.sh
+```
+
+### Tmux
+
+```bash
+~/dotfiles/tmux/install.sh
+```
 
 ### Nvim
 
 ```bash
-ln -s ~/config/nvim ~/.config/nvim
+ln -s ~/dotfiles/nvim ~/.config/nvim
 ```
 
-### i3 & i3rs
+### picom
 
 ```bash
-ln -s ~/config/i3rs-config.toml ~/.config/i3rs-config.toml
-ln -s ~/config/i3/config ~/.config/i3/config
+ln -s ~/dotfiles/picom.conf ~/.config/picom.conf
 ```
 
-### Alacritty Setup
+### rofi
+
+```bash
+ln -s ~/dotfiles/rofi ~/.config/rofi
+```
+
+### i3 & i3rs & i3wsr
+
+```bash
+ln -s ~/dotfiles/i3 ~/.config/i3
+ln -s ~/dotfiles/i3rs-config.toml ~/.config/i3rs-config.toml
+ln -s ~/dotfiles/i3wsr ~/.config/i3wsr
+```
+
+### Alacritty
 
 Create a symbolic link for the main Alacritty configuration file:
 
 ```bash
-ln -s ~/config/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml
+ln -s ~/dotfiles/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml
 ```
 
 The main configuration includes an import statement for a machine-specific.toml file to define device-specific settings. Create this file in the same directory and customize it, for example, by setting the font size:
@@ -55,7 +80,24 @@ The main configuration includes an import statement for a machine-specific.toml 
 echo -e "[font]\nsize = 12" > ~/.config/alacritty/machine-specific.toml
 ```
 
-## How to configure input devices
+## Uninstallation
+
+This section is a work in progress.  
+Be extra careful — these commands will remove config files and symlinks.  
+**Read everything before you run anything.**
+
+```bash
+cd ~/.config
+rm i3 i3rs-config.toml i3wsr nvim rofi
+
+cd ~
+rm .zshrc .tmux.conf.local
+```
+
+## Tips
+
+### How to configure input devices
+
 `xinput` is used to change the configurations.
 To persist your settings even after plugging or unplugging devices, store the conf files in:
 
@@ -76,7 +118,7 @@ EndSection
 
 Use `xinput list` and `xinput list-props <device-name>` to fTind the full device name and its available settings.
 
-## How to configure displays
+### How to configure displays
 
 `autorandr` is used to automatically apply predefined display configurations.
 
@@ -86,11 +128,15 @@ Use `xinput list` and `xinput list-props <device-name>` to fTind the full device
 ```bash
 autorandr --forcce --save work
 ```
-This setting is called from i3 config as follows.
-```bash
-exec --no-startup-id autorandr --change work 
-```
 
+The appropriate setting in a setting will be automatically called.
+You can check the state by calling autorandr.
 
-## Refered links
-- https://www.reddit.com/r/i3wm/comments/4tw1jn/tip_quasi_alternatingfibonacci_layout/
+### Key Events
+
+Assigned Caps Lock key to display notification when it's active.
+https://wiki.archlinux.org/title/Xbindkeys
+
+### How to Fibonacci Layout on i3?
+
+https://www.reddit.com/r/i3wm/comments/4tw1jn/tip_quasi_alternatingfibonacci_layout/

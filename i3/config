@@ -12,7 +12,7 @@
 #Custom initialization
 exec --no-startup-id xbindkeys
 exec_always --no-startup-id i3wsr
-exec --no-startup-id unclutter --hide-on-touch --start-hidden &
+exec --no-startup-id unclutter --hide-on-touch --start-hidden
 exec xinput disable "ELAN1201:00 04F3:3098 Touchpad"
 
 # Utilities
@@ -21,10 +21,6 @@ exec --no-startup-id pkill -f dsnote
 exec_always --no-startup-id flatpak run net.mkiol.SpeechNote
 
 exec --no-startup-id feh --no-fehbg --bg-fill /usr/share/backgrounds/capybara-1599766_1920.jpg
-<<<<<<< Updated upstream
-=======
-# exec --no-startup-id picom --config ~/.config/picom.conf
->>>>>>> Stashed changes
 exec --no-startup-id xkbset bouncekeys 50
 
 set $mod Mod4
@@ -67,11 +63,11 @@ bindsym $mod+Shift+p exec --no-startup-id "pkill -x picom || picom -b"
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+return exec alacritty
-bindsym $mod+shift+return exec alacritty -e start-tmux
+bindsym $mod+Return exec alacritty
+bindsym $mod+Shift+Return exec alacritty -e start-tmux
 
 # kill focused window
-bindsym $mod+shift+q split toggle kill
+bindsym $mod+Shift+q split toggle kill
 
 bindsym $mod+o exec rofi -show combi
 

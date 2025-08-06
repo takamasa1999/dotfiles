@@ -5,7 +5,7 @@ if [ -e ~/.zshrc ]; then
   echo "~/.zshrc already exists, aborting."
   exit 1
 else
-  ln -s ~/config/zsh/zshrc ~/.zshrc
+  ln -s ~/dotfiles/zsh/zshrc ~/.zshrc
 fi
 
 # Clone oh-my-zsh and extensions

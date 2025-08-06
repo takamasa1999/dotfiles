@@ -20,5 +20,5 @@ if [ -e ~/.tmux.conf.local]; then
   echo "~/.tmux.conf.local already exists, aborting."
   exit 1
 else
-  ln -s ~/config/tmux/tmux.conf.local ~/.tmux.conf.local
+  ln -s ~/dotfiles/tmux/tmux.conf.local ~/.tmux.conf.local
 fi
