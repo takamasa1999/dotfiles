@@ -1,26 +1,29 @@
 # Dotfiles
 
-Personalized configurations and scripts for my beloved ROG Flow X13.
+Personalized configdurations and scripts for my beloved ROG Flow X13.  
 Powered by i3 and Fedora 42 — the ultimate combo.
-This setup is tailored specifically for my environment, as there's little documentation out there for it.
+This setup is tailored specifically for my environment, as there's little documentation out there for it.  
 If you're referencing this repository, make sure to double-check whether the commands and configs fit your own system.
 
 <!-- toc -->
 
 - [Installation](#installation)
-    * [Zsh](#zsh)
+    * [Terminal essentials](#terminal-essentials)
+        + [Zsh](#zsh)
+        + [Nvim](#nvim)
     * [Tmux](#tmux)
-    * [Nvim](#nvim)
     * [picom](#picom)
     * [rofi](#rofi)
     * [i3 & i3rs & i3wsr](#i3--i3rs--i3wsr)
     * [Alacritty](#alacritty)
+    * [Custom scripts](#custom-scripts)
 - [Uninstallation](#uninstallation)
 - [Tips](#tips)
     * [How to configure input devices](#how-to-configure-input-devices)
     * [How to configure displays](#how-to-configure-displays)
     * [Key Events](#key-events)
     * [How to Fibonacci Layout on i3?](#how-to-fibonacci-layout-on-i3)
+    * [Nvim tutorials](#nvim-tutorials)
 
 <!-- tocstop -->
 
@@ -28,22 +31,24 @@ If you're referencing this repository, make sure to double-check whether the com
 
 Each part of the setup is introduced separately, allowing you to install only what you need — ideal for selective setups on other environments like servers.
 
-### Zsh
+### Terminal essentials
+
+#### Zsh
 
 ```bash
 ~/dotfiles/zsh/install.sh
+```
+
+#### Nvim
+
+```bash
+ln -s ~/dotfiles/nvim ~/.config/nvim
 ```
 
 ### Tmux
 
 ```bash
 ~/dotfiles/tmux/install.sh
-```
-
-### Nvim
-
-```bash
-ln -s ~/dotfiles/nvim ~/.config/nvim
 ```
 
 ### picom
@@ -79,6 +84,10 @@ The main configuration includes an import statement for a machine-specific.toml 
 ```bash
 echo -e "[font]\nsize = 12" > ~/.config/alacritty/machine-specific.toml
 ```
+
+### Custom scripts
+
+Add bin directory to your $PATH
 
 ## Uninstallation
 
@@ -140,3 +149,7 @@ https://wiki.archlinux.org/title/Xbindkeys
 ### How to Fibonacci Layout on i3?
 
 https://www.reddit.com/r/i3wm/comments/4tw1jn/tip_quasi_alternatingfibonacci_layout/
+
+### Nvim tutorials
+
+- [Project wide renaming](https://www.youtube.com/watch?v=9JCsPsdeflY&t=215s)

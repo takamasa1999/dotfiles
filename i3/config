@@ -14,6 +14,8 @@ exec --no-startup-id xbindkeys
 exec_always --no-startup-id i3wsr
 exec --no-startup-id unclutter --hide-on-touch --start-hidden
 exec xinput disable "ELAN1201:00 04F3:3098 Touchpad"
+exec --no-startup-id udiskie -s
+exec --no-startup-id setxkbmap -option caps:swapescape
 
 # Utilities
 # Kill all orphaned processes first

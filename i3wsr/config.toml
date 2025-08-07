@@ -2,7 +2,7 @@
 
 [general]
 display_property = "class"
-default_icon = " "
+# default_icon = " "
 separator = "| "
 
 [options]
@@ -47,3 +47,6 @@ resources=" "
 Gsmartcontrol="󰋊 "
 handbrake="󱁆 "
 DiskDigger="󰜐 "
+vlc="󰕼 "
+Open_tv="󰟴 "
+"Image Lounge"=" "
