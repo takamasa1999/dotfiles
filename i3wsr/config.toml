@@ -19,6 +19,7 @@ Alacritty="Terminal"
 Timeshift="Timeshift"
 Localsend="Localsend"
 handbrake="handbrake"
+Ardour="Ardour"
 # Fonts are inherited from i3 config
 # https://www.nerdfonts.com/cheat-sheet
 [icons]
@@ -50,3 +51,7 @@ DiskDigger="󰜐 "
 vlc="󰕼 "
 Open_tv="󰟴 "
 "Image Lounge"=" "
+Ardour=" "
+SooperLooper=" "
+QjackCtl="󱎔 "
+REAPER="󰽯 "

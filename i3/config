@@ -15,22 +15,24 @@ exec_always --no-startup-id i3wsr
 exec --no-startup-id unclutter --hide-on-touch --start-hidden
 exec xinput disable "ELAN1201:00 04F3:3098 Touchpad"
 exec --no-startup-id udiskie -s
-exec --no-startup-id setxkbmap -option caps:swapescape
 
 # Utilities
-# Kill all orphaned processes first
+# To launch a new instance of SpeechNote, all orphaned processes must be killed first (bug)
 exec --no-startup-id pkill -f dsnote
-exec_always --no-startup-id flatpak run net.mkiol.SpeechNote
+exec --no-startup-id flatpak run net.mkiol.SpeechNote
 
 exec --no-startup-id feh --no-fehbg --bg-fill /usr/share/backgrounds/capybara-1599766_1920.jpg
 exec --no-startup-id xkbset bouncekeys 50
+exec --no-startup-id qjackctl
+
+# https://i3wm.org/docs/userguide.html#_popups_during_fullscreen_mode
+popup_during_fullscreen all
 
 set $mod Mod4
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 font pango:DejaVu Sans Mono, FontAwesome 9
-# font pango:0xProto Nerd Font 12
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
@@ -45,8 +47,6 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
-# https://i3wm.org/docs/userguide.html#_popups_during_fullscreen_mode
-popup_during_fullscreen smart
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -60,6 +60,7 @@ bindsym XF86TouchpadToggle exec --no-startup-id toggle-touchpad
 bindsym $mod+s exec flameshot full
 bindsym $mod+0x60 exec flatpak run net.mkiol.SpeechNote --action start-listening-clipboard && copyq show
 bindsym $mod+Shift+p exec --no-startup-id "pkill -x picom || picom -b"
+bindsym $mod+Shift+s sticky toggle
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -239,5 +240,5 @@ bindsym 0x1008ff06 exec brightnessctl  --device='asus::kbd_backlight' s 1-
 
 bindsym $mod+Tab workspace back_and_forth
 
-default_orientation vertical 
+default_orientation vertical
 for_window [class=".*"] split toggle 
