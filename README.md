@@ -24,6 +24,7 @@ If you're referencing this repository, make sure to double-check whether the com
     * [Key Events](#key-events)
     * [How to Fibonacci Layout on i3?](#how-to-fibonacci-layout-on-i3)
     * [Nvim tutorials](#nvim-tutorials)
+    * [How to keep remote sessions alive on Tmux](#how-to-keep-remote-sessions-alive-on-tmux)
 
 <!-- tocstop -->
 
@@ -153,3 +154,9 @@ https://www.reddit.com/r/i3wm/comments/4tw1jn/tip_quasi_alternatingfibonacci_lay
 ### Nvim tutorials
 
 - [Project wide renaming](https://www.youtube.com/watch?v=9JCsPsdeflY&t=215s)
+
+### How to keep remote sessions alive on Tmux
+
+For better connectivity and resilience against unstable networks, I use Mosh instead of plain SSH.
+
+- [Fix locale issue](https://ichimusai.org/fix-mosh-locale/)
