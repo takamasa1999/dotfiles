@@ -97,7 +97,7 @@ Be extra careful — these commands will remove config files and symlinks.
 
 ```bash
 cd ~/.config
-rm i3 i3rs-config.toml i3wsr nvim rofi
+rm -r i3 i3rs-config.toml i3wsr nvim rofi ./alacritty/alacritty.toml
 
 cd ~
 rm .zshrc .tmux.conf.local
