@@ -1,0 +1,4 @@
+#!/bin/bash
+
+~/dotfiles/zsh/install.sh
+ln -s ~/dotfiles/nvim ~/.config/nvim
