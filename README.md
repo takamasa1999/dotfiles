@@ -160,3 +160,7 @@ https://www.reddit.com/r/i3wm/comments/4tw1jn/tip_quasi_alternatingfibonacci_lay
 For better connectivity and resilience against unstable networks, I use Mosh instead of plain SSH.
 
 - [Fix locale issue](https://ichimusai.org/fix-mosh-locale/)
+  ```bash
+  locale-gen "en_US.UTF-8"
+  update-locale LC_ALL="en_US.UTF-8"
+  ```
