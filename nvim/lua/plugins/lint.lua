@@ -10,7 +10,7 @@ return {
 				python = { "pylint" },
 				html = { "htmlhint" },
 				bash = { "shellcheck" },
-				javascript = { "biome" },
+				javascript = { "biomejs" },
 				-- ["_"] = { "typos" },
 			}
 
