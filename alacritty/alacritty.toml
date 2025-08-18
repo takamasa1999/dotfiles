@@ -3,7 +3,7 @@
 #program = "/bin/zsh"
 #args = ["-c", "start-tmux"]
 [terminal]
-osc52 = "CopyPaste"
+osc52 = "OnlyCopy"
 
 [font.normal]
 family = "0xProto Nerd Font"
