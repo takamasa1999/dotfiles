@@ -6,15 +6,15 @@
 osc52 = "OnlyCopy"
 
 [font.normal]
-family = "0xProto Nerd Font"
+family = "JetBrainsMono Nerd Font"
 style = "Regular"
 
 [font.bold]
-family = "0xProto Nerd Font"
+family = "JetBrainsMono Nerd Font"
 style = "Bold"
 
 [font.italic]
-family = "0xProto Nerd Font"
+family = "JetBrainsMono Nerd Font"
 style = "Italic"
 
 [mouse]
