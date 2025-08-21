@@ -11,7 +11,6 @@ return {
 				html = { "htmlhint" },
 				bash = { "shellcheck" },
 				javascript = { "biomejs" },
-				-- ["_"] = { "typos" },
 			}
 
 			local grp = vim.api.nvim_create_augroup("nvim_lint", { clear = true })

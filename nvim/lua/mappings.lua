@@ -31,3 +31,7 @@ end, { desc = "Previous diagnostic (with float)" })
 map("n", "]d", function()
 	vim.diagnostic.jump { count = 1, float = true }
 end, { desc = "Next diagnostic (with float)" })
+
+map("n", "ca", function()
+	vim.lsp.buf.code_action()
+end, { desc = "LSP Code Action" })

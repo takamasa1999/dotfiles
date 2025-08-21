@@ -126,7 +126,7 @@ Section "InputClass"
 EndSection
 ```
 
-Use `xinput list` and `xinput list-props <device-name>` to fTind the full device name and its available settings.
+Use `xinput list` and `xinput list-props <device-name>` to find the full device name and its available settings.
 
 ### How to configure displays
 
