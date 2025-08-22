@@ -509,8 +509,8 @@ tmux_conf_uninstall_plugins_on_reload=true
 
 
 # Move around tabs like you usually do on browsers
-# bind -n C-M-[ swap-window -t -1 \; select-window -t -1
-# bind -n C-M-] swap-window -t +1 \; select-window -t +1
+bind -n C-M-[ swap-window -t -1 \; select-window -t -1
+bind -n C-M-] swap-window -t +1 \; select-window -t +1
 
 bind -n M-[ select-window -t:-
 bind -n M-] select-window -t:+
