@@ -69,7 +69,7 @@ tmux_conf_new_pane_reconnect_ssh=false
 # automatic detection relies on the COLORTERM environment variable being defined
 # to 'truecolor' or '24bit' or '$ tput colors' answering '16777216'
 # see https://github.com/termstandard/colors
-tmux_conf_24b_colour=auto
+tmux_conf_24b_colour=true
 
 
 # -- theming -------------------------------------------------------------------
@@ -506,3 +506,11 @@ tmux_conf_uninstall_plugins_on_reload=true
 # "$@"
 # # /!\ do not remove the previous line
 # #     do not write below this line
+
+
+# Move around tabs like you usually do on browsers
+# bind -n C-M-[ swap-window -t -1 \; select-window -t -1
+# bind -n C-M-] swap-window -t +1 \; select-window -t +1
+
+bind -n M-[ select-window -t:-
+bind -n M-] select-window -t:+

@@ -1,11 +1,10 @@
 #!/usr/bin/zsh
 
 i3-msg "workspace 7; exec ardour7 Repainter-Live"
-i3-msg "workspace 8; exec env GDK_SCALE=2 slgui"
+i3-msg "workspace 8; exec env GDK_SCALE=2 slgui -L ~/Documents/SooperLooper/Repainter-Live.slsess"
 
 # Mixxx steals focus when it's launching. The line below is set on i3 config to prevent that.
 # assign [class="^Mixxx$"] → 9
 i3-msg "exec mixxx"
 
 i3-msg "workspace 10; exec sndpeek-alsa-default"
-
