@@ -20,6 +20,7 @@ Timeshift="Timeshift"
 Localsend="Localsend"
 handbrake="handbrake"
 Ardour="Ardour"
+Nm-="Nm-"
 # Fonts are inherited from i3 config
 # https://www.nerdfonts.com/cheat-sheet
 [icons]
@@ -57,3 +58,6 @@ QjackCtl="󱎔 "
 REAPER="󰽯 "
 impression="󱊞 "
 "Angry IP Scanner"="󰩠 "
+VeraCrypt="  "
+Nm-="  "
+snapshot="  "
