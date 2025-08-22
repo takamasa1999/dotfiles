@@ -1,6 +1,6 @@
 # Dotfiles
 
-Personalized configdurations and scripts for my beloved ROG Flow X13.  
+Personalized configurations and scripts for my beloved ROG Flow X13.  
 Powered by i3 and Fedora 42 — the ultimate combo.
 This setup is tailored specifically for my environment, as there's little documentation out there for it.  
 If you're referencing this repository, make sure to double-check whether the commands and configs fit your own system.
