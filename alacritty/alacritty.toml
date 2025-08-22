@@ -25,7 +25,10 @@ style = "Italic"
 [mouse]
 hide_when_typing = true
 
+[window]
+option_as_alt="Both"
+
 [general]
 import=[
-  "~/.config/alacritty/machine-specific.toml"
+    "~/.config/alacritty/machine-specific.toml"
 ]
