@@ -3,8 +3,8 @@ require "nvchad.mappings"
 local map = vim.keymap.set
 
 map({ "n", "t" }, "<A-t>", function()
-	require("nvchad.term").toggle { pos = "float", id = "floatTerm" }
-end, { desc = "Toggle floating terminal" })
+	vim.cmd "tabnew | terminal"
+end, { desc = "Open terminal in new tab" })
 
 local builtin = require "telescope.builtin"
 map("n", "<leader>fc", builtin.commands, { desc = "telescope commands" })
