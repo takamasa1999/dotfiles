@@ -22,7 +22,7 @@ exec --no-startup-id pkill -f dsnote
 exec --no-startup-id flatpak run net.mkiol.SpeechNote
 
 exec --no-startup-id feh --no-fehbg --bg-fill /usr/share/backgrounds/capybara-1599766_1920.jpg
-exec --no-startup-id xkbset bouncekeys 50
+exec --no-startup-id xkbset bo 50
 exec --no-startup-id qjackctl
 
 # https://i3wm.org/docs/userguide.html#_popups_during_fullscreen_mode
@@ -58,7 +58,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 # User defined
 bindsym XF86TouchpadToggle exec --no-startup-id toggle-touchpad 
 bindsym $mod+s exec flameshot gui
-bindsym 0xffc9 exec flatpak run net.mkiol.SpeechNote --action start-listening-clipboard 
+# bindsym 0xffc9 exec flatpak run net.mkiol.SpeechNote --action start-listening-clipboard 
 bindsym $mod+Shift+p exec --no-startup-id "pkill -x picom || picom -b"
 bindsym $mod+Shift+s sticky toggle
 
@@ -70,9 +70,9 @@ floating_modifier $mod
 bindsym $mod+Return exec alacritty -e start-tmux
 
 # kill focused window
-bindsym $mod+Shift+q split toggle kill
+bindsym $mod+q split toggle kill
 
-bindsym $mod+o exec rofi -show combi
+bindsym Mod1+space exec rofi -show combi
 
 # change focus
 bindsym $mod+h focus left
