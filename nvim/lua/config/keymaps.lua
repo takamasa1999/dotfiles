@@ -47,6 +47,8 @@ end, { desc = "LSP Code Action" })
 map("n", "<leader>q", ":qa!<CR>", { desc = "Quit all" })
 map("n", "<leader>wq", ":wqa<CR>", { desc = "Save & quit all" })
 
+map("n", "<leader>r", ":RemoteStart<CR>", { desc = "Remote" })
+
 map("n", "<C-n>", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file tree" })
 
 -- Modify or disable mapping as per NvChad standards

@@ -78,7 +78,7 @@ Create a symbolic link for the main Alacritty configuration file and theme:
 
 ```bash
 ln -s ~/dotfiles/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml
-ln -s ~/dotfiles/alacritty/github-light.toml ~/.config/alacritty/github-light.toml
+ln -s ~/dotfiles/alacritty/theme.toml ~/.config/alacritty/theme.toml
 ```
 
 The main configuration includes an import statement for a machine-specific.toml file to define device-specific settings. Create this file in the same directory and customize it, for example, by setting the font size:

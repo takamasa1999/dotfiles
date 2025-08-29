@@ -118,6 +118,10 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
 # Lua version manager
-if which luaver >/dev/null; then . $(which luaver); fi
+# if which luaver >/dev/null; then . $(which luaver); fi
+if command -v luaver >/dev/null 2>&1; then
+	# luaver exists → now source it
+	. "$(command -v luaver)"
+fi
 
 alias n='nvim'
