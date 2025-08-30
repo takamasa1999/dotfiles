@@ -1,8 +1,8 @@
-#!/bin/zsh
-# if not inside tmux, then start it.
+#!/bin/bash
 
+# if not inside tmux, then start it.
 if [ -z "$TMUX" ]; then
-    tmux attach || exec tmux new-session
+	tmux attach || exec tmux new-session
 else
-    echo "already in tmux!"
+	echo "already in tmux!"
 fi

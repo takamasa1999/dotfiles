@@ -1,9 +1,9 @@
-#!/usr/bin/zsh
+#!/bin/bash
 
 DEFAULT_INPUT_NUMBER=$(
-    sndpeek-alsa --help 2>&1 |
-        awk -F: '/default channels/{print $1}' |
-        tr -d '[:space:]'
+	sndpeek-alsa --help 2>&1 |
+		awk -F: '/default channels/{print $1}' |
+		tr -d '[:space:]'
 )
 
-exec sndpeek-alsa --inputDevice:$DEFAULT_INPUT_NUMBER 
+exec sndpeek-alsa --inputDevice:"$DEFAULT_INPUT_NUMBER"

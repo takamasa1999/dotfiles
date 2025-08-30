@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# p="$( | awk '/\(current\)/{print $1}')"
+
+currentInfo=$(autorandr --list)
+echo "$currentInfo"
+# if [ -n "$p" ]; then
+# 	autorandr --save "$p" --force
+# 	echo "Updated profile: $p"
+# else
+# 	echo "No current profile detected."
+# fi

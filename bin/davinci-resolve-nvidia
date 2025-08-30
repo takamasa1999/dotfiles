@@ -8,8 +8,11 @@ export __VK_LAYER_NV_optimus=NVIDIA_only
 
 # 2) Vulkan の ICD を NVIDIA のみに限定
 for f in /usr/share/vulkan/icd.d/nvidia_icd.json \
-         /usr/share/vulkan/icd.d/nvidia_icd64.json; do
-  if [ -f "$f" ]; then export VK_ICD_FILENAMES="$f"; break; fi
+	/usr/share/vulkan/icd.d/nvidia_icd64.json; do
+	if [ -f "$f" ]; then
+		export VK_ICD_FILENAMES="$f"
+		break
+	fi
 done
 
 # 3) OpenCL の ICD を NVIDIA のみに限定
@@ -18,8 +21,8 @@ VEND_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/ocl-nvidia-only"
 mkdir -p "$VEND_DIR"
 # 候補から存在する nvidia.icd を拾ってシンボリックリンクを作成
 for icd in /etc/OpenCL/vendors/nvidia.icd \
-           /usr/share/OpenCL/vendors/nvidia.icd; do
-  if [ -f "$icd" ]; then ln -sf "$icd" "$VEND_DIR/nvidia.icd"; fi
+	/usr/share/OpenCL/vendors/nvidia.icd; do
+	if [ -f "$icd" ]; then ln -sf "$icd" "$VEND_DIR/nvidia.icd"; fi
 done
 export OCL_ICD_VENDORS="$VEND_DIR"
 # 念のため FILENAMES 指定は無効化しておく（VENDORS を優先）

@@ -10,8 +10,8 @@ return {
 				markdown = { "prettier", "markdown-toc" },
 				bash = { "shfmt" },
 				zsh = { "shfmt" },
-				javascript = { "prettierd", "prettier" },
-				json = { "prettierd", "prettier" },
+				javascript = { "prettier" },
+				json = { "prettier" },
 			},
 			format_on_save = nil,
 		})

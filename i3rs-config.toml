@@ -31,10 +31,10 @@ format = " $icon $percentage "
 block = "custom"
 command = "current-refresh-rate"
 [[block.click]]
-button = "left"
+button = "right"
 cmd = "toggle-refresh-rate;i3 restart" # There might be a better way to update, only i3status-rs
 [[block.click]]
-button = "right"
+button = "left"
 cmd = "toggle-auto-rotate"
 
 [[block]]

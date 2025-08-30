@@ -1,4 +1,5 @@
 return {
+	-- https://github.com/nvim-telescope/telescope.nvim
 	"nvim-telescope/telescope.nvim",
 	tag = "0.1.8",
 	dependencies = {
@@ -8,6 +9,8 @@ return {
 		"nvim-telescope/telescope-project.nvim",
 		-- https://github.com/incptr/telescope-live-grep-oldfiles.nvim
 		"incptr/telescope-live-grep-oldfiles.nvim",
+		-- https://github.com/tiagovla/scope.nvim
+		 "tiagovla/scope.nvim",
 	},
 	config = function()
 		require("telescope").setup({
