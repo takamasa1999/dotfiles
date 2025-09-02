@@ -1,6 +1,6 @@
 return {
 	"nvim-tree/nvim-tree.lua",
-	version = "*",
+	version = "1.14.0",
 	lazy = false,
 	dependencies = {
 		"nvim-tree/nvim-web-devicons",
@@ -22,7 +22,11 @@ return {
 			},
 			view = {
 				relativenumber = true,
+				width = 50,
 			},
 		})
+
+		local keymap = vim.keymap.set
+		keymap("n", "<leader>e", "<Cmd>NvimTreeToggle<CR>", { desc = "Toggle explorer" })
 	end,
 }

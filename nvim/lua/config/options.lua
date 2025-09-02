@@ -1,11 +1,5 @@
 local o = vim.o
-local op = vim.opt
-local function paste()
-	return {
-		vim.fn.split(vim.fn.getreg(""), "\n"),
-		vim.fn.getregtype(""),
-	}
-end
+local opt = vim.opt
 
 o.cursorline = true
 o.cursorlineopt = "both"
@@ -13,20 +7,11 @@ o.shiftwidth = 4
 o.tabstop = 4
 o.clipboard = "unnamedplus"
 o.winborder = "rounded"
+o.scrolloff = 999
+o.showbreak = "↳ "
+o.linebreak = true
 
-op.number = true
-op.relativenumber = true
-op.termguicolors = true
-op.ignorecase = true
-
-vim.g.clipboard = {
-	name = "OSC 52",
-	copy = {
-		["+"] = require("vim.ui.clipboard.osc52").copy("+"),
-		["*"] = require("vim.ui.clipboard.osc52").copy("*"),
-	},
-	paste = {
-		["+"] = paste,
-		["*"] = paste,
-	},
-}
+opt.number = true
+opt.relativenumber = true
+opt.termguicolors = true
+opt.ignorecase = false

@@ -1,6 +1,6 @@
 return {
 	"akinsho/toggleterm.nvim",
-	version = "*",
+	version = "2.13.1",
 	opts = {
 		size = function(term)
 			if term.direction == "horizontal" then
@@ -30,4 +30,8 @@ return {
 			-- },
 		},
 	},
+	config = function()
+		local keymap = vim.keymap.set
+		keymap({ "n", "t" }, "<A-t>", "<Cmd>ToggleTerm<CR>", { desc = "Toggle floating terminal" })
+	end,
 }

@@ -4,13 +4,14 @@ local mason = {
 }
 
 -- Mason.nvim is a plugin manager for Neovim
-local installer = {
+local mason_tool_installer = {
 	"WhoIsSethDaniel/mason-tool-installer.nvim",
 	config = function()
 		require("mason-tool-installer").setup({
 			ensure_installed = {
 				-- lsp
 				"lua-language-server",
+				"typos-lsp",
 				"ltex-ls",
 				"marksman",
 				"pyright",
@@ -36,5 +37,5 @@ local installer = {
 
 return {
 	mason,
-	installer,
+	mason_tool_installer,
 }

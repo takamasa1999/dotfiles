@@ -1,10 +1,14 @@
 return {
+	-- https://github.com/amitds1997/remote-nvim.nvim/tree/v0.3.12
 	"amitds1997/remote-nvim.nvim",
-	version = "*",                      -- Pin to GitHub releases
+	version = "0.3.12", -- Pin to GitHub releases
 	dependencies = {
-		"nvim-lua/plenary.nvim",        -- For standard functions
-		"MunifTanjim/nui.nvim",         -- To build the plugin UI
+		"nvim-lua/plenary.nvim", -- For standard functions
+		"MunifTanjim/nui.nvim", -- To build the plugin UI
 		"nvim-telescope/telescope.nvim", -- For picking b/w different remote methods
 	},
-	config = true,
+	config = function()
+		local keymap = vim.keymap.set
+		keymap("n", "<leader>R", "<Cmd>RemoteStart<CR>", { desc = "Remote" })
+	end,
 }

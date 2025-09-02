@@ -37,8 +37,8 @@ return {
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp" },
 				{ name = "luasnip" },
-				{ name = "path" },
 				{ name = "copilot" },
+				{ name = "path" },
 			}, {
 				{ name = "buffer" },
 			}),
@@ -49,6 +49,7 @@ return {
 			mapping = cmp.mapping.preset.cmdline(),
 			sources = {
 				{ name = "buffer" },
+				{ name = "copilot" },
 			},
 		})
 

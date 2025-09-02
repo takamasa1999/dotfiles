@@ -1,5 +1,6 @@
 -- https://github.com/yetone/avante.nvim
 return {
+	-- https://github.com/yetone/avante.nvim
 	"yetone/avante.nvim",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
@@ -11,7 +12,7 @@ return {
 	build = vim.fn.has("win32") ~= 0 and "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
 		or "make",
 	event = "VeryLazy",
-	version = false, -- Never set this value to "*"! Never!
+	version = "0.0.27", -- Never set this value to "*"! Never!
 	---@module 'avante'
 	---@type avante.Config
 	opts = {
@@ -27,7 +28,9 @@ return {
 			exclude_auto_select = { "NvimTree" },
 		},
 		instructions_file = "avante.md",
-		-- for example
+		---@alias Provider "claude" | "openai" | "azure" | "gemini" | "cohere" | "copilot" | string
+		---@type Provider
+		mode = "agentic",
 		provider = "copilot",
 		web_search_engine = {
 			provider = "brave", -- tavily, serpapi, google, kagi, brave, or searxng

@@ -1,7 +1,7 @@
 return {
-	'akinsho/bufferline.nvim',
-	version = "*",
-	dependencies = 'nvim-tree/nvim-web-devicons',
+	"akinsho/bufferline.nvim",
+	version = "4.9.1",
+	dependencies = "nvim-tree/nvim-web-devicons",
 	config = function()
 		-- https://github.com/akinsho/bufferline.nvim?tab=readme-ov-file#tabs
 		-- Check help with :h bufferline-configuration
@@ -27,5 +27,5 @@ return {
 				sort_by = "insert_after_current",
 			},
 		})
-	end
+	end,
 }

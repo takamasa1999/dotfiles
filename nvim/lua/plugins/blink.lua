@@ -1,17 +1,10 @@
 return {
 	"saghen/blink.cmp",
-	-- optional: provides snippets for the snippet source
 	dependencies = {
-		"rafamadriz/friendly-snippets",
-		"fang2hou/blink-copilot",
+		-- "rafamadriz/friendly-snippets",
+		-- "fang2hou/blink-copilot",
 	},
-
-	-- use a release tag to download pre-built binaries
-	version = "1.*",
-	-- AND/OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
-	-- build = 'cargo build --release',
-	-- If you use nix, you can build from source using latest nightly rust with:
-	-- build = 'nix run .#build-plugin',
+	version = "1.6.0",
 	---@module 'blink.cmp'
 	---@type blink.cmp.Config
 	opts = {
@@ -27,7 +20,15 @@ return {
 		-- C-k: Toggle signature help (if signature.enabled = true)
 		--
 		-- See :h blink-cmp-config-keymap for defining your own keymap
-		keymap = { preset = "default" },
+		keymap = {
+			preset = "super-tab",
+			["<C-c>"] = {
+				function(cmp)
+					cmp.show({ providers = { "snippets" } })
+				end,
+			},
+		},
+		auto_show = true,
 		appearance = {
 			-- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
 			-- Adjusts spacing to ensure icons are aligned
@@ -35,7 +36,12 @@ return {
 		},
 
 		-- (Default) Only show the documentation popup when manually triggered
-		completion = { documentation = { auto_show = true } },
+		completion = {
+			documentation = { auto_show = true },
+			trigger = {
+				show_on_insert = true,
+			},
+		},
 
 		cmdline = {
 			keymap = { preset = "inherit" },
@@ -45,16 +51,21 @@ return {
 		-- Default list of enabled providers defined so that you can extend it
 		-- elsewhere in your config, without redefining it, due to `opts_extend`
 		sources = {
-			default = { "lsp", "path", "snippets", "buffer", "copilot" },
-			-- lsp = {},
-			providers = {
-				copilot = {
-					name = "copilot",
-					module = "blink-copilot",
-					score_offset = 100,
-					async = true,
-				},
+			default = {
+				"lsp",
+				"path",
+				-- "copilot",
+				"snippets",
+				"buffer",
 			},
+			-- providers = {
+			-- 	copilot = {
+			-- 		name = "copilot",
+			-- 		module = "blink-copilot",
+			-- 		score_offset = 100,
+			-- 		async = true,
+			-- 	},
+			-- },
 		},
 
 		-- (Default) Rust fuzzy matcher for typo resistance and significantly better performance

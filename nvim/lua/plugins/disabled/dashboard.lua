@@ -9,15 +9,15 @@ return {
 					enable = true,
 				},
 				shortcut = {
-					{ desc = "󰊳 Update", group = "@property", action = "Lazy update", key = "u" },
 					{
-						icon = " ",
+						icon = " ",
 						icon_hl = "@variable",
 						desc = "Files",
 						group = "Label",
 						action = "Telescope find_files",
 						key = "f",
 					},
+					{ desc = " Update", group = "@property", action = "Lazy update", key = "u" },
 					-- {
 					-- 	desc = " Apps",
 					-- 	group = "DiagnosticHint",

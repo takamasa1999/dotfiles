@@ -1,3 +1,4 @@
+-- https://github.com/linux-cultist/venv-selector.nvim
 return {
 	"linux-cultist/venv-selector.nvim",
 	dependencies = {
