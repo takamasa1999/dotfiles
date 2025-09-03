@@ -31,7 +31,8 @@ return {
 		},
 	},
 	config = function()
+		require("toggleterm").setup()
 		local keymap = vim.keymap.set
-		keymap({ "n", "t" }, "<A-t>", "<Cmd>ToggleTerm<CR>", { desc = "Toggle floating terminal" })
+		keymap({ "n", "t" }, "<A-t>", "<cmd>ToggleTerm direction=float<cr>", { desc = "Toggle floating terminal" })
 	end,
 }

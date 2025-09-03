@@ -28,8 +28,10 @@ return {
 				wrap_results = true,
 			},
 			mappings = {
-				["d"] = require("telescope.actions").delete_buffer,
-			}
+				n = {
+					["<d>"] = require("telescope.actions").delete_buffer,
+				},
+			},
 		})
 
 		-- Wrap text on the preview window

@@ -7,6 +7,12 @@ return {
 			-- Smart close!
 			smartclose_force = "<S-q>",
 		},
+		actions = {
+			close_all = {
+				empty = true,
+				floating = false,
+			},
+		},
 	},
 }
 -- return {}
