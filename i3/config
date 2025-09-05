@@ -20,6 +20,7 @@ exec --no-startup-id udiskie -s
 # To launch a new instance of SpeechNote, all orphaned processes must be killed first (bug)
 exec --no-startup-id pkill -f dsnote
 exec --no-startup-id flatpak run net.mkiol.SpeechNote
+bindsym 0xffc9 exec flatpak run net.mkiol.SpeechNote --action start-listening-clipboard
 
 exec --no-startup-id feh --no-fehbg --bg-fill /usr/share/backgrounds/capybara-1599766_1920.jpg
 exec --no-startup-id xkbset bo 50
@@ -199,7 +200,7 @@ bar {
   tray_output primary
   font pango:DejaVu Sans Mono, FontAwesome 11
 # font pango:0xProto Nerd Font 11.5
-    position bottom
+    position top
     status_command /usr/bin/i3status-rs /home/takamasa/.config/i3rs-config.toml
     colors {
       separator #666666
@@ -243,6 +244,6 @@ bindsym $mod+Tab workspace back_and_forth
 default_orientation vertical
 for_window [class=".*"] split toggle 
 
-focus_on_window_activation none
+# focus_on_window_activation none
 
 assign [class="^Mixxx$"] → 9

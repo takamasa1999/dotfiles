@@ -148,6 +148,8 @@ You can check the state by calling autorandr.
 Assigned Caps Lock key to display notification when it's active.
 https://wiki.archlinux.org/title/Xbindkeys
 
+Used [keyd(https://github.com/rvaiya/keyd) to remap capslock to escape when pressed alone, and to control when held down.
+
 ### How to Fibonacci Layout on i3?
 
 https://www.reddit.com/r/i3wm/comments/4tw1jn/tip_quasi_alternatingfibonacci_layout/

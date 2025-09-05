@@ -1,0 +1,2 @@
+#!/bin/zsh
+xev -event keyboard  | egrep -o 'keycode.*\)'

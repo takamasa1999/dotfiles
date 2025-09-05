@@ -446,9 +446,16 @@ tmux_conf_uninstall_plugins_on_reload=true
 
 # to enable a plugin, use the 'set -g @plugin' syntax:
 # visit https://github.com/tmux-plugins for available plugins
+
+# Don't forget to run <prefix> + I after adding a new plugin. Check the link below for more information.
+# https://github.com/gpakosz/.tmux?tab=readme-ov-file#using-tpm-plugins
+
 #set -g @plugin 'tmux-plugins/tmux-copycat'
 #set -g @plugin 'tmux-plugins/tmux-cpu'
+
+# https://github.com/tmux-plugins/tmux-resurrect/blob/master/README.md
 set -g @plugin 'tmux-plugins/tmux-resurrect'
+# https://github.com/tmux-plugins/tmux-continuum/blob/master/README.md
 set -g @plugin 'tmux-plugins/tmux-continuum'
 set -g @continuum-restore 'on'
 

@@ -1,4 +1,3 @@
-# gd check
 import os
 
 # hirizontaly long texts

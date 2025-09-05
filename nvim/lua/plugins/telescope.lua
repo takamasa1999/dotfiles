@@ -22,7 +22,7 @@ return {
 					prompt_position = "top",
 					width = 0.95,
 					height = 0.95,
-					preview_width = 0.6,
+					-- preview_width = 0.6,
 				},
 				sorting_strategy = "ascending",
 				wrap_results = true,

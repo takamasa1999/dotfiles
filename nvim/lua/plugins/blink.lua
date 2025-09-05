@@ -1,7 +1,12 @@
+-- https://github.com/Saghen/blink.cmp?tab=readme-ov-file
 return {
 	"saghen/blink.cmp",
 	-- https://github.com/fang2hou/blink-copilot
-	dependencies = { "fang2hou/blink-copilot" },
+	dependencies = {
+		"fang2hou/blink-copilot",
+		"rafamadriz/friendly-snippets",
+		blink,
+	},
 	-- optional = true,
 
 	version = "1.6.0",
@@ -9,7 +14,7 @@ return {
 	---@type blink.cmp.Config
 	opts = {
 		keymap = {
-			preset = "super-tab",
+			preset = "enter",
 			["<C-n>"] = { "show", "select_next", "fallback_to_mappings" },
 		},
 
@@ -20,15 +25,38 @@ return {
 
 		-- (Default) Only show the documentation popup when manually triggered
 		completion = {
-			documentation = { auto_show = true },
+			documentation = { auto_show = false },
 			trigger = {
 				show_on_insert = false,
+			},
+			list = {
+				selection = {
+					preselect = false,
+					auto_insert = false,
+				},
+			},
+			menu = {
+				draw = {
+					columns = {
+						{ "kind_icon" },
+						{ "label", "label_description", gap = 1 },
+						{ "source_name" }, -- Show "LSP", "Buffer", "Copilot", etc.
+					},
+				},
 			},
 		},
 
 		cmdline = {
 			keymap = { preset = "inherit" },
-			completion = { menu = { auto_show = true } },
+				completion = {
+					menu = { auto_show = true },
+					list = {
+						selection = {
+							preselect = false,
+							auto_insert = false,
+						},
+					},
+				},
 		},
 
 		sources = {

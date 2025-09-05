@@ -24,6 +24,7 @@ local lspconfig = {
 			},
 			sourcekit = {},
 			lua_ls = {},
+			systemd_ls = {},
 			marksman = {},
 			basedpyright = {},
 			pyright = {},

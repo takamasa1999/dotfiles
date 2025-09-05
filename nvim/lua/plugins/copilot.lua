@@ -5,10 +5,10 @@ return {
 	event = "InsertEnter",
 	opts = {
 		suggestion = {
-			enabled = true,
+			enabled = false,
 			auto_trigger = true,
 		},
-		panel = { enabled = true },
+		panel = { enabled = false },
 		filetypes = {
 			markdown = true,
 			help = true,

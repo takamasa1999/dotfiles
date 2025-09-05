@@ -1,0 +1,12 @@
+#!/bin/bash
+
+spare_modifier="Control_L"
+
+xmodmap -e "keycode 66 = $spare_modifier"
+
+xmodmap -e "remove mod4 = $spare_modifier"
+xmodmap -e "add Control = $spare_modifier"
+
+xmodmap -e "keycode any = Escape"
+
+xcape -e "$spare_modifier=Escape"
