@@ -5,7 +5,6 @@ return {
 	dependencies = {
 		"fang2hou/blink-copilot",
 		"rafamadriz/friendly-snippets",
-		blink,
 	},
 	-- optional = true,
 
@@ -25,9 +24,9 @@ return {
 
 		-- (Default) Only show the documentation popup when manually triggered
 		completion = {
-			documentation = { auto_show = false },
+			documentation = { auto_show = true, auto_show_delay_ms = 0 },
 			trigger = {
-				show_on_insert = false,
+				show_on_insert = true,
 			},
 			list = {
 				selection = {
@@ -48,15 +47,15 @@ return {
 
 		cmdline = {
 			keymap = { preset = "inherit" },
-				completion = {
-					menu = { auto_show = true },
-					list = {
-						selection = {
-							preselect = false,
-							auto_insert = false,
-						},
+			completion = {
+				menu = { auto_show = true },
+				list = {
+					selection = {
+						preselect = false,
+						auto_insert = false,
 					},
 				},
+			},
 		},
 
 		sources = {
