@@ -1,9 +1,8 @@
-#!/bin/zsh
-# This script is still in progress!
+#!/bin/bash
+
 xrandr --output eDP --off
 
-# disable-input
-# 5秒間待機する
-# sleep 5
-# eDP ディスプレイを自動設定（オン）にする
-# xrandr --output eDP --auto
+# Wait for Enter key press to terminate the script
+read -r -p "Press Enter to end the process..."
+
+xrandr --output eDP --auto

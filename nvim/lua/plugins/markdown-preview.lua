@@ -9,6 +9,6 @@ return {
 	ft = { "markdown" },
 	config = function()
 		local keymap = vim.keymap.set
-		keymap("n", "<localleader>p", "<Cmd>MarkdownPreview<CR>", { desc = "Preview" })
+		keymap("n", "<localleader>p", "<Cmd>MarkdownPreview<CR>", { desc = "Preview Markdown" })
 	end,
 }

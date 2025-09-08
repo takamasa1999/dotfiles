@@ -1,9 +1,6 @@
 local keymap = vim.keymap.set
 
 -- General keymaps
-keymap("n", "<C-w>t", "<C-w>T", {
-	desc = "Break out into a new tab",
-})
 keymap("n", "<leader>y", "<cmd>%y<cr>", { desc = "Yank this buffer" })
 keymap("n", "<leader>d", "<cmd>%d<cr>", { desc = "Yank this buffer" })
 
@@ -21,7 +18,7 @@ keymap("n", "<leader>W", "<Cmd>wqa<CR>", { desc = "Save & quit all" })
 -- Tab navigations
 keymap("n", "<Tab>", "<Cmd>BufferLineCycleNext<CR>", { silent = true })
 keymap("n", "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", { silent = true })
-keymap("n", "<leader>tt", "<cmd>tab split<cr>", { desc = "Tab split" })
+keymap("n", "<leader>tt", "<C-w>T", { desc = "Break out into a new tab" })
 
 -- Pane navigations
 keymap("n", "<C-h>", "<C-w>h", { silent = true, desc = "Move to left pane" })

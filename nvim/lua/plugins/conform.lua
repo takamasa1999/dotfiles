@@ -12,6 +12,7 @@ return {
 				bash = { "shfmt" },
 				zsh = { "shfmt" },
 				javascript = { "prettier" },
+				python = { "black" },
 				json = { "prettier" },
 			},
 			format_on_save = nil,
