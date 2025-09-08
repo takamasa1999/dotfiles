@@ -1,3 +1,4 @@
+-- https://github.com/akinsho/toggleterm.nvim
 return {
 	"akinsho/toggleterm.nvim",
 	version = "2.13.1",
@@ -24,10 +25,6 @@ return {
 		float_opts = {
 			border = "curved",
 			winblend = 0,
-			-- highlights = {
-			-- 	border = "Normal",
-			-- 	background = "Normal",
-			-- },
 		},
 	},
 	config = function()

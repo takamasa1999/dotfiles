@@ -1,16 +1,12 @@
 -- https://github.com/NeogitOrg/neogit
 return {
 	"NeogitOrg/neogit",
-	version = "2.0.0",
+	-- version = "2.0.0",
 	dependencies = {
 		"nvim-lua/plenary.nvim", -- required
 		"sindrets/diffview.nvim", -- optional - Diff integration
-
 		-- Only one of these is needed.
 		"nvim-telescope/telescope.nvim", -- optional
-		-- "ibhagwan/fzf-lua", -- optional
-		-- "echasnovski/mini.pick", -- optional
-		-- "folke/snacks.nvim", -- optional
 	},
 	config = function()
 		local keymap = vim.keymap.set
