@@ -9,6 +9,7 @@ o.winborder = "rounded"
 o.scrolloff = 999
 o.showbreak = "↳ "
 o.linebreak = true
+o.background = "light"
 
 opt.number = true
 opt.relativenumber = true

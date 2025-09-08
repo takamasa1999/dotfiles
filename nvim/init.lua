@@ -9,5 +9,5 @@ require("custom-utilities.smartClose")
 -- Additional configuration
 require("config.options")
 require("config.keymaps")
-require ("config.clipboard")
-require ("config.format")
+require("config.clipboard")
+require("config.format")

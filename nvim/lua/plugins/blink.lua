@@ -17,7 +17,7 @@ return {
 			["<C-n>"] = { "show", "select_next", "fallback_to_mappings" },
 		},
 
-		auto_show = true,
+		-- auto_show = true,
 		appearance = {
 			nerd_font_variant = "mono",
 		},
@@ -26,7 +26,7 @@ return {
 		completion = {
 			documentation = { auto_show = true, auto_show_delay_ms = 0 },
 			trigger = {
-				show_on_insert = true,
+				show_on_insert = false,
 			},
 			list = {
 				selection = {

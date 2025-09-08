@@ -11,6 +11,7 @@ If you're referencing this repository, make sure to double-check whether the com
     * [Terminal essentials](#terminal-essentials)
         + [Zsh](#zsh)
         + [Nvim](#nvim)
+        + [Opencode](#opencode)
     * [Tmux](#tmux)
     * [picom](#picom)
     * [rofi](#rofi)
@@ -44,6 +45,14 @@ Each part of the setup is introduced separately, allowing you to install only wh
 
 ```bash
 ln -s ~/dotfiles/nvim ~/.config/nvim
+```
+
+#### Opencode
+
+[Config](https://opencode.ai/docs/config)
+
+```bash
+ln -s ~/dotfiles/opencode/opencode.json ~/.config/opencode/opencode.json
 ```
 
 ### Tmux

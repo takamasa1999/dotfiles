@@ -127,3 +127,6 @@ fi
 # neovim
 alias n='nvim'
 export MANPAGER='nvim +Man!'
+
+# opencode
+export PATH=/Users/takamasa/.opencode/bin:$PATH
