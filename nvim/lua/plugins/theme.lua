@@ -15,13 +15,6 @@ return {
 	priority = 1000,
 
 	config = function()
-		vim.cmd.colorscheme("catppuccin-latte")
-
-		require("catppuccin").setup({
-			float = {
-				transparent = true, -- enable transparent floating windows
-				solid = true, -- use solid styling for floating windows, see |winborder|
-			},
-		})
+		vim.cmd.colorscheme("catppuccin-mocha")
 	end,
 }
