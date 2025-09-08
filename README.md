@@ -13,6 +13,7 @@ If you're referencing this repository, make sure to double-check whether the com
         + [Nvim](#nvim)
         + [Opencode](#opencode)
     * [Tmux](#tmux)
+    * [Kitty](#kitty)
     * [picom](#picom)
     * [rofi](#rofi)
     * [i3 & i3rs & i3wsr](#i3--i3rs--i3wsr)
@@ -59,6 +60,12 @@ ln -s ~/dotfiles/opencode/opencode.json ~/.config/opencode/opencode.json
 
 ```bash
 ~/dotfiles/tmux/install.sh
+```
+
+### Kitty
+
+```bash
+ln -s ~/dotfiles/kitty ~/.config/kitty
 ```
 
 ### picom

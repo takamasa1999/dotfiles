@@ -2,7 +2,7 @@ local keymap = vim.keymap.set
 
 -- General keymaps
 keymap("n", "<leader>y", "<cmd>%y<cr>", { desc = "Yank this buffer" })
-keymap("n", "<leader>d", "<cmd>%d<cr>", { desc = "Yank this buffer" })
+-- keymap("n", "<leader>d", "<cmd>%d<cr>", { desc = "Yank this buffer" })
 
 -- Go to the latest buffer with <leader><Space>
 keymap("n", "<leader> ", "<C-^>", { desc = "Switch to last buffer" })
