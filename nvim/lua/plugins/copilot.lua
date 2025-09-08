@@ -1,5 +1,5 @@
+-- https://github.com/zbirenbaum/copilot.lua
 return {
-	-- https://github.com/zbirenbaum/copilot.lua
 	"zbirenbaum/copilot.lua",
 	cmd = "Copilot",
 	event = "InsertEnter",

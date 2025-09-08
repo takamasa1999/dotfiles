@@ -12,13 +12,16 @@ keymap("n", "<leader> ", "<C-^>", { desc = "Switch to last buffer" })
 keymap("n", "<C-s>", "<cmd>w<CR>", { desc = "Save file" })
 keymap("i", "<C-s>", "<Esc><cmd>w<CR>a", { desc = "Save file" })
 keymap("v", "<C-s>", "<Esc><cmd>w<CR>gv", { desc = "Save file" })
+
+keymap("n", "<leader>s", "<cmd>SudaWrite<CR>", { desc = "Save file as root" })
+
 keymap("n", "<leader>Q", "<Cmd>qa!<CR>", { desc = "Quit all" })
 keymap("n", "<leader>W", "<Cmd>wqa<CR>", { desc = "Save & quit all" })
 
 -- Tab navigations
 keymap("n", "<Tab>", "<Cmd>BufferLineCycleNext<CR>", { silent = true })
 keymap("n", "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", { silent = true })
-keymap("n", "<leader>tt", "<cmd>tab split<cr>", { desc = "Yank this buffer" })
+keymap("n", "<leader>tt", "<cmd>tab split<cr>", { desc = "Tab split" })
 
 -- Pane navigations
 keymap("n", "<C-h>", "<C-w>h", { silent = true, desc = "Move to left pane" })
