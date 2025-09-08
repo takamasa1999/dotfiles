@@ -130,3 +130,6 @@ export MANPAGER='nvim +Man!'
 
 # opencode
 export PATH=/Users/takamasa/.opencode/bin:$PATH
+
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
