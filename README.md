@@ -65,7 +65,8 @@ ln -s ~/dotfiles/opencode/opencode.json ~/.config/opencode/opencode.json
 ### Kitty
 
 ```bash
-ln -s ~/dotfiles/kitty ~/.config/kitty
+ln -s ~/dotfiles/kitty/kitty.conf ~/.config/kitty/kitty.conf
+ln -s ~/dotfiles/kitty/current-theme.conf ~/.config/kitty/current-theme.conf
 ```
 
 ### picom
