@@ -38,7 +38,7 @@ local lspconfig = {
 		local set = vim.keymap.set
 
 		-- Actions
-		set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP: Code action" })
+		set({ "n", "v" }, "ca", vim.lsp.buf.code_action, { desc = "LSP: Code action" })
 		set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "LSP: Rename symbol" })
 
 		-- Info

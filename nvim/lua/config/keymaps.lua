@@ -27,9 +27,9 @@ map("n", "]d", function()
 	vim.diagnostic.jump({ count = 1, float = true })
 end, { desc = "Next diagnostic (with float)" })
 
-
--- Modify or disable mapping as per NvChad standards
-map("t", "<C-x>", [[<C-\><C-n>]], { noremap = true, silent = true })
+-- Escape from terminal mode
+map("t", "<A-n>", [[<C-\><C-n>]], { noremap = true, silent = true })
+-- Escape from search
 map("n", "<Esc>", "<Cmd>nohlsearch<CR>", { silent = true })
 
 -- Search within selection

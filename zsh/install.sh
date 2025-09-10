@@ -2,28 +2,30 @@
 
 # Create alias of run command file
 if [ -e ~/.zshrc ]; then
-  echo "~/.zshrc already exists, aborting."
-  exit 1
+	echo "~/.zshrc already exists, aborting."
+	exit 1
 else
-  ln -s ~/dotfiles/zsh/zshrc ~/.zshrc
+	ln -s ~/dotfiles/zsh/zshrc ~/.zshrc
 fi
 
+oh_my_zsh_dir=~/.oh-my-zsh
 # Clone oh-my-zsh and extensions
-if [ -d ~/.oh-my-zsh ]; then
-  echo "~/.oh-my-zsh already exists, skipping clone."
+if [ -d $oh_my_zsh_dir ]; then
+	echo "~/.oh-my-zsh already exists, skipping clone."
 else
-  git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
+	git clone https://github.com/ohmyzsh/ohmyzsh.git $oh_my_zsh_dir
 fi
 
-if [ -d ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions ]; then
-  echo "zsh-autosuggestions already exists, skipping clone."
+zsh_autosuggestions_dir=~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+if [ -d $zsh_autosuggestions_dir ]; then
+	echo "zsh-autosuggestions already exists, skipping clone."
 else
-  git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+	git clone https://github.com/zsh-users/zsh-autosuggestions $zsh_autosuggestions_dir
 fi
 
-# if [ -d ~/.oh-my-zsh/custom/plugins/zsh-vi-mode ]; then
-#   echo "zsh-vi-mode already exists, skipping clone."
-# else
-#   git git clone https://github.com/jeffreytse/zsh-vi-mode $ZSH_CUSTOM/plugins/zsh-vi-mode
-# fi
-
+zsh_syntax_highlighting_dir=~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+if [ -d $zsh_syntax_highlighting_dir ]; then
+	echo "zsh-syntax-highlighting already exists, skipping clone."
+else
+	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $zsh_syntax_highlighting_dir
+fi
