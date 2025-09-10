@@ -1,46 +1,39 @@
-local keymap = vim.keymap.set
+local map = vim.keymap.set
 
 -- General keymaps
-keymap("n", "<leader>y", "<cmd>%y<cr>", { desc = "Yank this buffer" })
--- keymap("n", "<leader>d", "<cmd>%d<cr>", { desc = "Yank this buffer" })
+map("n", "<leader>y", "<cmd>%y<cr>", { desc = "Yank this buffer" })
 
--- Go to the latest buffer with <leader><Space>
-keymap("n", "<leader> ", "<C-^>", { desc = "Switch to last buffer" })
-keymap("n", "<C-s>", "<cmd>w<CR>", { desc = "Save file" })
-keymap("i", "<C-s>", "<Esc><cmd>w<CR>a", { desc = "Save file" })
-keymap("v", "<C-s>", "<Esc><cmd>w<CR>gv", { desc = "Save file" })
+-- Save
+map("n", "<leader> ", "<C-^>", { desc = "Switch to last buffer" })
+map("n", "<leader>w", "<cmd>w<CR>", { desc = "Write buffer" })
+map("n", "<leader>W", "<Cmd>wa<CR>", { desc = "Write all buffers" })
+map("n", "<leader>sw", "<cmd>SudaWrite<CR>", { desc = "Sudo write buffer" })
 
-keymap("n", "<leader>s", "<cmd>SudaWrite<CR>", { desc = "Save file as root" })
+map("n", "<leader>Q", "<Cmd>qa!<CR>", { desc = "Quit all" })
 
-keymap("n", "<leader>Q", "<Cmd>qa!<CR>", { desc = "Quit all" })
-keymap("n", "<leader>W", "<Cmd>wqa<CR>", { desc = "Save & quit all" })
-
--- Tab navigations
-keymap("n", "<Tab>", "<Cmd>BufferLineCycleNext<CR>", { silent = true })
-keymap("n", "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", { silent = true })
-keymap("n", "<leader>tt", "<C-w>T", { desc = "Break out into a new tab" })
+map("n", "<leader>tt", "<C-w>T", { desc = "Break out into a new tab" })
 
 -- Pane navigations
-keymap("n", "<C-h>", "<C-w>h", { silent = true, desc = "Move to left pane" })
-keymap("n", "<C-j>", "<C-w>j", { silent = true, desc = "Move to bottom pane" })
-keymap("n", "<C-k>", "<C-w>k", { silent = true, desc = "Move to top pane" })
-keymap("n", "<C-l>", "<C-w>l", { silent = true, desc = "Move to right pane" })
+map("n", "<C-h>", "<C-w>h", { silent = true, desc = "Move to left pane" })
+map("n", "<C-j>", "<C-w>j", { silent = true, desc = "Move to bottom pane" })
+map("n", "<C-k>", "<C-w>k", { silent = true, desc = "Move to top pane" })
+map("n", "<C-l>", "<C-w>l", { silent = true, desc = "Move to right pane" })
 
 -- Buffer navigations
-keymap("n", "[d", function()
+map("n", "[d", function()
 	vim.diagnostic.jump({ count = -1, float = true })
 end, { desc = "Previous diagnostic (with float)" })
-keymap("n", "]d", function()
+map("n", "]d", function()
 	vim.diagnostic.jump({ count = 1, float = true })
 end, { desc = "Next diagnostic (with float)" })
 
--- LSP things
-keymap("n", "ca", vim.lsp.buf.code_action, { desc = "LSP Code Action" })
-keymap("n", "<leader>r", vim.lsp.buf.rename, { desc = "Lsp rename" })
 
 -- Modify or disable mapping as per NvChad standards
-keymap("t", "<C-x>", [[<C-\><C-n>]], { noremap = true, silent = true })
-keymap("n", "<Esc>", "<Cmd>nohlsearch<CR>", { silent = true })
+map("t", "<C-x>", [[<C-\><C-n>]], { noremap = true, silent = true })
+map("n", "<Esc>", "<Cmd>nohlsearch<CR>", { silent = true })
 
 -- Search within selection
-keymap("x", "/", "<Esc>/\\%V")
+map("x", "/", "<Esc>/\\%V")
+
+-- Utilities
+map({ "n", "i", "x" }, "<A-t>", "<cmd>tabnew | terminal<cr>")

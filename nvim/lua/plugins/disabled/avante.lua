@@ -36,6 +36,26 @@ return {
 		or "make",
 	event = "VeryLazy",
 	version = "0.0.27", -- Never set this value to "*"! Never!
+	keys = function(_, keys)
+		---@type avante.Config
+		local opts =
+			require("lazy.core.plugin").values(require("lazy.core.config").spec.plugins["avante.nvim"], "opts", false)
+
+		local mappings = {
+			{
+				"<A-a>",
+				function()
+					require("avante.api").toggle()
+				end,
+				desc = "avante: ask",
+				mode = { "n", "v", "i" },
+			},
+		}
+		mappings = vim.tbl_filter(function(m)
+			return m[1] and #m[1] > 0
+		end, mappings)
+		return vim.list_extend(mappings, keys)
+	end,
 	---@module 'avante'
 	---@type avante.Config
 	opts = {
@@ -69,7 +89,7 @@ return {
 		windows = {
 			width = 50,
 			input = {
-				height = 11,
+				height = 10,
 			},
 		},
 	},

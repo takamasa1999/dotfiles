@@ -1,5 +1,5 @@
+-- https://github.com/amitds1997/remote-nvim.nvim/tree/v0.3.12
 return {
-	-- https://github.com/amitds1997/remote-nvim.nvim/tree/v0.3.12
 	"amitds1997/remote-nvim.nvim",
 	version = "0.3.12", -- Pin to GitHub releases
 	dependencies = {
@@ -8,6 +8,7 @@ return {
 		"nvim-telescope/telescope.nvim", -- For picking b/w different remote methods
 	},
 	config = function()
+		require("remote-nvim").setup({})
 		local keymap = vim.keymap.set
 		keymap("n", "<leader>R", "<Cmd>RemoteStart<CR>", { desc = "Remote" })
 	end,

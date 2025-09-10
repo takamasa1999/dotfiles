@@ -68,7 +68,8 @@ floating_modifier $mod
 
 # start a terminal
 # bindsym $mod+Return exec alacritty
-bindsym $mod+Return exec kitty start-tmux
+# bindsym $mod+Return exec kitty start-tmux
+bindsym $mod+Return exec alacritty -e start-tmux
 
 # kill focused window
 bindsym $mod+q split toggle kill

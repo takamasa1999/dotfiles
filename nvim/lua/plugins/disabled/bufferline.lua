@@ -9,7 +9,7 @@ return {
 		local bufferline = require("bufferline")
 		bufferline.setup({
 			options = {
-				mode = "buffers",
+				mode = "tabs",
 				separator_style = "slant",
 				-- offsets = {
 				-- 	{

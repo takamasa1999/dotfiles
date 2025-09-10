@@ -15,3 +15,6 @@ opt.number = true
 opt.relativenumber = true
 opt.termguicolors = true
 opt.ignorecase = false
+
+opt.clipboard = "unnamedplus"
+vim.g.clipboard = "osc52"

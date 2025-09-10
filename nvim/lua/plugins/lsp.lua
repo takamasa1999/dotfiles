@@ -33,6 +33,25 @@ local lspconfig = {
 			vim.lsp.config(name, config)
 			vim.lsp.enable(name)
 		end
+
+		-- LSP Keymaps (recommended convention)
+		local set = vim.keymap.set
+
+		-- Actions
+		set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP: Code action" })
+		set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "LSP: Rename symbol" })
+
+		-- Info
+		set("n", "K", vim.lsp.buf.hover, { desc = "LSP: Hover docs" })
+		set("i", "<C-s>", vim.lsp.buf.signature_help, { desc = "LSP: Signature help" })
+
+		-- Navigation
+		set("n", "gd", vim.lsp.buf.definition, { desc = "LSP: Go to definition" })
+		set("n", "gr", vim.lsp.buf.references, { desc = "LSP: References" })
+		set("n", "gi", vim.lsp.buf.implementation, { desc = "LSP: Implementation" })
+		set("n", "gD", vim.lsp.buf.type_definition, { desc = "LSP: Type definition" })
+		set("n", "gO", vim.lsp.buf.document_symbol, { desc = "LSP: Document symbols" })
+		set("n", "<leader>ws", vim.lsp.buf.workspace_symbol, { desc = "LSP: Workspace symbols" })
 	end,
 }
 
