@@ -1,13 +1,15 @@
 #!/bin/bash
 
-# Create alias of run command file
-if [ -e ~/.zshrc ]; then
-	echo "~/.zshrc already exists, aborting."
-	exit 1
-else
-	ln -s ~/dotfiles/zsh/zshrc ~/.zshrc
+zsh_common_source='source $HOME/dotfiles/zsh/common.zsh'
+zshrc_dir="$HOME/.zshrc"
+
+# Add commoon settings
+if ! grep -Fxq "$zsh_common_source" "$zshrc_dir"; then
+	echo "$zsh_common_source" >>"$zshrc_dir"
 fi
 
+
+# Add plugins
 oh_my_zsh_dir=~/.oh-my-zsh
 # Clone oh-my-zsh and extensions
 if [ -d $oh_my_zsh_dir ]; then
