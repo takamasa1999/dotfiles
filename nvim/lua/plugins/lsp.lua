@@ -28,6 +28,10 @@ local lspconfig = {
 			marksman = {},
 			basedpyright = {},
 			pyright = {},
+			dockerls = {},
+			yamlls = {},
+			-- docker_compose_language_service = {},
+			-- docker_language_server = {},
 		}
 		for name, config in pairs(servers) do
 			vim.lsp.config(name, config)

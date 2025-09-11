@@ -48,7 +48,9 @@ local function smartclose(force)
 		return
 	end
 
-	quit_neovim(force or vim.bo.modified)
+	if force then
+		quit_neovim(force)
+	end
 end
 
 -- command (debug)
@@ -66,5 +68,9 @@ local set = vim.keymap.set
 -- end, { desc = "force quit" })
 
 -- Probably, I don't need this anyomore...
-set({ "n", "i", "v", "c" }, "<C-q>", "<cmd>bd<cr>", { desc = "quit" })
-set({ "n", "i", "v", "c" }, "<S-q>", "<cmd>bd!<cr>", { desc = "force quit" })
+set({ "n", "i", "v", "c" }, "<C-q>",function ()
+	smartclose(false)
+end, { desc = "Buffer delete" })
+set({ "n", "i", "v", "c" }, "<S-q>",function ()
+	smartclose(true)
+end, { desc = "Force buffer delete" })

@@ -1,13 +1,13 @@
 local map = vim.keymap.set
 
 -- General keymaps
-map("n", "<leader>y", "<cmd>%y<cr>", { desc = "Yank this buffer" })
+-- map("n", "<leader>y", "<cmd>%y<cr>", { desc = "Yank this buffer" })
 
 -- Save
-map("n", "<leader> ", "<C-^>", { desc = "Switch to last buffer" })
-map("n", "<leader>w", "<cmd>w<CR>", { desc = "Write buffer" })
-map("n", "<leader>W", "<Cmd>wa<CR>", { desc = "Write all buffers" })
-map("n", "<leader>sw", "<cmd>SudaWrite<CR>", { desc = "Sudo write buffer" })
+map("n", "<A-Tab>", "<C-^>", { desc = "Switch to last buffer" })
+map("n", "<C-s>", "<cmd>w<CR>", { desc = "Write buffer" })
+-- map("n", "<leader>W", "<Cmd>wa<CR>", { desc = "Write all buffers" })
+map("n", "<leader>S", "<cmd>SudaWrite<CR>", { desc = "Sudo write buffer" })
 
 map("n", "<leader>Q", "<Cmd>qa!<CR>", { desc = "Quit all" })
 
@@ -28,7 +28,7 @@ map("n", "]d", function()
 end, { desc = "Next diagnostic (with float)" })
 
 -- Escape from terminal mode
-map("t", "<A-n>", [[<C-\><C-n>]], { noremap = true, silent = true })
+map("t", "<C-\\>", [[<C-\><C-n>]], { noremap = true, silent = true })
 -- Escape from search
 map("n", "<Esc>", "<Cmd>nohlsearch<CR>", { silent = true })
 

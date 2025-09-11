@@ -14,6 +14,7 @@ return {
 				javascript = { "prettier" },
 				python = { "black" },
 				json = { "prettier" },
+				yaml = { "prettier" },
 			},
 			format_on_save = nil,
 		})
