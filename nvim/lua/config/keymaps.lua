@@ -1,23 +1,23 @@
+-- Ptabnexerincipal. Keep it minimal. Add what you really use.
 local map = vim.keymap.set
-
--- General keymaps
--- map("n", "<leader>y", "<cmd>%y<cr>", { desc = "Yank this buffer" })
 
 -- Save
 map("n", "<A-Tab>", "<C-^>", { desc = "Switch to last buffer" })
 map("n", "<C-s>", "<cmd>w<CR>", { desc = "Write buffer" })
--- map("n", "<leader>W", "<Cmd>wa<CR>", { desc = "Write all buffers" })
 map("n", "<leader>S", "<cmd>SudaWrite<CR>", { desc = "Sudo write buffer" })
-
 map("n", "<leader>Q", "<Cmd>qa!<CR>", { desc = "Quit all" })
 
-map("n", "<leader>tt", "<C-w>T", { desc = "Break out into a new tab" })
+-- map("n", "<C-w>t", "<C-w>T", { desc = "Break out into a new tab" })
 
 -- Pane navigations
 map("n", "<C-h>", "<C-w>h", { silent = true, desc = "Move to left pane" })
 map("n", "<C-j>", "<C-w>j", { silent = true, desc = "Move to bottom pane" })
 map("n", "<C-k>", "<C-w>k", { silent = true, desc = "Move to top pane" })
 map("n", "<C-l>", "<C-w>l", { silent = true, desc = "Move to right pane" })
+
+-- Tab navigations
+map("n", "<Tab>", "<cmd>tabnext<cr>", { silent = true, desc = "Next tab" })
+map("n", "<S-Tab>", "<cmd>tabprevious<cr>", { silent = true, desc = "Next tab" })
 
 -- Buffer navigations
 map("n", "[d", function()

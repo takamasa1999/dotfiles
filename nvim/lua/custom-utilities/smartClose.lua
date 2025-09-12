@@ -60,17 +60,10 @@ end
 
 -- keymaps
 local set = vim.keymap.set
--- set({ "n", "i", "v", "c" }, "<C-q>", function()
--- 	smartclose(false)
--- end, { desc = "quit" })
--- set({ "n", "i", "v", "c" }, "<S-q>", function()
--- 	smartclose(true)
--- end, { desc = "force quit" })
-
 -- Probably, I don't need this anyomore...
-set({ "n", "i", "v", "c" }, "<C-q>",function ()
+set({ "n" }, "<C-q>", function()
 	smartclose(false)
 end, { desc = "Buffer delete" })
-set({ "n", "i", "v", "c" }, "<S-q>",function ()
+set({ "n" }, "<S-q>", function()
 	smartclose(true)
 end, { desc = "Force buffer delete" })

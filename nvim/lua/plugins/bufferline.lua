@@ -21,11 +21,11 @@ return {
 				-- },
 				show_buffer_close_icons = false,
 				show_close_icon = false,
-				always_show_bufferline = true,
-				show_tab_indicators = true,
-
-				enforce_regular_tabs = true,
-				persist_buffer_sort = false,
+				-- always_show_bufferline = true,
+				-- show_tab_indicators = true,
+				--
+				-- enforce_regular_tabs = true,
+				-- persist_buffer_sort = false,
 			},
 		})
 	end,

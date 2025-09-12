@@ -175,7 +175,7 @@ https://www.reddit.com/r/i3wm/comments/4tw1jn/tip_quasi_alternatingfibonacci_lay
 
 - [Project wide renaming](https://www.youtube.com/watch?v=9JCsPsdeflY&t=215s)
 
-### How to keep remote sessions alive on Tmux
+### How to keep remote sessions alive (mosh)
 
 For better connectivity and resilience against unstable networks, I use Mosh instead of plain SSH.
 

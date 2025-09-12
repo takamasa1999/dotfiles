@@ -26,11 +26,6 @@ return {
 				sorting_strategy = "ascending",
 				wrap_results = true,
 			},
-			mappings = {
-				n = {
-					["<d>"] = require("telescope.actions").delete_buffer,
-				},
-			},
 		})
 
 		-- Wrap text on the preview window
@@ -47,31 +42,25 @@ return {
 
 		-- Keymaps
 		local builtin = require("telescope.builtin")
-		local extensions = require("telescope").extensions
-		local keymap = vim.keymap.set
-		keymap("n", "<leader>ff", builtin.find_files, { desc = "Telescope find files" })
-		keymap("n", "<leader>fg", builtin.live_grep, { desc = "Telescope live grep" })
-		keymap("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" })
-		keymap("n", "<leader>fc", builtin.commands, { desc = "Telescope commands" })
-		keymap("n", "<leader>fbf", builtin.commands, { desc = "Telescope buffer files" })
-		-- keymap(
-		-- 	{ "n", "i", "v" },
-		-- 	"<A-b>",
-		-- 	"<cmd>Telescope buffers initial_mode=normal<cr>",
-		-- 	{ desc = "Telescope buffer files" }
-		-- )
-		keymap({ "n", "i", "v" }, "<A-b>", function()
+		-- local extensions = require("telescope").extensions
+		local map = vim.keymap.set
+		map("n", "<leader>ff", builtin.find_files, { desc = "Telescope find files" })
+		map("n", "<leader>fg", builtin.live_grep, { desc = "Telescope live grep" })
+		map("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" })
+		map("n", "<leader>fc", builtin.commands, { desc = "Telescope commands" })
+		map("n", "<leader>fbf", builtin.commands, { desc = "Telescope buffer files" })
+		map({ "n", "i", "v" }, "<A-b>", function()
 			builtin.buffers({ initial_mode = "normal", sort_lastused = true, sort_mru = true })
 		end, { desc = "Telescope buffer files" })
-		keymap("n", "<C-b>", "<cmd>Telescope buffers initial_mode=normal<cr>", { desc = "Telescope buffer files" })
-		keymap("n", "<leader>fbg", function()
+		map("n", "<C-b>", "<cmd>Telescope buffers initial_mode=normal<cr>", { desc = "Telescope buffer files" })
+		map("n", "<leader>fbg", function()
 			builtin.live_grep({
 				grep_open_files = true,
 				prompt_title = "Live Grep in Open Buffers",
 			})
 		end, { desc = "Telescope buffer grep" })
-		keymap("n", "<leader>fof", builtin.oldfiles, { desc = "Telescope oldfiles" })
-		keymap("n", "<leader>fog", extensions.live_grep_oldfiles.find, { desc = "Telescope oldfiles live grep" })
+		map("n", "<leader>fof", builtin.oldfiles, { desc = "Telescope oldfiles" })
+		-- keymap("n", "<leader>fog", extensions.live_grep_oldfiles.find, { desc = "Telescope oldfiles live grep" })
 		-- keymap("n", "<leader>fp", extensions.project.project, { desc = "Telescope project switcher" })
 		-- keymap("n", "gd", builtin.lsp_definitions, { desc = "Go to lsp definition" })
 		-- keymap("n", "gr", builtin.lsp_references, { desc = "Go to lsp references" })

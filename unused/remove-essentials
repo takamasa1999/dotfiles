@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/usr/bin/bash
 
 rm -rf ~/.config/nvim
 rm -rf ~/.local/state/nvim
@@ -6,4 +6,3 @@ rm -rf ~/.local/share/nvim
 
 # This line doesn't work. Running from zsh might be requiried
 uninstall_oh_my_zsh
-rm ~/.zshrc
