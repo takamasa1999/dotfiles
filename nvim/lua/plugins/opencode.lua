@@ -1,3 +1,4 @@
+-- https://github.com/NickvanDyke/opencode.nvim
 return {
 	"NickvanDyke/opencode.nvim",
 	dependencies = {
