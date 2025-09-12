@@ -1,0 +1,4 @@
+#!/bin/zsh
+
+xinput enable "keyd virtual keyboard"
+brightnessctl --device='asus::kbd_backlight' s 3

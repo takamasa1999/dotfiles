@@ -1,0 +1,5 @@
+#!/bin/zsh
+
+xinput disable "keyd virtual keyboard"
+brightnessctl --device='asus::kbd_backlight' s 0
+xinput disable "ELAN1201:00 04F3:3098 Touchpad"

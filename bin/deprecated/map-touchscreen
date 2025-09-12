@@ -1,0 +1,9 @@
+#!/bin/bash
+TOUCH_DEVICE="ELAN9008:00 04F3:2C82"
+OUTPUT="eDP"
+
+# Ensure correct display and auth for X11
+export DISPLAY=:0
+export XAUTHORITY=/home/takamasa/.Xauthority
+
+/usr/bin/xinput map-to-output "$TOUCH_DEVICE" "$OUTPUT"

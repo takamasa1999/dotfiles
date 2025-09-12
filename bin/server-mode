@@ -1,8 +1,10 @@
 #!/bin/bash
 
 xrandr --output eDP --off
-
+brightnessctl --device='asus::kbd_backlight' s 0
+#
 # Wait for Enter key press to terminate the script
-read -r -p "Press Enter to end the process..."
+read
 
 xrandr --output eDP --auto
+brightnessctl --device='asus::kbd_backlight' s 3

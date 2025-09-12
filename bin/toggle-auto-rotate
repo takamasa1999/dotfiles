@@ -1,0 +1,16 @@
+#!/bin/bash
+
+SERVICE="auto-rotate"
+
+# Check if the service is active
+if systemctl --user is-active --quiet "$SERVICE"; then
+    # Stop and disable
+    systemctl --user stop "$SERVICE"
+    systemctl --user disable "$SERVICE"
+    notify-send -r 9998 "Auto rotate is OFF"
+else
+    # Start and enable
+    systemctl --user enable "$SERVICE"
+    systemctl --user start "$SERVICE"
+    notify-send -r 9998 "Auto rotate is ON"
+fi

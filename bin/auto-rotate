@@ -1,0 +1,42 @@
+#!/bin/zsh
+
+DISPLAY_NAME="eDP"
+
+DEBOUNCE_TIME=1
+
+function rotate() {
+	local ori=$1
+
+	xrandr --output "$DISPLAY_NAME" --rotate "$ori"
+	xinput map-to-output "ELAN9008:00 04F3:2C82" eDP
+	# The orientation of connected input devices is adjusted automatically during autorandr's postswitch and predetect stages.
+}
+
+pending_orientation=""
+debounce_pid=""
+
+function schedule_rotation() {
+	if [[ -n "$debounce_pid" && -e /proc/$debounce_pid ]]; then
+		kill "$debounce_pid" 2>/dev/null
+	fi
+	(
+		sleep "$DEBOUNCE_TIME"
+		case $pending_orientation in
+		normal) rotate normal && enable-keyboard ;;
+		inverted) rotate inverted && disable-keyboard-touchpad ;;
+		left) rotate left && disable-keyboard-touchpad ;;
+		right) rotate right && disable-keyboard-touchpad ;;
+		esac
+	) &
+	debounce_pid=$!
+}
+
+monitor-sensor | while IFS= read -r line; do
+	case $line in
+	*normal*) pending_orientation="normal" ;;
+	*bottom-up*) pending_orientation="inverted" ;;
+	*left-up*) pending_orientation="left" ;;
+	*right-up*) pending_orientation="right" ;;
+	esac
+	schedule_rotation
+done

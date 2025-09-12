@@ -1,0 +1,17 @@
+#!/bin/zsh
+
+DEVICE="ELAN1201:00 04F3:3098 Touchpad"
+ID=9997
+# Get current state (0 = disabled, 1 = enabled)
+STATE=$(xinput list-props "$DEVICE" | grep "Device Enabled" | awk '{print $4}')
+
+if [ "$STATE" -eq 1 ]; then
+    xinput disable "$DEVICE"
+    notify-send -r $ID -u critical "Touchpad Disabled" 
+    pkill unclutter
+    unclutter --hide-on-touch --start-hidden &
+else
+    xinput enable "$DEVICE"
+    notify-send -r $ID "Touchpad Enabled" 
+    pkill unclutter
+fi

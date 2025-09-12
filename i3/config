@@ -20,7 +20,7 @@ exec --no-startup-id udiskie -s
 # To launch a new instance of SpeechNote, all orphaned processes must be killed first (bug)
 exec --no-startup-id pkill -f dsnote
 exec --no-startup-id flatpak run net.mkiol.SpeechNote
-bindsym 0xffc9 exec flatpak run net.mkiol.SpeechNote --action start-listening-clipboard
+bindsym Mod1+0x60 exec flatpak run net.mkiol.SpeechNote --action start-listening-clipboard
 
 exec --no-startup-id feh --no-fehbg --bg-fill /usr/share/backgrounds/capybara-1599766_1920.jpg
 exec --no-startup-id xkbset bo 50

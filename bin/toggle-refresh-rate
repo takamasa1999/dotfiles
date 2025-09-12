@@ -1,0 +1,9 @@
+#!/bin/zsh
+
+rate=$(current-refresh-rate)
+
+if [[ "$rate" == "120hz" ]]; then
+	eDP-60hz
+elif [[ "$rate" == "60hz" ]]; then
+	eDP-120hz
+fi
