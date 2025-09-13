@@ -1,0 +1,4 @@
+#!/bin/bash
+
+xrandr --output eDP --off
+brightnessctl --device='asus::kbd_backlight' s 0

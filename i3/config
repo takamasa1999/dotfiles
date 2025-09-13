@@ -49,11 +49,13 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
-# Use pactl to adjust volume in PulseAudio.
+# Sound Control
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id  pamixer --increase 5 && $refresh_i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id  pamixer --decrease 5 && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym Shift+XF86AudioRaiseVolume exec --no-startup-id pamixer --default-source --increase 5 && $refresh_i3status
+bindsym Shift+XF86AudioLowerVolume exec --no-startup-id pamixer --default-source --decrease 5 && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 # User defined
@@ -235,10 +237,12 @@ mode "move" {
 }
 
 # Brightness adjustment
-bindsym 0x1008ff03 exec brightnessctl set 5%- 
-bindsym 0x1008ff02 exec brightnessctl set 5%+ 
-bindsym 0x1008ff05 exec brightnessctl  --device='asus::kbd_backlight' s 1+
-bindsym 0x1008ff06 exec brightnessctl  --device='asus::kbd_backlight' s 1-
+bindsym 0x1008ff03 exec brightnessctl set 5%-
+bindsym 0x1008ff02 exec brightnessctl set 5%+
+bindsym Shift+0x1008ff03 exec server-mode-on
+bindsym Shift+0x1008ff02 exec server-mode-off
+bindsym 0x1008ff05 exec brightnessctl --device='asus::kbd_backlight' s 1+
+bindsym 0x1008ff06 exec brightnessctl --device='asus::kbd_backlight' s 1-
 
 bindsym $mod+Tab workspace back_and_forth
 
