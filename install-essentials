@@ -5,4 +5,10 @@
 
 # neovim
 mkdir -p "$HOME"/.config
-ln -s "$HOME"/dotfiles/nvim "$HOME"/.config/nvim
+
+nvim_dir="$HOME"/.config/nvim
+if [ -d "$nvim_dir" ]; then
+	echo "Neovim config dir already exists, skipping making alias."
+else
+	ln -s "$HOME"/dotfiles/nvim "$nvim_dir"
+fi

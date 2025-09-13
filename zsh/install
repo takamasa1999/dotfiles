@@ -13,7 +13,7 @@ fi
 oh_my_zsh_dir="$HOME/.oh-my-zsh"
 # Clone oh-my-zsh and extensions
 if [ -d "$oh_my_zsh_dir" ]; then
-	echo "{$HOME}/.oh-my-zsh already exists, skipping clone."
+	echo "oh-my-zsh already exists, skipping clone."
 else
 	git clone https://github.com/ohmyzsh/ohmyzsh.git "$oh_my_zsh_dir"
 fi
