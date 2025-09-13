@@ -1,0 +1,40 @@
+#!/bin/bash
+
+zsh_common_source="source $HOME/dotfiles/zsh/common.zsh"
+zshrc_dir="$HOME/.zshrc"
+omz_plugins_dir="$HOME/.oh-my-zsh/custom/plugins"
+
+# Add commoon settings
+if ! grep -Fxq "$zsh_common_source" "$zshrc_dir"; then
+	echo "$zsh_common_source" >>"$zshrc_dir"
+fi
+
+# Add plugins
+oh_my_zsh_dir="$HOME/.oh-my-zsh"
+# Clone oh-my-zsh and extensions
+if [ -d "$oh_my_zsh_dir" ]; then
+	echo "{$HOME}/.oh-my-zsh already exists, skipping clone."
+else
+	git clone https://github.com/ohmyzsh/ohmyzsh.git "$oh_my_zsh_dir"
+fi
+
+zsh_autosuggestions_dir="$omz_plugins_dir/zsh-autosuggestions"
+if [ -d "$zsh_autosuggestions_dir" ]; then
+	echo "zsh-autosuggestions already exists, skipping clone."
+else
+	git clone https://github.com/zsh-users/zsh-autosuggestions "$zsh_autosuggestions_dir"
+fi
+
+zsh_syntax_highlighting_dir="$omz_plugins_dir/zsh-syntax-highlighting"
+if [ -d "$zsh_syntax_highlighting_dir" ]; then
+	echo "zsh-syntax-highlighting already exists, skipping clone."
+else
+	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$zsh_syntax_highlighting_dir"
+fi
+
+zsh_vi_mode_dir="$omz_plugins_dir/zsh-vi-mode"
+if [ -d "$zsh_vi_mode_dir" ]; then
+	echo "zsh-vi-mode already exists, skipping clone."
+else
+	git clone https://github.com/jeffreytse/zsh-vi-mode "$zsh_vi_mode_dir"
+fi

@@ -1,5 +1,8 @@
 #!/bin/bash
 
-~/dotfiles/zsh/install.sh
-mkdir -p ~/.config
-ln -s ~/dotfiles/nvim ~/.config/nvim
+# zsh
+"$HOME"/dotfiles/zsh/install
+
+# neovim
+mkdir -p "$HOME"/.config
+ln -s "$HOME"/dotfiles/nvim "$HOME"/.config/nvim
