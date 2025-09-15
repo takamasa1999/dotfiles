@@ -5,16 +5,25 @@
 -- 	priority = 1000,
 -- 	opts = {},
 -- 	config = function()
--- 		vim.cmd.colorscheme("tokyonight-day")
+-- 		vim.cmd.colorscheme("tokyonight")
 -- 	end,
 -- }
 
+-- return {
+-- 	"catppuccin/nvim",
+-- 	name = "catppuccin",
+-- 	priority = 1000,
+--
+-- 	config = function()
+-- 		vim.cmd.colorscheme("catppuccin-mocha")
+-- 	end,
+-- }
+--
 return {
-	"catppuccin/nvim",
-	name = "catppuccin",
+	"scottmckendry/cyberdream.nvim",
+	lazy = false,
 	priority = 1000,
-
 	config = function()
-		vim.cmd.colorscheme("catppuccin-mocha")
+		vim.cmd.colorscheme("cyberdream-light")
 	end,
 }
