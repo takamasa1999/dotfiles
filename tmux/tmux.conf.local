@@ -83,7 +83,7 @@ tmux_conf_24b_colour=true
 #   - tmux_conf_theme_mouse
 #   - tmux_conf_theme_root
 #   - tmux_conf_theme_synchronized
-tmux_conf_theme=enabled
+tmux_conf_theme=disabled
 
 # default theme
 # tmux_conf_theme_colour_1="#080808"    # dark gray
@@ -293,7 +293,7 @@ tmux_conf_theme_pairing_attr="none"
 
 # prefix indicator
 tmux_conf_theme_prefix="⌨"                  # U+2328
-tmux_conf_theme_prefix_fg="none"
+tmux_conf_theme_prefix_fg=$tmux_conf_theme_colour_17
 tmux_conf_theme_prefix_bg="none"
 tmux_conf_theme_prefix_attr="none"
 
@@ -390,7 +390,7 @@ tmux_conf_urlscan_options="--compact --dedupe"
 #set -g history-limit 10000
 
 # start with mouse mode enabled
-#set -g mouse on
+set -g mouse on
 
 # force Vi mode
 #   really you should export VISUAL or EDITOR environment variable, see manual
@@ -460,7 +460,8 @@ set -g @plugin 'tmux-plugins/tmux-continuum'
 set -g @continuum-restore 'on'
 # https://github.com/alexwforsythe/tmux-which-key
 set -g @plugin 'alexwforsythe/tmux-which-key'
-
+# https://github.com/MunifTanjim/tmux-mode-indicator 
+set -g @plugin 'MunifTanjim/tmux-mode-indicator'
 # -- custom variables ----------------------------------------------------------
 
 # to define a custom #{foo} variable, define a POSIX shell function between the
@@ -533,9 +534,13 @@ bind -n M-8 select-window -t 8
 bind -n M-9 select-window -t 9
 bind -n M-0 select-window -t 10
 
-set -g default-terminal "tmux-256color"
-set -ag terminal-overrides ",xterm-256color:RGB"
 
-set -g allow-passthrough on
-set -ga update-environment TERM
-set -ga update-environment TERM_PROGRAM
+set -g @catppuccin_flavor 'cyberdream'
+set -g @catppuccin_window_text "#W"
+set -g @catppuccin_window_current_text "#W"
+
+run ~/.config/tmux/plugins/catppuccin/tmux/catppuccin.tmux
+
+set -g status-right '#{tmux_mode_indicator}'
+set -g allow-rename off
+set -g automatic-rename off

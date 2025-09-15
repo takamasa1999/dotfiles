@@ -21,13 +21,12 @@ local tree = {
 				root_folder_modifier = false,
 			},
 			view = {
-				-- relativenumber = true,
-				width = 40,
+				relativenumber = true,
+				width = 50,
 			},
 		})
 
 		local keymap = vim.keymap.set
-		-- keymap("n", "<leader>e", "<Cmd>NvimTreeToggle<CR>", { desc = "Toggle explorer" })
 		keymap({ "n", "i", "v" }, "<A-e>", "<esc><Cmd>NvimTreeToggle<CR>", { desc = "Toggle explorer" })
 	end,
 }
@@ -39,7 +38,6 @@ local oil = {
 	opts = {},
 	-- Optional dependencies
 	dependencies = { { "echasnovski/mini.icons", opts = {} } },
-	-- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
 	-- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
 	lazy = false,
 	config = function()
