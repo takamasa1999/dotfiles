@@ -21,8 +21,8 @@ local tree = {
 				root_folder_modifier = false,
 			},
 			view = {
-				relativenumber = true,
-				width = 50,
+				-- relativenumber = true,
+				width = 40,
 			},
 		})
 

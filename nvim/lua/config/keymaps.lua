@@ -27,6 +27,8 @@ map("n", "]d", function()
 end, { desc = "Next diagnostic (with float)" })
 
 -- Escape from terminal mode
+-- joasdjfoasfjd
+--
 map("t", "<C-\\>", [[<C-\><C-n>]], { noremap = true, silent = true })
 -- Escape from search
 map("n", "<Esc>", "<Cmd>nohlsearch<CR>", { silent = true })

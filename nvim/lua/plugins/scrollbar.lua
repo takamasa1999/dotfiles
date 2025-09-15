@@ -1,5 +1,5 @@
+-- https://github.com/petertriho/nvim-scrollbar
 return {
-	-- https://github.com/petertriho/nvim-scrollbar
 	"petertriho/nvim-scrollbar",
 	dependencies = {
 		"kevinhwang91/nvim-hlslens",
@@ -7,11 +7,8 @@ return {
 	config = function()
 		local colors = require("cyberdream.colors").light
 		require("scrollbar").setup({
-			-- handle = {
-			-- 	color = colors.bg_highlight,
-			-- },
 			marks = {
-				-- Search = { color = colors.orange },
+				Search = { color = colors.blue },
 				-- Error = { color = colors.error },
 				-- Warn = { color = colors.warning },
 				-- Info = { color = colors.info },
@@ -19,5 +16,6 @@ return {
 				-- Misc = { color = colors.purple },
 			},
 		})
+		require("scrollbar.handlers.search").setup()
 	end,
 }

@@ -12,7 +12,7 @@ o.linebreak = true
 -- o.background = "light"
 
 opt.number = true
-opt.relativenumber = true
+-- opt.relativenumber = true
 opt.termguicolors = true
 opt.ignorecase = false
 

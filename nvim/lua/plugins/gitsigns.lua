@@ -13,6 +13,7 @@ return {
 				untracked = { text = "?" },
 			},
 		})
+
 		-- lsp_document_symbols
 		local gs = require("gitsigns")
 		local keymap = vim.keymap.set
@@ -21,6 +22,6 @@ return {
 		keymap("n", "]c", "<Cmd>Gitsigns nav_hunk next<CR>", { desc = "Next hunk" })
 		keymap("n", "gb", gs.blame_line, { desc = "Git blame line" })
 		keymap("n", "<leader>gb", gs.blame, { desc = "Git blame file" })
-		keymap("n", "gp", gs.preview_hunk, { desc = "Git preview hunk" })
+		keymap("n", "gh", gs.preview_hunk, { desc = "Git preview hunk" })
 	end,
 }
