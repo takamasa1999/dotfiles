@@ -18,3 +18,27 @@ opt.ignorecase = false
 
 opt.clipboard = "unnamedplus"
 vim.g.clipboard = "osc52"
+
+vim.api.nvim_create_autocmd("TermOpen", {
+	callback = function()
+		-- avoide opencode terminal to be applied
+		if vim.bo.filetype == "opencode_terminal" then
+			return
+		end
+		vim.opt_local.relativenumber = true
+	end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "help",
+	callback = function()
+		vim.opt_local.relativenumber = true
+	end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "man",
+	callback = function()
+		vim.opt_local.relativenumber = true
+	end,
+})
