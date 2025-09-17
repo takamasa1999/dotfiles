@@ -11,7 +11,7 @@ local tree = {
 			respect_buf_cwd = true, -- respect buffer cwd
 			update_focused_file = {
 				enable = true,
-				update_root = true, -- update root to the file's project root
+				-- update_root = true, -- update root to the file's project root
 			},
 			filters = {
 				dotfiles = false,

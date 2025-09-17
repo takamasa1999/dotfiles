@@ -22,6 +22,7 @@ local mason_tool_installer = {
 				"stylua",
 				"prettier",
 				"shfmt",
+				"black", -- Python formatter
 				"markdown-toc",
 
 				-- linters
