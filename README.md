@@ -25,8 +25,8 @@ If you're referencing this repository, make sure to double-check whether the com
     * [How to configure displays](#how-to-configure-displays)
     * [Key Events](#key-events)
     * [How to Fibonacci Layout on i3?](#how-to-fibonacci-layout-on-i3)
-    * [Nvim tutorials](#nvim-tutorials)
-    * [How to keep remote sessions alive on Tmux](#how-to-keep-remote-sessions-alive-on-tmux)
+    * [Nvim](#nvim-1)
+    * [How to keep remote sessions alive (mosh)](#how-to-keep-remote-sessions-alive-mosh)
 
 <!-- tocstop -->
 
@@ -171,8 +171,8 @@ Used [keyd(https://github.com/rvaiya/keyd) to remap capslock to escape when pres
 
 https://www.reddit.com/r/i3wm/comments/4tw1jn/tip_quasi_alternatingfibonacci_layout/
 
-### Nvim tutorials
-
+### Nvim
+- [Install latest build on Linux (Useful when you are working on Ubuntu)](https://github.com/neovim/neovim/blob/master/INSTALL.md#linux)
 - [Project wide renaming](https://www.youtube.com/watch?v=9JCsPsdeflY&t=215s)
 
 ### How to keep remote sessions alive (mosh)
