@@ -5,13 +5,22 @@ return {
 	event = "InsertEnter",
 	opts = {
 		suggestion = {
-			enabled = false,
+			enabled = true,
 			auto_trigger = true,
+			keymap = {
+				accept = "<M-y>",
+				accept_word = "<M-w>",
+				accept_line = "<M-l>",
+				next = "<M-n>",
+				prev = "<M-p>",
+				dismiss = "<M-x>",
+			},
 		},
-		panel = { enabled = false },
+		panel = { enabled = true },
 		filetypes = {
 			markdown = true,
-			help = true,
+			tex = true,
+			-- ["*"] = false,
 		},
 	},
 }

@@ -3,12 +3,16 @@ return {
 	"saghen/blink.cmp",
 	-- https://github.com/fang2hou/blink-copilot
 	dependencies = {
-		"fang2hou/blink-copilot",
+		-- {
+		-- 	"fang2hou/blink-copilot",
+		-- 	version = "1.4.1",
+		-- },
+
 		"rafamadriz/friendly-snippets",
 	},
 	-- optional = true,
 
-	version = "1.6.0",
+	version = "1.7.0",
 	---@module 'blink.cmp'
 	---@type blink.cmp.Config
 	opts = {
@@ -63,18 +67,18 @@ return {
 			default = {
 				"lsp",
 				"path",
-				"copilot",
+				-- "copilot",
 				"snippets",
 				"buffer",
 			},
-			providers = {
-				copilot = {
-					name = "copilot",
-					module = "blink-copilot",
-					score_offset = 100,
-					async = true,
-				},
-			},
+			-- providers = {
+			-- 	copilot = {
+			-- 		name = "copilot",
+			-- 		module = "blink-copilot",
+			-- 		score_offset = 100,
+			-- 		async = true,
+			-- 	},
+			-- },
 		},
 
 		-- (Default) Rust fuzzy matcher for typo resistance and significantly better performance

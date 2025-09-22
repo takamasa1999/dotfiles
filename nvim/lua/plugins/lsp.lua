@@ -30,6 +30,7 @@ local lspconfig = {
 			pyright = {},
 			dockerls = {},
 			yamlls = {},
+			texlab = {},
 			-- docker_compose_language_service = {},
 			-- docker_language_server = {},
 		}

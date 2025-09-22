@@ -15,6 +15,7 @@ return {
 				python = { "black" },
 				json = { "prettier" },
 				yaml = { "prettier" },
+				tex = { "tex-fmt" },
 			},
 			format_on_save = nil,
 		})
