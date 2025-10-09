@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+export TEXT_WHITE=0xffffffff
+export TEXT_GREY=0xff000000
+# export TEXT_RED=0xfffe4f4e
+export TEXT_RED=0xffff0000
+export BACKGROUND=0xffb8e986
+export BACKGROUND_DARK=0xff000000
+export BACKGROUND_DARKER=0xff000000
+export HIGHLIGHT_BACKGROUND=0xff000000
+export TRANSPARENT=0x00000000
+export TEXT_ORANGE=0xffDFA04B
+export BACKGROUND_RED=0xffd0021b
+export BACKGROUND_BLUE=0xff4a90e2

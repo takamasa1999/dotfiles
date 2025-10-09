@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+source "$CONFIG_DIR/plugins/utils"
+
+# Update the previous workspace
+if [ "$SENDER" = "aerospace_workspace_change" ]; then
+	prev_apps=$(aerospace list-windows --workspace "$PREV_WORKSPACE" --format "%{app-name}")
+
+	label=$(create_app_label "$prev_apps")
+	sketchybar --set space.$PREV_WORKSPACE label="$label"
+
+	# if [ "${prev_apps}" != "" ]; then
+	# 	label=$(create_app_label "$prev_apps")
+	# 	sketchybar --set space.$PREV_WORKSPACE drawing=on label="$label"
+	# else
+	# 	sketchybar --set space.$PREV_WORKSPACE drawing=on label=""
+	# fi
+fi
+
+# Update the focused workspace
+FOCUSED_WORKSPACE="$(aerospace list-workspaces --focused)"
+focused_apps=$(aerospace list-windows --workspace "$FOCUSED_WORKSPACE" --format "%{app-name}")
+label=$(create_app_label "$focused_apps")
+sketchybar --set space.$FOCUSED_WORKSPACE label="$label"

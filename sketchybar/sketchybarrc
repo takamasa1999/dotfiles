@@ -1,0 +1,59 @@
+#!/usr/bin/env bash
+
+PLUGIN_DIR="$CONFIG_DIR/plugins"
+source "$PLUGIN_DIR/color"
+source "$PLUGIN_DIR/utils"
+
+sketchybar --bar position=top display=main height=24 color=$TRANSPARENT
+
+default=(
+	icon.font="JetBrainsMono Nerd Font:Regular:16.0"
+	
+	label.font="JetBrainsMono Nerd Font:Regular:16.0"
+	icon.color=$TEXT_RED
+	icon.align="center"
+	position="center"
+	label.color=$TEXT_GREY
+	align="center"
+)
+sketchybar --default "${default[@]}"
+
+sketchybar --add item spacePaddingLeft left --set spacePaddingLeft width=5
+
+sketchybar --add event aerospace_workspace_change
+
+while IFS= read -r sid; do
+	this_space="space.$sid"
+
+	sketchybar --add item $this_space left \
+		--subscribe $this_space aerospace_workspace_change \
+		--set $this_space \
+		align="center" \
+		icon="$sid" \
+		icon.shadow.drawing=off \
+		icon.padding_left=10 \
+		label.padding_right=10 \
+		label.padding_left=0 \
+		label.y_offset=0 \
+		label.shadow.drawing=off \
+		label.y_offset=0 \
+		script="$CONFIG_DIR/plugins/aerospace $sid"
+
+done < <(aerospace list-workspaces --all --format "%{workspace}")
+
+while IFS= read -r sid; do
+	apps=$(aerospace list-windows --workspace $sid --format "%{app-name}")
+	label=$(create_app_label "$apps")
+	sketchybar --set space.$sid label="$label"
+done < <(aerospace list-workspaces --monitor 1 --empty no)
+
+sketchybar --add item spacePaddingRight left --set spacePaddingRight width=5
+
+sketchybar --add bracket spaces '/space\..*/' spacePaddingLeft spacePaddingRight \
+	--set spaces background.color=$BACKGROUND \
+	background.corner_radius=0 \
+	background.height=24 \
+	script="$PLUGIN_DIR/space_windows" \
+	--subscribe spaces aerospace_workspace_change front_app_switched space_windows_change display_change
+
+sketchybar --update

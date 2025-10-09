@@ -17,6 +17,7 @@ If you're referencing this repository, make sure to double-check whether the com
     * [picom](#picom)
     * [rofi](#rofi)
     * [i3 & i3rs & i3wsr](#i3--i3rs--i3wsr)
+    * [Aerospace (i3 like window manager for macOS)](#aerospace-i3-like-window-manager-for-macos)
     * [Alacritty](#alacritty)
     * [Custom scripts](#custom-scripts)
 - [Uninstallation](#uninstallation)
@@ -25,7 +26,7 @@ If you're referencing this repository, make sure to double-check whether the com
     * [How to configure displays](#how-to-configure-displays)
     * [Key Events](#key-events)
     * [How to Fibonacci Layout on i3?](#how-to-fibonacci-layout-on-i3)
-    * [Nvim](#nvim-1)
+    * [Nvim settings etc.](#nvim-settings-etc)
     * [How to keep remote sessions alive (mosh)](#how-to-keep-remote-sessions-alive-mosh)
 
 <!-- tocstop -->
@@ -87,6 +88,17 @@ ln -s ~/dotfiles/rofi ~/.config/rofi
 ln -s ~/dotfiles/i3 ~/.config/i3
 ln -s ~/dotfiles/i3rs-config.toml ~/.config/i3rs-config.toml
 ln -s ~/dotfiles/i3wsr ~/.config/i3wsr
+```
+
+### Aerospace (i3 like window manager for macOS)
+
+```bash
+ln -s ~/dotfiles/aerospace.toml ~/.aerospace.toml
+```
+
+### Sketchybar
+```bash
+ln -s ~/dotfiles/sketchybar ~/.config/sketchybar
 ```
 
 ### Alacritty
@@ -171,7 +183,8 @@ Used [keyd(https://github.com/rvaiya/keyd) to remap capslock to escape when pres
 
 https://www.reddit.com/r/i3wm/comments/4tw1jn/tip_quasi_alternatingfibonacci_layout/
 
-### Nvim
+### Nvim settings etc.
+
 - [Install latest build on Linux (Useful when you are working on Ubuntu)](https://github.com/neovim/neovim/blob/master/INSTALL.md#linux)
 - [Project wide renaming](https://www.youtube.com/watch?v=9JCsPsdeflY&t=215s)
 

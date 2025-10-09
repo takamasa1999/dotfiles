@@ -15,7 +15,15 @@ return {
 				python = { "black" },
 				json = { "prettier" },
 				yaml = { "prettier" },
-				tex = { "tex-fmt" },
+				tex = {
+					"tex-fmt",
+				},
+			},
+			formatters = {
+				["tex-fmt"] = {
+					-- command = "tex-fmt",
+					append_args = { "--nowrap" },
+				},
 			},
 			format_on_save = nil,
 		})

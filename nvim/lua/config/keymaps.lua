@@ -14,8 +14,8 @@ map("n", "<C-k>", "<C-w>k", { silent = true, desc = "Move to top pane" })
 map("n", "<C-l>", "<C-w>l", { silent = true, desc = "Move to right pane" })
 
 -- Tab navigations
--- map("n", "<Tab>", "<cmd>tabnext<cr>", { silent = true, desc = "Next tab" })
--- map("n", "<S-Tab>", "<cmd>tabprevious<cr>", { silent = true, desc = "Next tab" })
+map("n", "<Tab>", "<cmd>tabnext<cr>", { silent = true, desc = "Next tab" })
+map("n", "<S-Tab>", "<cmd>tabprevious<cr>", { silent = true, desc = "Next tab" })
 map("n", "<C-t>t", "<cmd>tabnew<cr>", { desc = "Break out into a new tab" })
 
 -- Buffer navigations

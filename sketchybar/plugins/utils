@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+# icons are exported from sketchybar-app-font. Refer to:
+# https://github.com/kvndrsslr/sketchybar-app-font
+# You can specify the font in the sketchybarrc file like so:
+# label.font="sketchybar-app-font:Regular:16.0" \
+source $CONFIG_DIR/helpers/icon_map.sh
+
+function create_app_label() {
+	inputs="$1"
+	# apps=$(awk '!seen[$0]++' <<<"$inputs")
+	apps=$(sort -u <<<"$inputs")
+	apps=$(awk '{print toupper($1)}' <<<"$apps")
+	# apps=$(awk '{
+	#    out = toupper($1)
+	#    for (i=2; i<=NF; i++) out = out " " toupper(substr($i,1,1))
+	#    print out
+	# }' <<<"$apps")
+	app_label=""
+	if [ "${apps}" != "" ]; then
+		loop_count=0
+		while IFS= read -r app; do
+			# __icon_map "${app}"
+			if ((loop_count == 0)); then
+				# app_label+="${icon_result}"
+				app_label+="${app}"
+			else
+				# app_label+="|${icon_result}"
+				app_label+=" | ${app}"
+			fi
+			((loop_count++))
+		done <<<"$apps"
+	else
+		app_label=""
+	fi
+	printf '%s' " $app_label"
+}
