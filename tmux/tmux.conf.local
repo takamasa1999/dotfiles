@@ -535,7 +535,8 @@ bind -n M-9 select-window -t 9
 bind -n M-0 select-window -t 10
 
 
-set -g @catppuccin_flavor 'cyberdream'
+# set -g @catppuccin_flavor 'cyberdream'
+set -g @catppuccin_flavor 'latte'
 set -g @catppuccin_window_text "#W"
 set -g @catppuccin_window_current_text "#W"
 
