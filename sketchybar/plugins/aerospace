@@ -2,11 +2,12 @@
 
 source "$CONFIG_DIR/plugins/color"
 
-sketchybar --set "$NAME" label.color=$TEXT_GREY
+# Constan color definition seems like more stable
+# sketchybar --set "$NAME" label.color=$TEXT_GREY
 
 # Color change on focused workspace is disabled for now since it causes flickering
-# if [ "$1" = "$FOCUSED_WORKSPACE" ]; then
-# 	sketchybar --set "$NAME" label.color=$TEXT_RED icon.color=$TEXT_RED
-# else
-# 	sketchybar --set "$NAME" label.color=$TEXT_GREY icon.color=$TEXT_GREY
-# fi
+if [ "$1" = "$FOCUSED_WORKSPACE" ]; then
+	sketchybar --set "$NAME" label.color=$TEXT_RED icon.color=$TEXT_RED
+else
+	sketchybar --set "$NAME" label.color=$TEXT_GREY icon.color=$TEXT_GREY
+fi

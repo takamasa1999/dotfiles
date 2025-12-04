@@ -5,18 +5,18 @@ start-at-login = true
 #   'exec-and-forget /bin/zsh -lc "/usr/local/bin/sketchybar --reload"'
 # ]
 #
-#
+
 # exec-on-workspace-change = [
-# 	'/bin/bash', '-c',
-#     '/usr/local/bin/sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE PREV_WORKSPACE=$AEROSPACE_PREV_WORKSPACE'
+# 	'/bin/zsh', '-c',
+#     '/opt/homebrew/bin/sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE PREV_WORKSPACE=$AEROSPACE_PREV_WORKSPACE'
 # ]
 
 enable-normalization-flatten-containers = true
 enable-normalization-opposite-orientation-for-nested-containers = true
 
-accordion-padding = 30
+accordion-padding = 20
 
-default-root-container-layout = 'tiles'
+default-root-container-layout = 'accordion'
 
 default-root-container-orientation = 'auto'
 
