@@ -136,6 +136,14 @@ rm .zshrc .tmux.conf.local
 
 ## Tips
 
+## VS Code
+
+Allow repeating inputs on mac
+```
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+```
+
+
 ### How to configure input devices
 
 `xinput` is used to change the configurations.
