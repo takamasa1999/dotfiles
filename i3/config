@@ -76,7 +76,7 @@ bindsym $mod+Return exec alacritty -e start-tmux
 # kill focused window
 bindsym $mod+q split toggle kill
 
-bindsym Mod1+space exec rofi -show combi
+bindsym $mod+space exec rofi -show combi
 
 # change focus
 bindsym $mod+h focus left
@@ -109,7 +109,7 @@ bindsym $mod+Ctrl+h split h
 bindsym $mod+Ctrl+v split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
+bindsym F11 fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+e layout toggle split
@@ -118,7 +118,7 @@ bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+# bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
