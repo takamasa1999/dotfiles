@@ -8,25 +8,41 @@ source $CONFIG_DIR/helpers/icon_map.sh
 
 function create_app_label() {
 	inputs="$1"
-	# apps=$(awk '!seen[$0]++' <<<"$inputs")
+	apps=$(awk '!seen[$0]++' <<<"$inputs")
 	apps=$(sort -u <<<"$inputs")
-	apps=$(awk '{print toupper($1)}' <<<"$apps")
-	# apps=$(awk '{
-	#    out = toupper($1)
-	#    for (i=2; i<=NF; i++) out = out " " toupper(substr($i,1,1))
-	#    print out
-	# }' <<<"$apps")
+
+	# 1. Sort unique apps
+	# 2. Process with awk: Loop through every word ($i) and take the first letter
+	# apps=$(echo "$inputs" | sort -u | awk '{
+	# 	acronym = ""
+	# 	for (i=1; i<=NF; i++) {
+	# 		acronym = acronym toupper(substr($i,1,1))
+	# 	}
+	# 	print acronym
+	# }')
+
+	# 1. Sort unique apps
+	# 2. Process with awk: Generate acronyms (e.g., "Visual Studio Code" -> "VSC")
+	# 3. 'NF > 0' ensures we skip empty lines/whitespace input
+	# local apps=$(echo "$inputs" | sort -u | awk 'NF > 0 {
+	#     acronym = ""
+	#     for (i=1; i<=NF; i++) {
+	#         acronym = acronym toupper(substr($i,1,1))
+	#     }
+	#     print acronym
+	# }')
+
 	app_label=""
 	if [ "${apps}" != "" ]; then
 		loop_count=0
 		while IFS= read -r app; do
-			# __icon_map "${app}"
+			__icon_map "${app}"
 			if ((loop_count == 0)); then
-				# app_label+="${icon_result}"
-				app_label+="${app}"
+				app_label+="${icon_result}"
+				# app_label+="${app}"
 			else
-				# app_label+="|${icon_result}"
-				app_label+=" | ${app}"
+				app_label+="|${icon_result}"
+				# app_label+=" | ${app}"
 			fi
 			((loop_count++))
 		done <<<"$apps"

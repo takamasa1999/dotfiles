@@ -8,7 +8,11 @@ return {
 				lua = { "stylua" },
 				css = { "prettier" },
 				html = { "prettier" },
-				markdown = { "prettier", "markdown-toc" },
+				markdown = {
+					"prettier",
+					-- "doctoc",
+					"markdown-toc",
+				},
 				bash = { "shfmt" },
 				zsh = { "shfmt" },
 				javascript = { "prettier" },

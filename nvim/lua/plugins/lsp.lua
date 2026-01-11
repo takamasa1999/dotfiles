@@ -31,6 +31,8 @@ local lspconfig = {
 			dockerls = {},
 			yamlls = {},
 			texlab = {},
+			eslint_lsp = {},
+			biome = {}
 			-- docker_compose_language_service = {},
 			-- docker_language_server = {},
 		}

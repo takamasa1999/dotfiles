@@ -38,3 +38,7 @@ map("x", "/", "<Esc>/\\%V")
 
 -- Utilities
 map({ "n", "i", "x" }, "<A-t>", "<cmd>tabnew | terminal<cr>")
+
+-- Increment number
+-- map("x", "<leader>+", "g<C-a>", { desc = "Increment number" })
+-- map("x", "<leader>-", "g<C-x>", { desc = "Decrement number" })

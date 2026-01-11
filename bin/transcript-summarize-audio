@@ -1,0 +1,47 @@
+#!/bin/bash
+
+input_audio_file="$1"
+input_filename="${input_audio_file%.*}"
+
+whisper_cli_path="/Users/systemi/Documents/whisper.cpp/build/bin/whisper-cli"
+whisper_model_path="/Users/systemi/Documents/whisper.cpp/models/ggml-large-v3-turbo-q5_0.bin"
+# Language selection will be implementd later
+whisper_language="ja"
+ollama_instruction="Summarize the following audio transcription. You have to summarize it in Japanese."
+
+# Input validation
+if [ -z "$input_audio_file" ]; then
+	echo "Usage: $0 <input_audio_file>"
+	exit 1
+fi
+if [ ! -f "$input_audio_file" ]; then
+	echo "Error: File '$input_audio_file' not found."
+	exit 1
+fi
+echo "Audio file found 👍"
+
+# Audio file conversion to wav if necessary
+extension=$(echo "${input_audio_file##*.}" | tr '[:upper:]' '[:lower:]')
+if [ "$extension" != "wav" ]; then
+	echo "File '$input_audio_file' isn't a wav file. Converting to wav..."
+
+	input_audio_without_extension="${input_audio_file%.*}"
+	converted_audio_file="${input_audio_without_extension}.wav"
+
+	ffmpeg -i "$input_audio_file" "$converted_audio_file"
+	echo "Conversion complete. Output file: $converted_audio_file"
+
+	whisper_input_file="$converted_audio_file"
+else
+	whisper_input_file="$input_audio_file"
+fi
+
+# Generate Whisper transcription
+whisper_output_name="${input_filename}_transcription"
+$whisper_cli_path -m "$whisper_model_path" -f "$whisper_input_file" -l $whisper_language -osrt -of "$whisper_output_name"
+
+# Generate Ollama summarization
+whisper_transcript=$(cat "$whisper_output_name".srt)
+ollama_prompt=$(printf "%s\n\n%s" "$ollama_instruction" "$whisper_transcript")
+ollama_output="${input_filename}_summary.txt"
+ollama run gpt-oss:20b "$ollama_prompt" --hidethinking - >"$ollama_output"

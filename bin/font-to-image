@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# CONFIG: Change this path to your specific font file
+FONT_PATH="/Users/systemi/Library/Fonts/JetBrainsMonoNerdFontMono-Regular.ttf"
+
+# Check if arguments are provided
+if [ $# -lt 3 ]; then
+  echo "Usage: $0 <icon> <color> <output_filename>"
+  exit 1
+fi
+
+# 1=Icon, 2=Color, 3=Output
+magick -background none -fill "$2" -font "$FONT_PATH" -pointsize 512 label:"$1" "$3"
