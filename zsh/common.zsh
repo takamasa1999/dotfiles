@@ -7,7 +7,7 @@ EDITOR="nvim"
 
 plugins+=(zsh-autosuggestions)
 plugins+=(zsh-syntax-highlighting)
-plugins+=(zsh-vi-mode)
+# plugins+=(zsh-vi-mode)
 
 # This must be called after local settings
 source $ZSH/oh-my-zsh.sh

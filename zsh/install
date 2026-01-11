@@ -32,9 +32,9 @@ else
 	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$zsh_syntax_highlighting_dir"
 fi
 
-zsh_vi_mode_dir="$omz_plugins_dir/zsh-vi-mode"
-if [ -d "$zsh_vi_mode_dir" ]; then
-	echo "zsh-vi-mode already exists, skipping clone."
-else
-	git clone https://github.com/jeffreytse/zsh-vi-mode "$zsh_vi_mode_dir"
-fi
+# zsh_vi_mode_dir="$omz_plugins_dir/zsh-vi-mode"
+# if [ -d "$zsh_vi_mode_dir" ]; then
+# 	echo "zsh-vi-mode already exists, skipping clone."
+# else
+# 	git clone https://github.com/jeffreytse/zsh-vi-mode "$zsh_vi_mode_dir"
+# fi
