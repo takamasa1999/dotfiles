@@ -1,7 +1,7 @@
 -- https://github.com/NeogitOrg/neogit
 return {
 	"NeogitOrg/neogit",
-	-- version = "2.0.0",
+	version = "3.0.0",
 	dependencies = {
 		"nvim-lua/plenary.nvim", -- required
 		"sindrets/diffview.nvim", -- optional - Diff integration

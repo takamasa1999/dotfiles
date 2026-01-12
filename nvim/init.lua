@@ -3,7 +3,7 @@ vim.g.loaded_netrwPlugin = 1
 -- In this stage, plugins are loaded.
 require("config.lazy")
 
-require("custom-utilities.smartClose")
+-- require("custom-utilities.smclosese")
 
 -- Additional configuration
 require("config.options")

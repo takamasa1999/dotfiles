@@ -18,8 +18,8 @@ return {
 			end,
 		})
 		-- You probably also want to set a keymap to toggle aerial
-		vim.keymap.set("n", "<leader>a", function()
+		vim.keymap.set("n", "<leader>o", function()
 			aerial.toggle({ focus = true })
-		end, { desc = "Toggle Aerial outline" })
+		end, { desc = "Toggle Outline" })
 	end,
 }
