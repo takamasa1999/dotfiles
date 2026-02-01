@@ -22,7 +22,7 @@ local tree = {
 			},
 			view = {
 				relativenumber = true,
-				width = 100,
+				width = 80,
 			},
 		})
 

@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+git log --author="$(git config user.name)" --since="00:00:00" --pretty=tformat: --numstat | awk '{add += $1; subs += $2; loc += $1 - $2} END {printf "追加: %s, 削除: %s, 純増: %s\n", add, subs, loc}'

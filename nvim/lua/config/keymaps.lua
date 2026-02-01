@@ -5,6 +5,7 @@ local map = vim.keymap.set
 map("n", "<A-Tab>", "<C-^>", { desc = "Switch to last buffer" })
 map("n", "<C-s>", "<cmd>w<CR>", { desc = "Write buffer" })
 map("n", "<leader>S", "<cmd>SudaWrite<CR>", { desc = "Sudo write buffer" })
+map("n", "<leader>s", "<cmd>w<CR>", { desc = "Write buffer" })
 map("n", "<leader>Q", "<Cmd>q!<CR>", { desc = "Force Quit" })
 map("n", "<leader>q", "<Cmd>q<CR>", { desc = "Quit" })
 
