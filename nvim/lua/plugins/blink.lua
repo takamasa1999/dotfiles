@@ -17,7 +17,7 @@ return {
 	---@type blink.cmp.Config
 	opts = {
 		keymap = {
-			preset = "super-tab",
+			preset = "enter",
 			-- ["<C-n>"] = { "show", "select_next", "fallback_to_mappings" },
 			["<C-s>"] = { "show", "show_documentation", "hide_documentation" },
 		},

@@ -22,6 +22,7 @@ return {
 				tex = {
 					"tex-fmt",
 				},
+				c = { "clang_format" },
 			},
 			formatters = {
 				["tex-fmt"] = {
