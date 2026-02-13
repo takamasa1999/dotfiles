@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# check if build-essentials(gcc) is installed
+# check if npm is installed
+# if not break
+
+mkdir -p "$HOME"/.config
+
+nvim_dir="$HOME"/.config/nvim
+if [ -d "$nvim_dir" ]; then
+	echo "Neovim config dir already exists, skipping making alias."
+else
+	ln -s "$HOME"/dotfiles/nvim "$nvim_dir"
+fi
