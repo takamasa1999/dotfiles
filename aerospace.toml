@@ -78,6 +78,8 @@ cmd-shift-j = 'move down'
 cmd-shift-k = 'move up'
 cmd-shift-l = 'move right'
 
+cmd-shift-s = 'exec-and-forget screencapture -i -c'
+
 # cmd-shift-h = 'join-with left'
 # cmd-shift-j = 'join-with down'
 # cmd-shift-k = 'join-with up'
