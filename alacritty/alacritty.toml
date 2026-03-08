@@ -4,7 +4,7 @@ osc52 = "OnlyCopy"
 
 [keyboard]
 bindings = [
-  { key = "[", mods = "Control|Alt", chars = "\u001b[91;7u" }
+  # { key = "[", mods = "Control|Alt", chars = "\u001b[91;7u" }
 ]
 
 [font.normal]

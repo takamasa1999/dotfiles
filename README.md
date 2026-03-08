@@ -101,6 +101,12 @@ ln -s ~/dotfiles/aerospace.toml ~/.aerospace.toml
 ln -s ~/dotfiles/sketchybar ~/.config/sketchybar
 ```
 
+### Ghostty
+
+```
+ln -s ~/dotfiles/ghostty ~/.config/ghostty
+```
+
 ### Alacritty
 
 Create a symbolic link for the main Alacritty configuration file and theme:
