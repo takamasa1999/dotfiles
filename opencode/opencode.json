@@ -2,6 +2,33 @@
   "$schema": "https://opencode.ai/config.json",
   "permission": {
     "edit": "ask",
-    "bash": "ask"
+    "bash": "ask",
+    "websearch": "allow"
+  },
+  "mcp": {
+    "obsidian": {
+      "type": "local",
+      "command": [
+        "npx",
+        "@mauricio.wolff/mcp-obsidian@latest",
+        "/Users/systemi/repositories/obsidian-presales"
+      ]
+    },
+    "sqlcl-oracle": {
+      "type": "local",
+      "command": ["docker", "exec", "-i", "oracle_sqlcl", "sql", "-mcp"]
+    },
+    "google-drive-mcp": {
+      "type": "local",
+      "command": ["npx", "@piotr-agier/google-drive-mcp"]
+    },
+    "slack": {
+      "type": "remote",
+      "url": "https://mcp.slack.com/mcp",
+      "oauth": {
+        "clientId": "245780061937.10842168136560",
+        "clientSecret": "f8a1952bd6273064f39ab12ebc07fe95"
+      }
+    }
   }
 }

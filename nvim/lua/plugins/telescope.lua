@@ -52,7 +52,7 @@ return {
 		map({ "n", "i", "v" }, "<A-b>", function()
 			builtin.buffers({ initial_mode = "normal", sort_lastused = true, sort_mru = true })
 		end, { desc = "Telescope buffer files" })
-		map("n", "<C-b>", "<cmd>Telescope buffers initial_mode=normal<cr>", { desc = "Telescope buffer files" })
+		map("n", "<leader>b", "<cmd>Telescope buffers initial_mode=normal<cr>", { desc = "Telescope buffer files" })
 		map("n", "<leader>fbg", function()
 			builtin.live_grep({
 				grep_open_files = true,

@@ -20,6 +20,9 @@ export MANPAGER="nvim +Man!"
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
+# enable websearch on opencode
+export OPENCODE_ENABLE_EXA=1
+
 # Custom theme
 PROMPT=$'%{$fg_bold[green]%}%n@%m %{$reset_color%}%{$fg[white]%}[%~]%{$reset_color%} $(git_prompt_info)\
 %{$fg_bold[blue]%} $%{$reset_color%} '
@@ -31,3 +34,5 @@ ZSH_THEME_GIT_PROMPT_CLEAN=""
 
 # other aliases
 alias history='fc -ln 1 | nvim -c $'
+
+[ -z "$TMUX" ] && { tmux attach || exec tmux new-session && exit; }

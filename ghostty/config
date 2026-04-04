@@ -1,5 +1,5 @@
 # Ghostty configuration file
-font-family = "JetBrainsMono Nerd Font Regular"
+font-family = "JetBrainsMono Nerd Font"
 font-size = 14
 clipboard-write = allow
 clipboard-read = allow

@@ -2,21 +2,26 @@
 [terminal]
 osc52 = "OnlyCopy"
 
-[keyboard]
-bindings = [
-  # { key = "[", mods = "Control|Alt", chars = "\u001b[91;7u" }
-]
+[[keyboard.bindings]]
+key = "Left"
+mods = "Alt"
+chars = "\u001bb"
+
+[[keyboard.bindings]]
+key = "Right"
+mods = "Alt"
+chars = "\u001bf"
 
 [font.normal]
-family = "JetBrainsMono Nerd Font"
+family = "Hack Nerd Font"
 style = "Regular"
 
 [font.bold]
-family = "JetBrainsMono Nerd Font"
+family = "Hack Nerd Font"
 style = "Bold"
 
 [font.italic]
-family = "JetBrainsMono Nerd Font"
+family = "Hack Nerd Font"
 style = "Italic"
 
 [mouse]
@@ -26,6 +31,7 @@ hide_when_typing = true
 option_as_alt="Both"
 padding = { x = 0, y = 0 }
 dynamic_padding = true
+decorations = "None"
 
 [general]
 import=[
