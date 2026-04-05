@@ -3,8 +3,7 @@ export PATH="$HOME/.local/bin:$PATH"
 
 export ZSH="$HOME/.oh-my-zsh"
 
-EDITOR="nvim"
-
+# zsh plugins
 plugins+=(zsh-autosuggestions)
 plugins+=(zsh-syntax-highlighting)
 # plugins+=(zsh-vi-mode)
@@ -12,9 +11,10 @@ plugins+=(zsh-syntax-highlighting)
 # This must be called after local settings
 source $ZSH/oh-my-zsh.sh
 
-# neovim is life
+# neovim as default editor
 alias n="nvim"
 export MANPAGER="nvim +Man!"
+EDITOR="nvim"
 
 # for mosh connection
 export LANG="en_US.UTF-8"
@@ -35,5 +35,8 @@ ZSH_THEME_GIT_PROMPT_CLEAN=""
 # other aliases
 alias history='fc -ln 1 | nvim -c $'
 alias ccusage='bunx ccusage'
+alias ccusage-this-month='ccusage daily --since $(date +%Y%m01)'
+alias s="kitten ssh"
 
+# Run tmux at start up
 # [ -z "$TMUX" ] && { tmux attach || exec tmux new-session && exit; }
