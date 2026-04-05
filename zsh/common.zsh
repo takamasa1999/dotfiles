@@ -34,5 +34,6 @@ ZSH_THEME_GIT_PROMPT_CLEAN=""
 
 # other aliases
 alias history='fc -ln 1 | nvim -c $'
+alias ccusage='bunx ccusage'
 
-[ -z "$TMUX" ] && { tmux attach || exec tmux new-session && exit; }
+# [ -z "$TMUX" ] && { tmux attach || exec tmux new-session && exit; }
