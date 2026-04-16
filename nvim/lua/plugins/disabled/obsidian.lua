@@ -7,8 +7,8 @@ return {
 		legacy_commands = false,
 		workspaces = {
 			{
-				name = "SystemI-Presales",
-				path = "/Users/systemi/repositories/obsidian-presales",
+				name = "takamasa-personal",
+				path = "/Users/takamasa/Documents/obsidian",
 			},
 		},
 	},
