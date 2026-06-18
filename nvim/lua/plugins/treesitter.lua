@@ -7,7 +7,7 @@ return {
 	config = function()
 		require("nvim-treesitter.configs").setup({
 			modules = {},
-			ensure_installed = { "c", "lua", "rust", "markdown", "markdown_inline" },
+			ensure_installed = { "c", "lua", "rust", "markdown", "markdown_inline", "mermaid" },
 
 			-- Install parsers synchronously (only applied to `ensure_installed`)
 			sync_install = false,
