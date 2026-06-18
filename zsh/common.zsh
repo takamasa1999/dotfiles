@@ -34,7 +34,7 @@ ZSH_THEME_GIT_PROMPT_CLEAN=""
 
 # other aliases
 alias history='fc -ln 1 | nvim -c $'
-alias ccusage='bunx ccusage'
+alias ccusage='bunx ccusage@latest'
 alias ccusage-this-month='ccusage daily --since $(date +%Y%m01)'
 alias s="kitten ssh"
 

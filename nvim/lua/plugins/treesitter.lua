@@ -7,7 +7,7 @@ return {
 	config = function()
 		require("nvim-treesitter.configs").setup({
 			modules = {},
-			ensure_installed = { "c", "lua", "rust" },
+			ensure_installed = { "c", "lua", "rust", "markdown", "markdown_inline" },
 
 			-- Install parsers synchronously (only applied to `ensure_installed`)
 			sync_install = false,
@@ -32,5 +32,13 @@ return {
 				additional_vim_regex_highlighting = false,
 			},
 		})
+
+		for _, query_path in ipairs(vim.api.nvim_get_runtime_file("queries/markdown/injections.scm", true)) do
+			if not query_path:find("/lazy/nvim%-treesitter/", 1, false) then
+				local query = table.concat(vim.fn.readfile(query_path), "\n")
+				vim.treesitter.query.set("markdown", "injections", query)
+				break
+			end
+		end
 	end,
 }

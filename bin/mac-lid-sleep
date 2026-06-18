@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Toggle sleep-on-lid-close behavior
+# Usage: mac-lid-sleep [on|off]
+
+case "$1" in
+  on)
+    sudo pmset -a disablesleep 0
+    echo "Lid sleep: ENABLED (normal behavior restored)"
+    ;;
+  off)
+    sudo pmset -a disablesleep 1
+    echo "Lid sleep: DISABLED (screen stays on when lid closed)"
+    ;;
+  *)
+    echo "Usage: mac-lid-sleep [on|off]"
+    echo "  on  — re-enable sleep when lid is closed"
+    echo "  off — prevent sleep when lid is closed"
+    exit 1
+    ;;
+esac
