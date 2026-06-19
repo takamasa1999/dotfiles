@@ -26,6 +26,18 @@ export OPENCODE_ENABLE_EXA=1
 # Custom theme
 PROMPT=$'%{$fg_bold[green]%}%n@%m %{$reset_color%}%{$fg[white]%}[%~]%{$reset_color%} $(git_prompt_info)\
 %{$fg_bold[blue]%} $%{$reset_color%} '
+RPROMPT='%(1j.%{$fg_bold[yellow]%}[%j job%(2j.s.)]%{$reset_color%}.)'
+
+alias j='jobs -l'
+
+f() {
+	if (( $# == 0 )); then
+		jobs -l
+		return
+	fi
+
+	fg "%$1"
+}
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[green]%}("
 ZSH_THEME_GIT_PROMPT_SUFFIX=")%{$reset_color%}"
