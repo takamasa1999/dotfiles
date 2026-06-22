@@ -1,6 +1,7 @@
 -- https://github.com/3rd/diagram.nvim
 return {
 	"3rd/diagram.nvim",
+	enabled = false,
 	ft = { "markdown" },
 	dependencies = {
 		"3rd/image.nvim",
@@ -23,14 +24,6 @@ return {
 					height = nil, -- nil | 600 | 300 | ...
 					cli_args = nil, -- nil | { "--no-sandbox" } | { "-p", "/path/to/puppeteer" } | ...
 				},
-				-- mermaid = {
-				-- 	background = "transparent",
-				-- 	theme = "default",
-				-- 	scale = 2,
-				-- 	width = 2400,
-				-- 	height = 1600,
-				-- 	cli_args = { "-p", vim.fn.stdpath("config") .. "/mermaid-puppeteer.json" },
-				-- },
 			},
 		})
 

@@ -9,6 +9,7 @@ o.winborder = "rounded"
 o.scrolloff = 999
 o.showbreak = "↳ "
 o.linebreak = true
+o.autoread = true
 
 opt.number = true
 opt.relativenumber = true
@@ -19,6 +20,24 @@ vim.opt.conceallevel = 0
 
 opt.clipboard = "unnamedplus"
 vim.g.clipboard = "osc52"
+
+local autoread_group = vim.api.nvim_create_augroup("custom_autoread", { clear = true })
+
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI", "TermClose", "TermLeave" }, {
+	group = autoread_group,
+	callback = function()
+		if vim.fn.mode() ~= "c" then
+			vim.cmd("checktime")
+		end
+	end,
+})
+
+vim.api.nvim_create_autocmd("FileChangedShellPost", {
+	group = autoread_group,
+	callback = function()
+		vim.notify("Reloaded file changed on disk", vim.log.levels.INFO)
+	end,
+})
 
 vim.api.nvim_create_autocmd("TermOpen", {
 	callback = function()

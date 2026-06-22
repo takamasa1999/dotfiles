@@ -1,6 +1,7 @@
 -- https://github.com/3rd/image.nvim
 return {
 	"3rd/image.nvim",
+	enabled = false,
 	ft = { "markdown", "vimwiki", "norg", "typst" },
 	build = false,
 	opts = {

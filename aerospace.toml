@@ -41,8 +41,8 @@ f11 = 'macos-native-fullscreen'
 
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#resize
-alt-shift-minus = 'resize smart -50'
-alt-shift-equal = 'resize smart +50'
+alt-minus = 'resize smart -50'
+alt-equal = 'resize smart +50'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
 alt-1 = 'workspace 1'
@@ -78,7 +78,8 @@ alt-shift-j = 'move down'
 alt-shift-k = 'move up'
 alt-shift-l = 'move right'
 
-alt-shift-s = 'exec-and-forget screencapture -i -c'
+alt-shift-s = 'exec-and-forget screencapture -c'
+alt-cmd-shift-s = 'exec-and-forget screencapture -i -c'
 
 
 # alt-shift-h = 'join-with left'
@@ -90,3 +91,4 @@ alt-shift-s = 'exec-and-forget screencapture -i -c'
 # These are invoked from karabiner-elements. Which disables the default macOS behavior of alt-tab and alt-shift-tab.
 alt-tab = 'workspace-back-and-forth'
 alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
+

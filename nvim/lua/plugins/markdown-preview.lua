@@ -13,17 +13,32 @@
 -- 		keymap("n", "<localleader>p", "<Cmd>MarkdownPreview<CR>", { desc = "Preview Markdown" })
 -- 	end,
 -- }
+-- return {
+-- 	"selimacerbas/markdown-preview.nvim",
+-- 	dependencies = { "selimacerbas/live-server.nvim" },
+-- 	config = function()
+-- 		require("markdown_preview").setup({
+-- 			-- all optional; sane defaults shown
+-- 			instance_mode = "takeover", -- "takeover" (one tab) or "multi" (tab per instance)
+-- 			port = 0, -- 0 = auto (8421 for takeover, OS-assigned for multi)
+-- 			open_browser = true,
+-- 			debounce_ms = 300,
+-- 			default_theme = "light",
+-- 			mermaid_renderer = "js",
+-- 		})
+-- 	end,
+-- }
+
 return {
-	"selimacerbas/markdown-preview.nvim",
-	dependencies = { "selimacerbas/live-server.nvim" },
+	"iamcco/markdown-preview.nvim",
+	cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+	build = "cd app && yarn install",
+	init = function()
+		vim.g.mkdp_filetypes = { "markdown" }
+	end,
+	ft = { "markdown" },
 	config = function()
-		require("markdown_preview").setup({
-			-- all optional; sane defaults shown
-			instance_mode = "takeover", -- "takeover" (one tab) or "multi" (tab per instance)
-			port = 0, -- 0 = auto (8421 for takeover, OS-assigned for multi)
-			open_browser = true,
-			debounce_ms = 300,
-			mermaid_renderer = "js",
-		})
+		local keymap = vim.keymap.set
+		keymap("n", "<leader>p", "<Cmd>MarkdownPreview<CR>", { desc = "Preview Markdown" })
 	end,
 }
