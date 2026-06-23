@@ -9,7 +9,7 @@ return {
 				css = { "prettier" },
 				html = { "prettier" },
 				markdown = {
-					"prettier",
+					"prettier_markdown",
 					-- "doctoc",
 					"markdown-toc",
 				},
@@ -28,6 +28,10 @@ return {
 				["tex-fmt"] = {
 					-- command = "tex-fmt",
 					append_args = { "--nowrap" },
+				},
+				prettier_markdown = {
+					command = "prettier",
+					args = { "--no-config", "--use-tabs", "--tab-width", "4", "--parser", "markdown", "--stdin-filepath", "$FILENAME" },
 				},
 			},
 			format_on_save = nil,
