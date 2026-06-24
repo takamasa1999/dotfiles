@@ -1,0 +1,52 @@
+   0.038327375s  INFO prepare_target{force=false package_id=session-manager v0.1.0 (/Users/systemi/dotfiles/kitty/session-manager) target="session-manager"}: cargo::core::compiler::fingerprint: fingerprint error for session-manager v0.1.0 (/Users/systemi/dotfiles/kitty/session-manager)/Check { test: false }/TargetInner { name: "session-manager", doc: true, ..: with_path("/Users/systemi/dotfiles/kitty/session-manager/src/main.rs", Edition2021) }
+   0.038341125s  INFO prepare_target{force=false package_id=session-manager v0.1.0 (/Users/systemi/dotfiles/kitty/session-manager) target="session-manager"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/systemi/dotfiles/kitty/session-manager/target/debug/.fingerprint/session-manager-3ed60482885a30ab/bin-session-manager`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: <std::backtrace::Backtrace>::create
+   1: <std::io::error::Error as anyhow::context::ext::StdError>::ext_context::<alloc::string::String>
+   2: cargo_util::paths::read
+   3: cargo::core::compiler::fingerprint::_compare_old_fingerprint
+   4: cargo::core::compiler::fingerprint::prepare_target
+   5: cargo::core::compiler::compile
+   6: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   7: cargo::ops::cargo_compile::compile_ws
+   8: cargo::ops::cargo_compile::compile_with_exec
+   9: cargo::ops::cargo_compile::compile
+  10: cargo::commands::check::exec
+  11: <cargo::cli::Exec>::exec
+  12: cargo::cli::main
+  13: cargo::main
+  14: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  15: std::rt::lang_start::<()>::{closure#0}
+  16: std::rt::lang_start_internal
+  17: _main
+   0.052789125s  INFO prepare_target{force=false package_id=session-manager v0.1.0 (/Users/systemi/dotfiles/kitty/session-manager) target="session-manager"}: cargo::core::compiler::fingerprint: fingerprint error for session-manager v0.1.0 (/Users/systemi/dotfiles/kitty/session-manager)/Check { test: true }/TargetInner { name: "session-manager", doc: true, ..: with_path("/Users/systemi/dotfiles/kitty/session-manager/src/main.rs", Edition2021) }
+   0.052797458s  INFO prepare_target{force=false package_id=session-manager v0.1.0 (/Users/systemi/dotfiles/kitty/session-manager) target="session-manager"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/systemi/dotfiles/kitty/session-manager/target/debug/.fingerprint/session-manager-0b569dfd70792cdc/test-bin-session-manager`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: <std::backtrace::Backtrace>::create
+   1: <std::io::error::Error as anyhow::context::ext::StdError>::ext_context::<alloc::string::String>
+   2: cargo_util::paths::read
+   3: cargo::core::compiler::fingerprint::_compare_old_fingerprint
+   4: cargo::core::compiler::fingerprint::prepare_target
+   5: cargo::core::compiler::compile
+   6: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   7: cargo::ops::cargo_compile::compile_ws
+   8: cargo::ops::cargo_compile::compile_with_exec
+   9: cargo::ops::cargo_compile::compile
+  10: cargo::commands::check::exec
+  11: <cargo::cli::Exec>::exec
+  12: cargo::cli::main
+  13: cargo::main
+  14: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  15: std::rt::lang_start::<()>::{closure#0}
+  16: std::rt::lang_start_internal
+  17: _main
+    Checking session-manager v0.1.0 (/Users/systemi/dotfiles/kitty/session-manager)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.09s

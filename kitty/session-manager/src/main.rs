@@ -104,14 +104,39 @@ fn rename_session(dir: &PathBuf, session: &str) {
         return;
     }
     let new_filename = format!("{}.kitty-session", new_name);
-    let old_path = dir.join(session);
     let new_path = dir.join(&new_filename);
     if new_path.exists() {
         eprintln!("'{}' already exists.", new_filename);
         return;
     }
-    fs::rename(&old_path, &new_path).expect("Failed to rename session");
-    println!("Renamed to '{}'", new_filename);
+
+    let old_stem = session.trim_end_matches(".kitty-session");
+    let old_path = dir.join(session);
+
+    // 1. Save current session state to the old file so it can be restored under new name.
+    Command::new("kitten")
+        .args([
+            "@", "action",
+            "save_as_session",
+            "--base-dir", dir.to_str().unwrap(),
+            "--save-only",
+            "--use-foreground-process",
+            old_stem,
+        ])
+        .status()
+        .ok();
+
+    // 2. Rename the file on disk.
+    fs::rename(&old_path, &new_path).expect("Failed to rename session file");
+
+    // 3. Open the renamed session — kitty restores the saved tabs under the new name.
+    goto_session(dir, &new_filename);
+
+    // 4. Close all tabs still belonging to the old session name.
+    Command::new("kitten")
+        .args(["@", "close-tab", "--match", &format!("session:{}", old_stem)])
+        .status()
+        .ok();
 }
 
 fn delete_session(dir: &PathBuf, session: &str) {
