@@ -93,8 +93,11 @@ fn create_session(dir: &PathBuf) {
         eprintln!("Session '{}' already exists.", filename);
         return;
     }
-    fs::write(&path, "").expect("Failed to create session file");
-    println!("Created '{}'", filename);
+    // Minimal session: one tab + launch (opens default shell).
+    // "launch" with no args uses kitty's configured shell.
+    // The kitty-unserialize-data form in saved sessions is for
+    // restoring existing windows and must not be used here.
+    fs::write(&path, "new_tab\nlaunch\n").expect("Failed to create session file");
     goto_session(dir, &filename);
 }
 
