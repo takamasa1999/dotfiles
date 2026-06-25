@@ -4,14 +4,16 @@ Custom kitty tab bar.
 
 Layout:
   [󰙴 <session>] [tab1] [tab2] ...
-   ↑ dedicated    ↑ normal powerline tabs
-     session block
+   ↑ always inactive styling, never colored when tab1 is active
 
-When index == 1 this function draws TWO powerline blocks:
-  1. A compact session-name-only block (no tab title)
-  2. The actual first tab
+Root cause of the "session block gets active color" bug:
+  TabBar.update() sets screen.cursor.bg/fg to active colors BEFORE calling
+  draw_tab.  draw_tab_with_powerline reads screen.cursor.bg as tab_bg, so
+  it ignores session_tab.is_active=False and uses whatever color is already
+  on the cursor.
 
-All other indices draw a single powerline block as normal.
+Fix: manually reset cursor colors to inactive before drawing the session
+block, then restore the correct colors before drawing the real first tab.
 
 Required kitty.conf:
   tab_bar_style       custom
@@ -19,11 +21,10 @@ Required kitty.conf:
   tab_bar_min_tabs    1
 """
 
-from kitty.fast_data_types import Screen, wcswidth
-from kitty.tab_bar import DrawData, ExtraData, TabBarData, draw_tab_with_powerline
+from kitty.fast_data_types import Screen, get_options, wcswidth
+from kitty.tab_bar import DrawData, ExtraData, TabBarData, as_rgb, draw_tab_with_powerline
 
-# 󰙴  Nerd Fonts kitty icon (U+F39B). Replace if your font lacks Nerd Fonts.
-SESSION_ICON = "󰙴"
+SESSION_ICON = "󰙴"  # Nerd Fonts kitty icon (U+F39B)
 
 
 def draw_tab(
@@ -44,29 +45,40 @@ def draw_tab(
         )
         session_title = f"{SESSION_ICON} {session_name}"
 
-        # ── Block 1: session name only ───────────────────────────────────────
         session_tab = tab._replace(
             title=session_title,
-            is_active=False,   # inactive styling keeps it visually distinct
-            tab_id=-1,         # synthetic — not a real tab
+            is_active=False,
+            tab_id=-1,
         )
 
-        # next_tab for the session block is the real first tab so the
-        # powerline separator colour is computed correctly.
+        # ── Force inactive cursor colors for the session block ────────────────
+        # TabBar.update() already set screen.cursor.bg/fg to active colors
+        # before calling us (when the first tab is focused).
+        # draw_tab_with_powerline reads screen.cursor.bg as its tab_bg, so we
+        # must override it here — session_tab.is_active=False alone is not enough.
+        screen.cursor.bg = as_rgb(draw_data.tab_bg(session_tab))
+        screen.cursor.fg = as_rgb(draw_data.tab_fg(session_tab))
+        screen.cursor.bold = screen.cursor.italic = False
+
         session_ed = ExtraData()
         session_ed.prev_tab = None
         session_ed.next_tab = tab
         session_ed.for_layout = extra_data.for_layout
 
-        # Reserve just enough space for the session block content.
-        # wcswidth gives the correct terminal display width for Unicode.
-        session_max = wcswidth(session_title) + 4   # +4 for leading space, trailing space, separator
+        session_max = wcswidth(session_title) + 4
         session_end = draw_tab_with_powerline(
             draw_data, screen, session_tab,
             before, session_max, index, False, session_ed,
         )
 
-        # ── Block 2: actual first tab ─────────────────────────────────────────
+        # ── Restore correct cursor colors for the actual first tab ────────────
+        screen.cursor.bg = as_rgb(draw_data.tab_bg(tab))
+        screen.cursor.fg = as_rgb(draw_data.tab_fg(tab))
+        opts = get_options()
+        screen.cursor.bold, screen.cursor.italic = (
+            opts.active_tab_font_style if tab.is_active else opts.inactive_tab_font_style
+        )
+
         actual_ed = ExtraData()
         actual_ed.prev_tab = session_tab
         actual_ed.next_tab = extra_data.next_tab
@@ -78,7 +90,6 @@ def draw_tab(
             session_end, remaining, index, is_last, actual_ed,
         )
 
-    # ── All other tabs: normal powerline ─────────────────────────────────────
     return draw_tab_with_powerline(
         draw_data, screen, tab,
         before, max_tab_length, index, is_last, extra_data,
