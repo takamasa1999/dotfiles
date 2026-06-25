@@ -3,7 +3,7 @@
 Custom kitty tab bar.
 
 Layout:
-  [󰙴 <session>] [tab1] [tab2] ...
+  [ <session>] [tab1] [tab2] ...
    ↑ always inactive styling, never colored when tab1 is active
 
 Root cause of the "session block gets active color" bug:
@@ -24,7 +24,7 @@ Required kitty.conf:
 from kitty.fast_data_types import Screen, get_options, wcswidth
 from kitty.tab_bar import DrawData, ExtraData, TabBarData, as_rgb, draw_tab_with_powerline
 
-SESSION_ICON = "󰙴"  # Nerd Fonts kitty icon (U+F39B)
+SESSION_ICON = ""  # Nerd Fonts kitty icon (U+F39B)
 
 
 def draw_tab(
