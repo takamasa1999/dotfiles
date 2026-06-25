@@ -22,7 +22,7 @@ from kitty.tab_bar import DrawData, ExtraData, TabBarData, draw_tab_with_powerli
 
 # 󰙴  — Nerd Fonts kitty icon (U+F39B).
 # If your font doesn't include Nerd Fonts, replace with any text you prefer.
-SESSION_ICON = ""
+SESSION_ICON = "󰙴"
 
 
 def draw_tab(
