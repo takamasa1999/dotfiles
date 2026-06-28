@@ -56,8 +56,11 @@ def draw_tab(
         # before calling us (when the first tab is focused).
         # draw_tab_with_powerline reads screen.cursor.bg as its tab_bg, so we
         # must override it here — session_tab.is_active=False alone is not enough.
-        screen.cursor.bg = as_rgb(draw_data.tab_bg(session_tab))
-        screen.cursor.fg = as_rgb(draw_data.tab_fg(session_tab))
+        # screen.cursor.bg = as_rgb(draw_data.tab_bg(session_tab))
+        # screen.cursor.fg = as_rgb(draw_data.tab_fg(session_tab))
+        # screen.cursor.bold = screen.cursor.italic = False
+        screen.cursor.bg = as_rgb(draw_data.tab_fg(session_tab))
+        screen.cursor.fg = as_rgb(draw_data.tab_bg(session_tab))
         screen.cursor.bold = screen.cursor.italic = False
 
         session_ed = ExtraData()
