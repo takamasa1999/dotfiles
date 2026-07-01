@@ -1,0 +1,7 @@
+[".config/kitty/easy-session-manager"]
+type = "git-repo"
+url = "git@github.com:systemi-yokohama/kitty-easy-session-manager.git"
+refreshPeriod = "168h"
+
+[".config/kitty/easy-session-manager".pull]
+args = ["--ff-only"]
