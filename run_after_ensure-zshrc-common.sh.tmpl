@@ -1,0 +1,12 @@
+#!/bin/sh
+
+set -eu
+
+zshrc="$HOME/.zshrc"
+source_line='source "$HOME/.config/zsh/common.zsh"'
+
+touch "$zshrc"
+
+if ! grep -Fqx "$source_line" "$zshrc"; then
+	printf '\n%s\n' "$source_line" >>"$zshrc"
+fi
