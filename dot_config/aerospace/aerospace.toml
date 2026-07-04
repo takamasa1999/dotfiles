@@ -6,10 +6,7 @@ start-at-login = true
 # ]
 #
 
-# exec-on-workspace-change = [
-# 	'/bin/zsh', '-c',
-#     '/opt/homebrew/bin/sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE PREV_WORKSPACE=$AEROSPACE_PREV_WORKSPACE'
-# ]
+
 
 enable-normalization-flatten-containers = true
 enable-normalization-opposite-orientation-for-nested-containers = true
@@ -21,8 +18,11 @@ default-root-container-layout = 'accordion'
 default-root-container-orientation = 'auto'
 
 # on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
-# Reliability improvement: move mouse to center of focused monitor on workspace change
-exec-on-workspace-change = ['/bin/bash', '-c', 'aerospace move-mouse monitor-lazy-center' ]
+# Reliability improvement: move mouse to center of focused monitor on workspace change.
+# Also notify sketchybar about the workspace change.
+exec-on-workspace-change = ['/bin/bash', '-c',
+  'aerospace move-mouse monitor-lazy-center; /opt/homebrew/bin/sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
+]
 
 automatically-unhide-macos-hidden-apps = true
 
