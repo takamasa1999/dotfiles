@@ -13,10 +13,29 @@
 NOTCH_WIDTH=230   # notch width (pt) incl. safety margin (Air 13.6" ~200pt)
 BAR_PAD=10        # must match bar padding_left in sketchybarrc
 ITEM_PAD=8        # outer padding_left+padding_right of each item (4+4)
+FOCUSED_BG=0x70f5a623
+PREVIOUS_BG=0x40ffffff
 # ---------------------------------------------------------------------------
 
 FOCUSED="${FOCUSED_WORKSPACE:-$(aerospace list-workspaces --focused)}"
 WORKSPACES=$(aerospace list-workspaces --all)
+
+STATE_DIR="${TMPDIR:-/tmp}/sketchybar"
+PREVIOUS_STATE_FILE="$STATE_DIR/previous_workspace"
+
+if [ "${PREVIOUS_WORKSPACE+x}" = x ]; then
+  PREVIOUS="$PREVIOUS_WORKSPACE"
+  if [ -n "$PREVIOUS" ] && [ "$PREVIOUS" != "$FOCUSED" ]; then
+    mkdir -p "$STATE_DIR"
+    printf '%s\n' "$PREVIOUS" > "$PREVIOUS_STATE_FILE"
+  fi
+elif [ -r "$PREVIOUS_STATE_FILE" ]; then
+  PREVIOUS=$(cat "$PREVIOUS_STATE_FILE")
+else
+  PREVIOUS=""
+fi
+
+[ "$PREVIOUS" = "$FOCUSED" ] && PREVIOUS=""
 
 ##### Pass 1: update labels / visibility in a single batched call #####
 set_args=()
@@ -24,15 +43,24 @@ for sid in $WORKSPACES; do
   apps=$(aerospace list-windows --workspace "$sid" --format '%{app-name}' 2>/dev/null |
     awk '!seen[$0]++ { printf "%s%s", sep, $0; sep=" | " }')
 
-  if [ "$sid" = "$FOCUSED" ]; then highlight=on; else highlight=off; fi
+  highlight=off
+  background_color="$FOCUSED_BG"
+  if [ "$sid" = "$FOCUSED" ]; then
+    highlight=on
+    background_color="$FOCUSED_BG"
+  elif [ "$sid" = "$PREVIOUS" ]; then
+    highlight=on
+    background_color="$PREVIOUS_BG"
+  fi
 
-  if [ -z "$apps" ] && [ "$sid" != "$FOCUSED" ]; then drawing=off; else drawing=on; fi
+  if [ -z "$apps" ] && [ "$sid" != "$FOCUSED" ] && [ "$sid" != "$PREVIOUS" ]; then drawing=off; else drawing=on; fi
   if [ -n "$apps" ]; then label_drawing=on; else label_drawing=off; fi
 
   set_args+=(--set "space.$sid"
     drawing="$drawing"
     label="$apps"
     label.drawing="$label_drawing"
+    background.color="$background_color"
     background.drawing="$highlight")
 done
 sketchybar "${set_args[@]}"

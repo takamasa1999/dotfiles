@@ -21,7 +21,7 @@ default-root-container-orientation = 'auto'
 # Reliability improvement: move mouse to center of focused monitor on workspace change.
 # Also notify sketchybar about the workspace change.
 exec-on-workspace-change = ['/bin/bash', '-c',
-  'aerospace move-mouse monitor-lazy-center; /opt/homebrew/bin/sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
+  'aerospace move-mouse monitor-lazy-center; /opt/homebrew/bin/sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE PREVIOUS_WORKSPACE=$AEROSPACE_PREV_WORKSPACE'
 ]
 
 automatically-unhide-macos-hidden-apps = true
