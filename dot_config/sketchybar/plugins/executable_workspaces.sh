@@ -42,6 +42,7 @@ set_args=()
 for sid in $WORKSPACES; do
   apps=$(aerospace list-windows --workspace "$sid" --format '%{app-name}' 2>/dev/null |
     awk '!seen[$0]++ { printf "%s%s", sep, $0; sep=" | " }')
+  if [ -n "$apps" ]; then label=": $apps"; else label=""; fi
 
   highlight=off
   background_color="$FOCUSED_BG"
@@ -58,7 +59,7 @@ for sid in $WORKSPACES; do
 
   set_args+=(--set "space.$sid"
     drawing="$drawing"
-    label="$apps"
+    label="$label"
     label.drawing="$label_drawing"
     background.color="$background_color"
     background.drawing="$highlight")
