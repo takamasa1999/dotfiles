@@ -4,7 +4,7 @@
             "complex_modifications": {
                 "rules": [
                     {
-                        "description": "Space: tap → Space, hold → enable vim arrow layer",
+                        "description": "Space: tap → Space, hold → enable navigation/edit layer",
                         "manipulators": [
                             {
                                 "from": {
@@ -33,7 +33,7 @@
                         ]
                     },
                     {
-                        "description": "Vim arrow layer: h/j/k/l → Left/Down/Up/Right",
+                        "description": "Space navigation/edit layer",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -43,10 +43,7 @@
                                         "value": 1
                                     }
                                 ],
-                                "from": {
-                                    "key_code": "h",
-                                    "modifiers": { "optional": ["any"] }
-                                },
+                                "from": { "key_code": "h", "modifiers": { "optional": ["any"] } },
                                 "to": [{ "key_code": "left_arrow" }],
                                 "type": "basic"
                             },
@@ -58,10 +55,7 @@
                                         "value": 1
                                     }
                                 ],
-                                "from": {
-                                    "key_code": "j",
-                                    "modifiers": { "optional": ["any"] }
-                                },
+                                "from": { "key_code": "j", "modifiers": { "optional": ["any"] } },
                                 "to": [{ "key_code": "down_arrow" }],
                                 "type": "basic"
                             },
@@ -73,10 +67,7 @@
                                         "value": 1
                                     }
                                 ],
-                                "from": {
-                                    "key_code": "k",
-                                    "modifiers": { "optional": ["any"] }
-                                },
+                                "from": { "key_code": "k", "modifiers": { "optional": ["any"] } },
                                 "to": [{ "key_code": "up_arrow" }],
                                 "type": "basic"
                             },
@@ -88,11 +79,56 @@
                                         "value": 1
                                     }
                                 ],
-                                "from": {
-                                    "key_code": "l",
-                                    "modifiers": { "optional": ["any"] }
-                                },
+                                "from": { "key_code": "l", "modifiers": { "optional": ["any"] } },
                                 "to": [{ "key_code": "right_arrow" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [{ "name": "space_layer", "type": "variable_if", "value": 1 }],
+                                "from": { "key_code": "d" },
+                                "to": [{ "key_code": "delete_or_backspace" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [{ "name": "space_layer", "type": "variable_if", "value": 1 }],
+                                "from": { "key_code": "f" },
+                                "to": [{ "key_code": "delete_forward" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [{ "name": "space_layer", "type": "variable_if", "value": 1 }],
+                                "from": { "key_code": "e" },
+                                "to": [{ "key_code": "delete_or_backspace", "modifiers": ["left_option"] }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [{ "name": "space_layer", "type": "variable_if", "value": 1 }],
+                                "from": { "key_code": "r" },
+                                "to": [{ "key_code": "delete_forward", "modifiers": ["left_option"] }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [{ "name": "space_layer", "type": "variable_if", "value": 1 }],
+                                "from": { "key_code": "u" },
+                                "to": [{ "key_code": "home" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [{ "name": "space_layer", "type": "variable_if", "value": 1 }],
+                                "from": { "key_code": "i" },
+                                "to": [{ "key_code": "end" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [{ "name": "space_layer", "type": "variable_if", "value": 1 }],
+                                "from": { "key_code": "y" },
+                                "to": [{ "key_code": "page_up" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [{ "name": "space_layer", "type": "variable_if", "value": 1 }],
+                                "from": { "key_code": "o" },
+                                "to": [{ "key_code": "page_down" }],
                                 "type": "basic"
                             }
                         ]
