@@ -30,6 +30,10 @@ if [ -f "$ZSH/oh-my-zsh.sh" ]; then
 	source "$ZSH/oh-my-zsh.sh"
 fi
 
+# kitty sends Option+Left/Right as Alt-modified arrow-key escape sequences.
+bindkey $'\e[1;3D' backward-word
+bindkey $'\e[1;3C' forward-word
+
 alias n="nvim"
 alias j="jobs -l"
 alias history="fc -ln 1 | nvim -c $"
