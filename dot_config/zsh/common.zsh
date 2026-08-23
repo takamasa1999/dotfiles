@@ -43,7 +43,7 @@ alias s="kitten ssh"
 alias gemini="agy"
 
 f() {
-	if (( $# == 0 )); then
+	if (($# == 0)); then
 		jobs -l
 		return
 	fi
@@ -100,3 +100,24 @@ PROMPT=$'%{$fg_bold[green]%}%n@%m %{$reset_color%}%{$fg[white]%}[%~]%{$reset_col
 RPROMPT='%(1j.%{$fg_bold[yellow]%}[%j job%(2j.s.)]%{$reset_color%}.)'
 
 [ -f "$HOME/.config/zsh/local.zsh" ] && source "$HOME/.config/zsh/local.zsh"
+
+# DNS config sets you run from termail for immediate change
+dns-adguard() {
+	networksetup -setdnsservers "Wi-Fi" 94.140.15.14 94.140.15.15 2a10:50c0::ad1:ff 2a10:50c0::ad2:ff
+	echo "DNS switched to AdGuard"
+}
+
+dns-cloudflare() {
+	networksetup -setdnsservers "Wi-Fi" 1.1.1.1 1.0.0.1 2606:4700:4700::1111 2606:4700:4700::1001
+	echo "DNS switched to Cloudflare"
+}
+
+dns-google() {
+	networksetup -setdnsservers "Wi-Fi" 8.8.8.8 8.8.4.4 2001:4860:4860::8888 2001:4860:4860::8844
+	echo "DNS switched to Google"
+}
+
+dns-default() {
+	networksetup -setdnsservers "Wi-Fi" "Empty"
+	echo "DNS reset to DHCP default"
+}
