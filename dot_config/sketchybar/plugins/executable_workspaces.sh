@@ -6,8 +6,8 @@
 #    workspace, highlight when focused, hidden when empty & unfocused.
 # 2. Notch avoidance: measures the rendered width of each visible item,
 #    finds the first one that would collide with the notch and moves an
-#    invisible fixed-width spacer (notch_gap) in front of it, so the
-#    remaining items continue on the right side of the notch.
+#    invisible fixed-width spacer (notch_gap) in front of it. The spacer is
+#    disabled when the focused monitor is the notchless Bigme B13.
 
 # --- Tunables -------------------------------------------------------------
 NOTCH_WIDTH=230   # notch width (pt) incl. safety margin (Air 13.6" ~200pt)
@@ -15,6 +15,7 @@ BAR_PAD=10        # must match bar padding_left in sketchybarrc
 ITEM_PAD=8        # outer padding_left+padding_right of each item (4+4)
 FOCUSED_BG=0x70f5a623
 PREVIOUS_BG=0x40ffffff
+NOTCHLESS_MONITOR="RTK FHD" # Bigme B13's AeroSpace monitor name
 # ---------------------------------------------------------------------------
 
 FOCUSED="${FOCUSED_WORKSPACE:-$(aerospace list-workspaces --focused)}"
@@ -67,6 +68,12 @@ done
 sketchybar "${set_args[@]}"
 
 ##### Pass 2: measure rendered widths and place the notch spacer #####
+focused_monitor=$(aerospace list-monitors --focused --format '%{monitor-name}' 2>/dev/null)
+if [ "$focused_monitor" = "$NOTCHLESS_MONITOR" ]; then
+  sketchybar --set notch_gap drawing=off
+  exit 0
+fi
+
 sleep 0.15 # give sketchybar a moment to re-render before measuring
 
 display_w=$(sketchybar --query displays | awk -F'[: ,]+' '/"w"/ { print int($2); exit }')

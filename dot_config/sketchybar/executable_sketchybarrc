@@ -29,6 +29,7 @@ sketchybar --default "${default[@]}"
 ##### AeroSpace Workspaces #####
 # Custom event triggered by aerospace's exec-on-workspace-change.
 sketchybar --add event aerospace_workspace_change
+sketchybar --add event aerospace_monitor_change
 
 for sid in $(aerospace list-workspaces --all); do
   space=(
@@ -68,6 +69,7 @@ sketchybar --add item workspace_observer left \
                  updates=on \
                  script="$PLUGIN_DIR/workspaces.sh" \
            --subscribe workspace_observer aerospace_workspace_change \
+                                          aerospace_monitor_change \
                                           front_app_switched \
                                           space_windows_change
 

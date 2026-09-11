@@ -17,7 +17,8 @@ default-root-container-layout = 'accordion'
 
 default-root-container-orientation = 'auto'
 
-# on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+# Refresh SketchyBar's notch spacer when focus moves between displays.
+on-focused-monitor-changed = ['exec-and-forget /opt/homebrew/bin/sketchybar --trigger aerospace_monitor_change']
 # Reliability improvement: move mouse to center of focused monitor on workspace change.
 # Also notify sketchybar about the workspace change.
 exec-on-workspace-change = ['/bin/bash', '-c',
@@ -30,7 +31,9 @@ automatically-unhide-macos-hidden-apps = true
 preset = 'qwerty'
 
 [gaps]
-outer.top = [{ monitor.main = 0 },  0]
+# Bigme B13 is reported to AeroSpace as "RTK FHD". Match it before `main`,
+# because it can be the only (and therefore main) active display.
+outer.top = [{ monitor."^rtk fhd$" = 28 }, { monitor.main = 0 }, 0]
 
 [mode.main.binding]
 alt-slash = 'layout tiles horizontal vertical'
