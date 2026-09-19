@@ -1,10 +1,9 @@
 # Start AeroSpace at login
 start-at-login = true
 
-# after-startup-command = [
-#   'exec-and-forget /bin/zsh -lc "/usr/local/bin/sketchybar --reload"'
-# ]
-#
+after-startup-command = [
+  'exec-and-forget /bin/zsh /Users/takamasa/.config/aerospace/sync-main-top-gap.sh'
+]
 
 
 
@@ -17,8 +16,12 @@ default-root-container-layout = 'accordion'
 
 default-root-container-orientation = 'auto'
 
-# Refresh SketchyBar's notch spacer when focus moves between displays.
-on-focused-monitor-changed = ['exec-and-forget /opt/homebrew/bin/sketchybar --trigger aerospace_monitor_change']
+# Refresh SketchyBar and synchronize the main-display-only top gap.
+on-focused-monitor-changed = [
+  'move-mouse monitor-lazy-center',
+  'exec-and-forget /opt/homebrew/bin/sketchybar --trigger aerospace_monitor_change',
+  'exec-and-forget /bin/zsh /Users/takamasa/.config/aerospace/sync-main-top-gap.sh',
+]
 # Reliability improvement: move mouse to center of focused monitor on workspace change.
 # Also notify sketchybar about the workspace change.
 exec-on-workspace-change = ['/bin/bash', '-c',
@@ -31,9 +34,8 @@ automatically-unhide-macos-hidden-apps = true
 preset = 'qwerty'
 
 [gaps]
-# SketchyBar is shown only on the macOS main display, so tiled windows do not
-# need a top margin on the external RTK FHD display.
-outer.top = 0
+# Managed by sync-main-top-gap.sh: 24 px for RTK FHD, 0 px otherwise.
+outer.top = [{ monitor.main = 30 }, 0]
 
 [mode.main.binding]
 alt-slash = 'layout tiles horizontal vertical'
