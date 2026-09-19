@@ -31,9 +31,9 @@ automatically-unhide-macos-hidden-apps = true
 preset = 'qwerty'
 
 [gaps]
-# Bigme B13 is reported to AeroSpace as "RTK FHD". Match it before `main`,
-# because it can be the only (and therefore main) active display.
-outer.top = [{ monitor."^rtk fhd$" = 28 }, { monitor.main = 0 }, 0]
+# SketchyBar is shown only on the macOS main display, so tiled windows do not
+# need a top margin on the external RTK FHD display.
+outer.top = 0
 
 [mode.main.binding]
 alt-slash = 'layout tiles horizontal vertical'
