@@ -2,7 +2,7 @@
 
 # Controller for all AeroSpace workspace items.
 #
-# 1. Updates every space.<id> item: label = full app names in that
+# 1. Updates every space.<id> item: icon = #<id>M or #<id>E and label = full app names in that
 #    workspace, highlight when focused, hidden when empty & unfocused.
 # 2. Notch avoidance: measures the rendered width of each visible item,
 #    finds the first one that would collide with the notch and moves an
@@ -10,16 +10,17 @@
 #    shown only when the macOS main display is the built-in, notched panel.
 
 # --- Tunables -------------------------------------------------------------
-NOTCH_WIDTH=230   # notch width (pt) incl. safety margin (Air 13.6" ~200pt)
-BAR_PAD=10        # must match bar padding_left in sketchybarrc
-ITEM_PAD=8        # outer padding_left+padding_right of each item (4+4)
+NOTCH_WIDTH=230
+BAR_PAD=10
+ITEM_PAD=8
 FOCUSED_BG=0x70f5a623
 PREVIOUS_BG=0x40ffffff
-NOTCH_MONITOR="Built-in Retina Display" # AeroSpace name of the notched built-in panel
+NOTCH_MONITOR="Built-in Retina Display"
 # ---------------------------------------------------------------------------
 
 FOCUSED="${FOCUSED_WORKSPACE:-$(aerospace list-workspaces --focused)}"
-WORKSPACES=$(aerospace list-workspaces --all)
+WORKSPACE_INFO=$(aerospace list-workspaces --all --format '%{workspace}|%{monitor-is-main}')
+WORKSPACES=$(printf '%s\n' "$WORKSPACE_INFO" | awk -F '|' '{ print $1 }')
 
 STATE_DIR="${TMPDIR:-/tmp}/sketchybar"
 PREVIOUS_STATE_FILE="$STATE_DIR/previous_workspace"
@@ -41,6 +42,8 @@ fi
 ##### Pass 1: update labels / visibility in a single batched call #####
 set_args=()
 for sid in $WORKSPACES; do
+  monitor_is_main=$(printf '%s\n' "$WORKSPACE_INFO" | awk -F '|' -v sid="$sid" '$1 == sid { print $2; exit }')
+  if [ "$monitor_is_main" = "true" ]; then monitor_suffix="M"; else monitor_suffix="E"; fi
   apps=$(aerospace list-windows --workspace "$sid" --format '%{app-name}' 2>/dev/null |
     awk '!seen[$0]++ { printf "%s%s", sep, $0; sep=" | " }')
   if [ -n "$apps" ]; then label=": $apps"; else label=""; fi
@@ -59,6 +62,7 @@ for sid in $WORKSPACES; do
   if [ -n "$apps" ]; then label_drawing=on; else label_drawing=off; fi
 
   set_args+=(--set "space.$sid"
+    icon="#${sid}${monitor_suffix}"
     drawing="$drawing"
     label="$label"
     label.drawing="$label_drawing"
@@ -75,7 +79,7 @@ if [ "$main_monitor" != "$NOTCH_MONITOR" ]; then
   exit 0
 fi
 
-sleep 0.15 # give sketchybar a moment to re-render before measuring
+sleep 0.15
 
 display_w=$(sketchybar --query displays | awk -F'[: ,]+' '/"w"/ { print int($2); exit }')
 [ -z "$display_w" ] || [ "$display_w" -eq 0 ] && exit 0
@@ -89,19 +93,13 @@ spacer_width=0
 
 for sid in $WORKSPACES; do
   info=$(sketchybar --query space."$sid")
-
-  # skip hidden items (first "drawing" key is the item-level one)
   item_drawing=$(printf '%s' "$info" | awk -F'"' '/"drawing"/ { print $4; exit }')
   [ "$item_drawing" = "off" ] && continue
-
-  # rendered width: first "size" entry of bounding_rects -> [ w, h ]
   w=$(printf '%s' "$info" | awk -F'[][ ,]+' '/"size"/ { print int($2); exit }')
   [ -z "$w" ] && continue
 
   end=$(( x + ITEM_PAD + w ))
   if [ -z "$spacer_target" ] && [ "$end" -gt "$notch_left" ]; then
-    # this item would collide with / pass under the notch:
-    # pad from current x up to the right edge of the notch
     spacer_target="space.$sid"
     spacer_width=$(( notch_right - x ))
     x=$(( notch_right + ITEM_PAD + w ))
