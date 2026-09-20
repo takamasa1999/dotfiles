@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/jesseduffield/lazygit/master/schema/config.json
+# Tuned for Bigme B13 (Color E-ink): grays + bold instead of hue on text.
+gui:
+    border: rounded
+    theme:
+        activeBorderColor:
+            - default
+            - bold
+        inactiveBorderColor:
+            - "#969696"
+        searchingActiveBorderColor:
+            - default
+            - bold
+        optionsTextColor:
+            - default
+        selectedLineBgColor:
+            - "#d0d0d0"
+            - bold
+        inactiveViewSelectedLineBgColor:
+            - "#e0e0e0"
+        cherryPickedCommitBgColor:
+            - "#d0d0d0"
+        cherryPickedCommitFgColor:
+            - default
+            - bold
+        markedBaseCommitBgColor:
+            - "#d0d0d0"
+        markedBaseCommitFgColor:
+            - default
+            - bold
+        unstagedChangesColor:
+            - default
+            - bold
+        defaultFgColor:
+            - default

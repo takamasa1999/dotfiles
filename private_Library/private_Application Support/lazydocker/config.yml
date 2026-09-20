@@ -1,0 +1,14 @@
+# Tuned for Bigme B13 (Color E-ink): grays + bold instead of hue on text.
+gui:
+    theme:
+        activeBorderColor:
+            - default
+            - bold
+        inactiveBorderColor:
+            - "#969696"
+        selectedLineBgColor:
+            - "#d0d0d0"
+            - bold
+        optionsTextColor:
+            - default
+    containerStatusHealthStyle: long

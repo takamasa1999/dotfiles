@@ -53,6 +53,7 @@ f() {
 
 export MANPAGER="nvim +Man!"
 export EDITOR="/opt/homebrew/bin/nvim"
+export LG_CONFIG_FILE="$HOME/.config/lazygit/config.yml"
 
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"

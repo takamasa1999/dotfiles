@@ -4,11 +4,33 @@ return {
 	-- lazy = false,
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
+		-- Mode is a filled block (hue shows on areas); normal is reversed for max contrast.
+		local ink, sel, sub = "#141618", "#d0d0d0", "#e0e0e0"
+		local function mode(bg, fg)
+			return {
+				a = { fg = fg or ink, bg = bg, gui = "bold" },
+				b = { fg = ink, bg = sel },
+				c = { fg = ink, bg = sub },
+			}
+		end
+		local eink = {
+			normal = mode("#141618", "#ffffff"),
+			insert = mode("#74a0dc"),
+			visual = mode("#dca574"),
+			replace = mode("#dc7874"),
+			command = mode("#dccb74"),
+			inactive = {
+				a = { fg = "#969696", bg = sub },
+				b = { fg = "#969696", bg = sub },
+				c = { fg = "#969696", bg = sub },
+			},
+		}
+
 		require("lualine").setup({
 			options = {
 				icons_enabled = true,
 				-- theme = "auto",
-				theme = "iceberg_light",
+				theme = eink,
 				component_separators = { left = "", right = "" },
 				section_separators = { left = "", right = "" },
 				disabled_filetypes = {
