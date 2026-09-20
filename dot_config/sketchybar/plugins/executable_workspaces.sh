@@ -44,8 +44,41 @@ set_args=()
 for sid in $WORKSPACES; do
   monitor_is_main=$(printf '%s\n' "$WORKSPACE_INFO" | awk -F '|' -v sid="$sid" '$1 == sid { print $2; exit }')
   if [ "$monitor_is_main" = "true" ]; then monitor_suffix="M"; else monitor_suffix="E"; fi
-  apps=$(aerospace list-windows --workspace "$sid" --format '%{app-name}' 2>/dev/null |
-    awk '!seen[$0]++ { printf "%s%s", sep, $0; sep=" | " }')
+apps=$(aerospace list-windows --workspace "$sid" --format '%{app-name}' 2>/dev/null |
+     awk '
+       function initials_before_last(name, words, count, i, result) {
+         count = split(name, words, /[[:space:]]+/)
+         result = ""
+         for (i = 1; i < count; i++) result = result substr(words[i], 1, 1)
+         return result
+       }
+
+       !seen_full[$0]++ {
+         names[++n] = $0
+         first[n] = $1
+         last[n] = $NF
+         first_count[$1]++
+       }
+
+       END {
+         for (i = 1; i <= n; i++) {
+           candidate[i] = first_count[first[i]] > 1 ? last[i] : first[i]
+           candidate_count[candidate[i]]++
+         }
+         for (i = 1; i <= n; i++) {
+           label[i] = candidate[i]
+           if (candidate_count[label[i]] > 1)
+             label[i] = initials_before_last(names[i]) "." last[i]
+           label_count[label[i]]++
+         }
+         for (i = 1; i <= n; i++) {
+           output = label[i]
+           if (label_count[output] > 1) output = output ++ordinal[output]
+           printf "%s%s", separator, output
+           separator = " | "
+         }
+       }' | tr '[:lower:]' '[:upper:]')
+
   if [ -n "$apps" ]; then label=": $apps"; else label=""; fi
 
   highlight=off
