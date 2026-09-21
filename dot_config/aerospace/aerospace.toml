@@ -7,6 +7,8 @@ start-at-login = true
 persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
 
 after-startup-command = [
+  # sketchybar may start before AeroSpace and build no workspace items; rebuild them now.
+  'exec-and-forget /opt/homebrew/bin/sketchybar --reload',
   'exec-and-forget /bin/zsh /Users/takamasa/.config/aerospace/sync-main-top-gap.sh'
 ]
 
@@ -40,7 +42,7 @@ preset = 'qwerty'
 
 [gaps]
 # Managed by sync-main-top-gap.sh: 30 px for RTK FHD (bigme b13), 0 px otherwise
-outer.top = [{ monitor.main = 0 }, 0]
+outer.top = [{ monitor.main = 30 }, 0]
 
 [mode.main.binding]
 alt-slash = 'layout tiles horizontal vertical'
@@ -55,16 +57,18 @@ alt-minus = 'resize smart -50'
 alt-equal = 'resize smart +50'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
-alt-1 = 'workspace 1'
-alt-2 = 'workspace 2'
-alt-3 = 'workspace 3'
-alt-4 = 'workspace 4'
-alt-5 = 'workspace 5'
-alt-6 = 'workspace 6'
-alt-7 = 'workspace 7'
-alt-8 = 'workspace 8'
-alt-9 = 'workspace 9'
-alt-0 = 'workspace 10'
+# move-mouse is repeated here because the workspace/monitor-change hooks don't fire
+# when the target workspace is already focused (e.g. cursor wandered to another monitor).
+alt-1 = ['workspace 1', 'move-mouse monitor-force-center']
+alt-2 = ['workspace 2', 'move-mouse monitor-force-center']
+alt-3 = ['workspace 3', 'move-mouse monitor-force-center']
+alt-4 = ['workspace 4', 'move-mouse monitor-force-center']
+alt-5 = ['workspace 5', 'move-mouse monitor-force-center']
+alt-6 = ['workspace 6', 'move-mouse monitor-force-center']
+alt-7 = ['workspace 7', 'move-mouse monitor-force-center']
+alt-8 = ['workspace 8', 'move-mouse monitor-force-center']
+alt-9 = ['workspace 9', 'move-mouse monitor-force-center']
+alt-0 = ['workspace 10', 'move-mouse monitor-force-center']
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 alt-shift-1 = 'move-node-to-workspace 1 --focus-follows-window'
@@ -88,7 +92,7 @@ alt-shift-j = 'move down'
 alt-shift-k = 'move up'
 alt-shift-l = 'move right'
 
-alt-shift-s = 'exec-and-forget screencapture -c'
+alt-shift-s = 'exec-and-forget /bin/zsh /Users/takamasa/.config/aerospace/screenshot-cursor-display.sh'
 alt-cmd-shift-s = 'exec-and-forget screencapture -i -c'
 
 
