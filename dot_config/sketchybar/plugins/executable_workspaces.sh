@@ -13,7 +13,7 @@
 NOTCH_WIDTH=230
 BAR_PAD=10
 ITEM_PAD=8
-FOCUSED_BG=0x70f5a623
+FOCUSED_BG=0xb0ffcc00
 PREVIOUS_BG=0x40ffffff
 NOTCH_MONITOR="Built-in Retina Display"
 # ---------------------------------------------------------------------------
