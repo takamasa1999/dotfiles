@@ -9,7 +9,7 @@ persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
 after-startup-command = [
   # sketchybar may start before AeroSpace and build no workspace items; rebuild them now.
   'exec-and-forget /opt/homebrew/bin/sketchybar --reload',
-  'exec-and-forget /bin/zsh /Users/takamasa/.config/aerospace/sync-main-top-gap.sh'
+  'exec-and-forget /bin/zsh ~/.config/aerospace/sync-main-top-gap.sh'
 ]
 
 
@@ -27,7 +27,7 @@ default-root-container-orientation = 'auto'
 on-focused-monitor-changed = [
   'move-mouse monitor-lazy-center',
   'exec-and-forget /opt/homebrew/bin/sketchybar --trigger aerospace_monitor_change',
-  'exec-and-forget /bin/zsh /Users/takamasa/.config/aerospace/sync-main-top-gap.sh',
+  'exec-and-forget /bin/zsh ~/.config/aerospace/sync-main-top-gap.sh',
 ]
 # Reliability improvement: move mouse to center of focused monitor on workspace change.
 # Also notify sketchybar about the workspace change.
@@ -92,7 +92,7 @@ alt-shift-j = 'move down'
 alt-shift-k = 'move up'
 alt-shift-l = 'move right'
 
-alt-shift-s = 'exec-and-forget /bin/zsh /Users/takamasa/.config/aerospace/screenshot-cursor-display.sh'
+alt-shift-s = 'exec-and-forget /bin/zsh ~/.config/aerospace/screenshot-cursor-display.sh'
 alt-cmd-shift-s = 'exec-and-forget screencapture -i -c'
 
 
