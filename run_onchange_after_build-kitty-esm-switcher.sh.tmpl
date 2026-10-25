@@ -1,0 +1,12 @@
+#!/bin/sh
+
+set -eu
+
+repo="$HOME/.config/kitty/easy-session-manager"
+
+# This comment embeds the current source commit so chezmoi's run_onchange
+# hashing sees a diff (and reruns the build) whenever the external updates.
+# source commit: {{ if stat (joinPath .chezmoi.homeDir ".config/kitty/easy-session-manager/.git") }}{{ output "git" "-C" (joinPath .chezmoi.homeDir ".config/kitty/easy-session-manager") "rev-parse" "HEAD" | trim }}{{ end }}
+
+cd "$repo"
+cargo build --release
